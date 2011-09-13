@@ -26,6 +26,18 @@ Installation
 
 Start hacking in `src/controllers.php`
 
+Todo
+----
+
+* Extensions
+  * HttpCache
+  * Monolog
+  * SwiftMailer
+* Code Sample
+  * Errors
+  * Form
+  * Validation
+  * Before / after
 
 Help
 ----
