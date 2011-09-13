@@ -1,0 +1,8 @@
+{% if app.session.hasFlash('notice') %}
+    <div class="alert-message success">
+        <a href="#" class="close">×</a>
+        <p>
+            {{ app.session.flash('notice')|trans }}
+        </p>
+    </div>
+{% endif %}

@@ -1,0 +1,24 @@
+[submodule "vendor/silex"]
+	path = vendor/silex
+	url = https://github.com/fabpot/Silex.git
+[submodule "vendor/Symfony/Bridge/Twig"]
+	path = vendor/Symfony/Bridge/Twig
+	url = https://github.com/symfony/TwigBridge
+[submodule "vendor/Symfony/Component/Form"]
+	path = vendor/Symfony/Component/Form
+	url = https://github.com/symfony/Form
+[submodule "vendor/Symfony/Component/Validator"]
+	path = vendor/Symfony/Component/Validator
+	url = https://github.com/symfony/Validator
+[submodule "vendor/Symfony/Component/Translation"]
+	path = vendor/Symfony/Component/Translation
+	url = https://github.com/symfony/Translation.git
+[submodule "vendor/Twig-extentions/Fabpot"]
+	path = vendor/Twig-extentions/Fabpot
+	url = https://github.com/fabpot/Twig-extensions.git
+[submodule "vendor/Symfony/Component/Yaml"]
+	path = vendor/Symfony/Component/Yaml
+	url = https://github.com/symfony/Yaml.git
+[submodule "vendor/Symfony/Component/Config"]
+	path = vendor/Symfony/Component/Config
+	url = https://github.com/symfony/Config.git
