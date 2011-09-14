@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormError;
 
 $app->match('/', function(Request $request) use ($app) {
+    return $app['twig']->render('layout.html.twig');
     return new Response('Homepage');
 })->bind('homepage');
 
