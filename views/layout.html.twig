@@ -21,11 +21,19 @@
 
             <div id="main" role="main" class="container">
                 {% include ('common/notice.html.twig') %}
-                
+
                 {% block content %}
+                    {% if app.session.get('user') %}
+                        Hello {{ app.session.get('user').email }}
+                        <a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a>
+                    {% else %}
+                        Your a not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
+                    {% endif %}
                 {% endblock %}
+
+
             </div>
-                
+
             {% include ('common/footer.html.twig') %}
         </div> <!--! /#main-container -->
 
