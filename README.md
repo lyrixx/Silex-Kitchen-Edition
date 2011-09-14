@@ -34,7 +34,6 @@ Todo
   * Monolog
   * SwiftMailer
 * Code Sample
-  * Errors
   * Before / after
 
 Help
