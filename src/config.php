@@ -14,5 +14,5 @@ $app['debug'] = true;
 $app['locale'] = 'fr';
 $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
-    'fr' => __DIR__.'/../locales/fr.yml',
+    'fr' => __DIR__.'/../Ressources/locales/fr.yml',
 );
