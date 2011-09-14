@@ -35,8 +35,6 @@ Todo
   * SwiftMailer
 * Code Sample
   * Errors
-  * Form
-  * Validation
   * Before / after
 
 Help
