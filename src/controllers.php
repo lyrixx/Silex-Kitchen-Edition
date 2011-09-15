@@ -40,15 +40,15 @@ $app->match('/login', function() use ($app) {
             $email = $form->get('email')->getData();
             $password = $form->get('password')->getData();
 
-            if ('email@exemple.com' == $email && 'password' == $password) {
+            if ('email@example.com' == $email && 'password' == $password) {
                 $app['session']->set('user', array(
-                  'email' => $email,
+                    'email' => $email,
                 ));
 
                 return $app->redirect($app['url_generator']->generate('homepage'));
             }
 
-            $form->addError(new FormError('Email / password does not match (email@exemple.com / password)'));
+            $form->addError(new FormError('Email / password does not match (email@example.com / password)'));
         }
     }
 
