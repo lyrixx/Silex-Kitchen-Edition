@@ -10,10 +10,9 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/styles.css">
 
-        <script src="/js/libs/modernizr-2.0.6.min.js"></script>
+        <script src="{{ app.request.basepath }}/js/libs/modernizr-2.0.6.min.js"></script>
     </head>
     <body>
         <div id="main-container">
@@ -31,24 +30,15 @@
                     {% endif %}
                 {% endblock %}
 
-
             </div>
 
             {% include ('common/footer.html.twig') %}
         </div> <!--! /#main-container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="{{ app.request.basepath }}/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+        <script src="{{ app.request.basepath }}/assets/js/scripts.js"></script>
 
-        <script src="/js/bootstrap-alerts.js"></script>
-        <script src="/js/bootstrap-dropdown.js"></script>
-        <script src="/js/bootstrap-modal.js"></script>
-        <script src="/js/bootstrap-scrollspy.js"></script>
-        <script src="/js/bootstrap-tabs.js"></script>
-        <script src="/js/bootstrap-twipsy.js"></script>
-        <script src="/js/bootstrap-popover.js"></script>
-
-        <script src="/js/script.js"></script>
 
         <!--[if lt IE 7 ]>
             <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

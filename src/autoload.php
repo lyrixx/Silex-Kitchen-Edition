@@ -6,8 +6,10 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
-    'Symfony'   => array(__DIR__.'/../vendor/silex/vendor', __DIR__.'/../vendor'),
-    'Silex'     => __DIR__.'/../vendor/silex/src',
+    'Symfony'           => array(__DIR__.'/../vendor/silex/vendor', __DIR__.'/../vendor'),
+    'Silex'             => __DIR__.'/../vendor/silex/src',
+    'SilexExtension'    => __DIR__.'/../vendor/Silex-extentions/fate/src',
+    'Assetic'           => __DIR__.'/../vendor/assetic/src',
 ));
 $loader->registerPrefixes(array(
     'Pimple' => __DIR__.'/../vendor/silex/vendor/pimple/lib',

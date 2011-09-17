@@ -25,3 +25,9 @@
 [submodule "vendor/Twitter-bootstrap"]
 	path = vendor/Twitter-bootstrap
 	url = https://github.com/twitter/bootstrap.git
+[submodule "vendor/Silex-extentions/fate"]
+	path = vendor/Silex-extentions/fate
+	url = https://github.com/fate/Silex-Extensions.git
+[submodule "vendor/assetic"]
+	path = vendor/assetic
+	url = https://github.com/kriswallsmith/assetic

@@ -23,6 +23,7 @@ Installation
 *  `git clone`
 *  `git submodule update --init --recursive`
 *  edit `src/config.php`
+*  chmod 777 cache/ web/assets
 
 Start hacking in `src/controllers.php`
 
