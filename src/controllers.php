@@ -45,6 +45,8 @@ $app->match('/login', function() use ($app) {
                     'email' => $email,
                 ));
 
+                $app['session']->setFlash('notice', 'You are now connected');
+
                 return $app->redirect($app['url_generator']->generate('homepage'));
             }
 
