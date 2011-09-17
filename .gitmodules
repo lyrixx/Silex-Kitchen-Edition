@@ -22,3 +22,6 @@
 [submodule "vendor/Symfony/Component/Config"]
 	path = vendor/Symfony/Component/Config
 	url = https://github.com/symfony/Config.git
+[submodule "vendor/Twitter-bootstrap"]
+	path = vendor/Twitter-bootstrap
+	url = https://github.com/twitter/bootstrap.git
