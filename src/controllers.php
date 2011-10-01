@@ -71,7 +71,7 @@ $app->get('/page-with-cache', function() use ($app) {
     ));
 
     return $response;
-});
+})->bind('page_with_cache');
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {

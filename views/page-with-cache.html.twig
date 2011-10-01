@@ -2,7 +2,23 @@
 
 {% block content %}
 
-    This page is cached for 10 secondes<br />
-    First hit : {{ date }} <br />
+    {% if app.debug %}
+        <div class="alert-message block-message error">
+            <p>
+                <strong>
+                    Debug mode is enabled.
+                </strong>
+                <br/>
+                The cache is enabled only if $app['debug'] is false.<br/>
+                Please, see '/src/config.php'.<br/>
+            </p>
+        </div>
+    {% endif %}
+
+    <p>
+        This page is cached for 10 secondes<br />
+        First hit : {{ date }}.<br />
+        Try to refresh the page.<br />
+    </p>
 
 {% endblock %}
