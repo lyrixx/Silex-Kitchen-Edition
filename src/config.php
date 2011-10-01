@@ -27,7 +27,11 @@ $app['assetic.path_to_web']         = __DIR__ . '/../web/assets';
 $app['assetic.input.path_to_assets']    = __DIR__ . '/../Resources/assets';
 $app['assetic.input.path_to_css']       = $app['assetic.input.path_to_assets'] . '/css/*.css';
 $app['assetic.output.path_to_css']      = '/css/styles.css';
-$app['assetic.input.path_to_js']        = $app['assetic.input.path_to_assets'] . '/js/*.js';
+$app['assetic.input.path_to_js']        = array(
+    $app['assetic.input.path_to_assets'] . '/js/bootstrap-twipsy.js',
+    $app['assetic.input.path_to_assets'] . '/js/bootstrap-*.js',
+    $app['assetic.input.path_to_assets'] . '/js/script.js',
+);
 $app['assetic.output.path_to_js']       = '/js/scripts.js';
 
 $app['assetic.filter.yui_compressor.path'] = '/usr/share/yui-compressor/yui-compressor.jar';
