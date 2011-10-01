@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../vendor/silex/autoload.php';
 
+use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SymfonyBridgesServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
@@ -16,6 +17,8 @@ use SilexExtension\AsseticExtension;
 $app = new Silex\Application();
 
 require __DIR__ . '/config.php';
+
+$app->register(new HttpCacheServiceProvider());
 
 $app->register(new SessionServiceProvider());
 $app->register(new SymfonyBridgesServiceProvider());

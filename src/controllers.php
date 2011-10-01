@@ -63,6 +63,16 @@ $app->match('/logout', function() use ($app) {
     return $app->redirect($app['url_generator']->generate('homepage'));
 })->bind('logout');
 
+$app->get('/page-with-cache', function() use ($app) {
+    $response = new Response($app['twig']->render('page-with-cache.html.twig', array('date' => date('Y-M-d h:i:s'))));
+    $response->setCache(array(
+        'max_age'       => 10,
+        's_maxage'      => 10,
+    ));
+
+    return $response;
+});
+
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;

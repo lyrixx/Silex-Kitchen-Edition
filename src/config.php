@@ -20,6 +20,9 @@ $app['translator.messages'] = array(
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
 
+// Http cache
+$app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
+
 // Assetic
 $app['assetic.path_to_cache']       = $app['cache.path'] . DIRECTORY_SEPARATOR . 'assetic' ;
 $app['assetic.path_to_web']         = __DIR__ . '/../web/assets';

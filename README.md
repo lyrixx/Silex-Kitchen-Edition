@@ -31,7 +31,6 @@ Todo
 ----
 
 * Extensions
-  * HttpCache
   * Monolog
   * SwiftMailer
 * Code Sample
