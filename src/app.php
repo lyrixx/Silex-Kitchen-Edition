@@ -74,7 +74,11 @@ $app->register(new AsseticExtension(), array(
         $am->set('styles', new Assetic\Asset\AssetCache(
             new Assetic\Asset\GlobAsset(
                 $app['assetic.input.path_to_css'],
-                array($fm->get('yui_css'))
+                // Yui compressor is disabled by default.
+                // If you need it, and you have installed it, uncomment the
+                // next line, and delete "array()"
+                //array($fm->get('yui_css'))
+                array()
             ),
             new Assetic\Cache\FilesystemCache($app['assetic.path_to_cache'])
         ));
@@ -83,7 +87,11 @@ $app->register(new AsseticExtension(), array(
         $am->set('scripts', new Assetic\Asset\AssetCache(
             new Assetic\Asset\GlobAsset(
                 $app['assetic.input.path_to_js'],
-                array($fm->get('yui_js'))
+                // Yui compressor is disabled by default.
+                // If you need it, and you have installed it, uncomment the
+                // next line, and delete "array()"
+                //array($fm->get('yui_js'))
+                array()
             ),
             new Assetic\Cache\FilesystemCache($app['assetic.path_to_cache'])
         ));
