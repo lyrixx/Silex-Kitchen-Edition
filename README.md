@@ -23,7 +23,7 @@ Installation
 *  `git clone`
 *  `git submodule update --init --recursive`
 *  edit `src/config.php`
-*  chmod 777 cache/ web/assets
+*  `chmod 777 -R cache/ web/assets`
 
 Start hacking in `src/controllers.php`
 
@@ -35,6 +35,13 @@ Todo
   * SwiftMailer
 * Code Sample
   * Before / after
+
+Tests
+-----
+
+Just run `phpunit`
+
+sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI and [mode_php|(Gast)CGI|php-fpm|.*] are not the same user
 
 Help
 ----
