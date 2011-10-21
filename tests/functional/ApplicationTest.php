@@ -67,6 +67,6 @@ class ApplicationTest extends WebTestCase
         ));
         $this->assertEquals(0, $crawler->filter('.error')->count());
         $crawler = $client->followRedirect();
-        $this->assertEquals(1, $crawler->filter('a[href="/logout"]')->count());
+        $this->assertEquals(2, $crawler->filter('a[href="/logout"]')->count());
     }
 }
