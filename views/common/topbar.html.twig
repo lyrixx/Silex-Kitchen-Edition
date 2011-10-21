@@ -18,9 +18,9 @@
                         <a class="dropdown-toggle" href="#">{{ 'Your account'|trans }}</a>
                         <ul class="dropdown-menu">
                             {% if app.session.get('user') %}
-                                <li><a href="#">{{ 'Logout'|trans }}</a></li>
+                                <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
                             {% else %}
-                                <li><a href="#">{{ 'Login'|trans }}</a></li>
+                                <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
                                 <li><a href="#">{{ 'Register'|trans }}</a></li>
                             {% endif %}
                         </ul>
