@@ -38,13 +38,6 @@ $app->register(new MonologServiceProvider(), array(
     'monolog.name'          => 'app',
     'monolog.level'         => 300 // = Logger::WARNING
 ));
-// creating monolog output dirname(path)
-if(!is_file($app['monolog.logfile'])) {    
-    if(!is_dir(dirname($app['monolog.logfile']))) {
-        mkdir(dirname($app['monolog.logfile']));
-    }
-    $app['monolog']->addInfo("log file creation");
-}
 
 $app->register(new TwigServiceProvider(), array(
     'twig.options'  => array('cache' => false, 'strict_variables' => true),
@@ -112,5 +105,9 @@ $app->register(new AsseticExtension(), array(
         $am->get('scripts')->setTargetPath($app['assetic.output.path_to_js']);
     })
 ));
+
+// Config
+$app['config'] = Symfony\Component\Yaml\Yaml::parse(__DIR__."/config/config.yml");
+var_dump($app['config']['name']);
 
 return $app;
