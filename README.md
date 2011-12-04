@@ -24,6 +24,7 @@ Installation
 *  `git submodule update --init --recursive`
 *  edit `src/config.php`
 *  `chmod 777 -R cache/ web/assets`
+*  mkdir log 
 
 Start hacking in `src/controllers.php`
 
@@ -31,7 +32,6 @@ Todo
 ----
 
 * Extensions
-  * Monolog
   * SwiftMailer
 * Code Sample
   * Before / after
