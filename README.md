@@ -31,7 +31,6 @@ Todo
 ----
 
 * Extensions
-  * Monolog
   * SwiftMailer
 * Code Sample
   * Before / after

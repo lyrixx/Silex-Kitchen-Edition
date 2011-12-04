@@ -11,6 +11,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\MonologServiceProvider;
 
 use SilexExtension\AsseticExtension;
 
@@ -31,6 +32,12 @@ $app->register(new TranslationServiceProvider(), array(
 ));
 $app['translator.loader'] = new Symfony\Component\Translation\Loader\YamlFileLoader();
 
+$app->register(new MonologServiceProvider(), array(
+    'monolog.logfile'       => __DIR__.'/../log/app.log',
+    'monolog.class_path'    => __DIR__.'/../vendor/silex/vendor/monolog/src',
+    'monolog.name'          => 'app',
+    'monolog.level'         => 300 // = Logger::WARNING
+));
 
 $app->register(new TwigServiceProvider(), array(
     'twig.options'  => array('cache' => false, 'strict_variables' => true),
