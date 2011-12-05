@@ -106,8 +106,4 @@ $app->register(new AsseticExtension(), array(
     })
 ));
 
-// Config
-$app['config'] = Symfony\Component\Yaml\Yaml::parse(__DIR__."/config/config.yml");
-var_dump($app['config']['name']);
-
 return $app;
