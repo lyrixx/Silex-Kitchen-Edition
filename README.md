@@ -38,6 +38,8 @@ Todo
 Tests
 -----
 
+[![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
+
 Just run `phpunit`
 
 sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI and [mode_php|(Gast)CGI|php-fpm|.*] are not the same user
