@@ -40,11 +40,9 @@ $app->register(new MonologServiceProvider(), array(
 ));
 
 $app->register(new TwigServiceProvider(), array(
-    'twig.options'  => array('cache' => false, 'strict_variables' => true),
-    'twig.path'     => array(
-        __DIR__ . '/../views/common',
-        __DIR__ . '/../views',
-    )
+    'twig.options'          => array('cache' => false, 'strict_variables' => true),
+    'twig.form.templates'   => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
+    'twig.path'             => array(__DIR__ . '/../views')
 ));
 
 $app->register(new DoctrineServiceProvider(), array(
