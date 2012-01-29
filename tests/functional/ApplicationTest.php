@@ -30,9 +30,9 @@ class ApplicationTest extends WebTestCase
     public function test404()
     {
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/give-me-a-404');
 
-        $this->assertTrue($client->getResponse()->isNotFound());
+        $this->setExpectedException('Symfony\Component\HttpKernel\Exception\NotFoundHttpException');
+        $client->request('GET', '/give-me-a-404');
     }
 
     public function testLogin()
