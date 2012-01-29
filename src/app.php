@@ -47,12 +47,6 @@ $app->register(new TwigServiceProvider(), array(
     )
 ));
 
-$oldTwigConfiguration = isset($app['twig.configure']) ? $app['twig.configure']: function(){};
-$app['twig.configure'] = $app->protect(function($twig) use ($oldTwigConfiguration) {
-    $oldTwigConfiguration($twig);
-    $twig->addExtension(new Twig_Extensions_Extension_Debug());
-});
-
 $app->register(new DoctrineServiceProvider(), array(
     'db.options'    => array(
         'driver'    => $app['db.config.driver'],
