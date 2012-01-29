@@ -1,8 +1,0 @@
-{% if app.session.hasFlash('notice') %}
-    <div class="alert-message success fade in" data-alert="alert">
-        <a href="#" class="close">×</a>
-        <p>
-            {{ app.session.flash('notice')|trans }}
-        </p>
-    </div>
-{% endif %}

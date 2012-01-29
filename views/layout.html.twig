@@ -16,11 +16,51 @@
     </head>
     <body>
         <div id="main-container">
-            {% include ('common/header.html.twig') %}
+            <header>
+                {% if active is not defined %}
+                    {% set active = null %}
+                {% endif %}
+
+                <div style="z-index: 5;" class="topbar-wrapper">
+                    <div class="topbar">
+                        <div class="topbar-inner">
+                            <div class="container">
+                                <h3><a href="{{ path('homepage') }}">{{ 'Silex'|trans }}</a></h3>
+                                <ul class="nav">
+                                    <li class="active"><a href="{{ path('homepage') }}">{{ 'Homepage'|trans }}</a></li>
+                                    <li><a href="{{ path('page_with_cache') }}">Cache sample</a></li>
+                                    <li><a href="#">Link</a></li>
+                                    <li><a href="#">Link</a></li>
+                                </ul>
+                                <ul class="nav secondary-nav">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" href="#">{{ 'Your account'|trans }}</a>
+                                        <ul class="dropdown-menu">
+                                            {% if app.session.get('user') %}
+                                                <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
+                                            {% else %}
+                                                <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
+                                                <li><a href="#">{{ 'Register'|trans }}</a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- /topbar-inner -->
+                    </div><!-- /topbar -->
+                </div>
+            </header>
+
 
             <div id="main" role="main" class="container">
-                {% include ('common/notice.html.twig') %}
-
+                {% if app.session.hasFlash('notice') %}
+                    <div class="alert-message success fade in" data-alert="alert">
+                        <a href="#" class="close">×</a>
+                        <p>
+                            {{ app.session.flash('notice')|trans }}
+                        </p>
+                    </div>
+                {% endif %}
                 {% block content %}
                     {% if app.session.get('user') %}
                         Hello {{ app.session.get('user').email }}
@@ -32,13 +72,14 @@
 
             </div>
 
-            {% include ('common/footer.html.twig') %}
+            <footer>
+            </footer>
+
         </div> <!--! /#main-container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ app.request.basepath }}/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
         <script src="{{ app.request.basepath }}/assets/js/scripts.js"></script>
-
 
         <!--[if lt IE 7 ]>
             <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
