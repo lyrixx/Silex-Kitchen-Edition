@@ -35,7 +35,7 @@
                     "reference" : "origin/master"
                 },
                 "autoload": {
-                  "classmap": ["src"]
+                  "psr-0": {"SilexExtension": "src/"}
                 }
             }
         }
@@ -54,10 +54,5 @@
         "kriswallsmith/assetic" : "1.0.x-dev",
         "twitter/bootstrap"     : "1.4.0",
         "fate/silex-extentions" : "dev-master"
-    },
-    "autoload": {
-        "psr-0": {
-          "SilexExtension": ""
-        }
     }
 }
