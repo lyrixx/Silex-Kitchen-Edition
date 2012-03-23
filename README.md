@@ -20,10 +20,10 @@ It already embed :
 Installation
 ------------
 
-*  `git clone`
-*  `git submodule update --init --recursive`
+*  `curl -s http://getcomposer.org/installer | php`
+*  `php composer.phar install`
 *  edit `src/config.php`
-*  `chmod 777 -R cache/ web/assets`
+*  `chmod 777 -R cache/ log/ web/assets/`
 
 Start hacking in `src/controllers.php`
 
@@ -42,7 +42,7 @@ Tests
 
 Just run `phpunit`
 
-sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI and [mode_php|(Gast)CGI|php-fpm|.*] are not the same user
+sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI does not run with the same user as  [mode_php|php-fpm|.*].
 
 Help
 ----
