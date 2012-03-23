@@ -1,3 +1,4 @@
-cache/*
-web/assets/*
+/cache/*
 /log/*
+/vendor/
+/web/assets/*

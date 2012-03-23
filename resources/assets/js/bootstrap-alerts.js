@@ -1,1 +1,1 @@
-../../../vendor/Twitter-bootstrap/js/bootstrap-alerts.js
+../../../vendor/twitter/bootstrap/js/bootstrap-alerts.js

@@ -1,0 +1,63 @@
+{
+    "name"        : "lyrixx/Silex-Kitchen-Edition",
+    "type"        : "library",
+    "description" : "A Silex Edition",
+    "keywords"    : ["framework"],
+    "homepage"    : "https://github.com/lyrixx/Silex-Kitchen-Edition",
+    "license"     : "MIT",
+    "authors"     : [
+        {
+            "name"  : "Grégoire Pineau",
+            "email" : "lyrixx@lyrixx.info"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name"    : "twitter/bootstrap",
+                "version" : "1.4.0",
+                "source"  : {
+                    "url"       : "https://github.com/twitter/bootstrap.git",
+                    "type"      : "git",
+                    "reference" : "v1.4.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name"    : "fate/silex-extentions",
+                "version" : "dev-master",
+                "source"  : {
+                    "url"       : "https://github.com/fate/Silex-Extensions.git",
+                    "type"      : "git",
+                    "reference" : "origin/master"
+                },
+                "autoload": {
+                  "classmap": ["src"]
+                }
+            }
+        }
+    ],
+    "require": {
+        "php"                   : ">=5.3.2",
+        "silex/silex"           : "dev-master",
+        "twig/twig"             : ">=1.2.0",
+        "monolog/monolog"       : ">=1.0.0",
+        "symfony/form"          : "2.1.*",
+        "symfony/translation"   : "2.1.*",
+        "symfony/twig-bridge"   : "2.1.*",
+        "symfony/validator"     : "2.1.*",
+        "symfony/yaml"          : "2.1.*",
+        "symfony/config"        : "2.1.*",
+        "kriswallsmith/assetic" : "1.0.x-dev",
+        "twitter/bootstrap"     : "1.4.0",
+        "fate/silex-extentions" : "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+          "SilexExtension": ""
+        }
+    }
+}

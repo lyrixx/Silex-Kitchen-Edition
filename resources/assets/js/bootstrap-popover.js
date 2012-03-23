@@ -1,1 +1,1 @@
-../../../vendor/Twitter-bootstrap/js/bootstrap-popover.js
+../../../vendor/twitter/bootstrap/js/bootstrap-popover.js

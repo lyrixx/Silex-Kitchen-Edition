@@ -1,1 +1,1 @@
-../../../vendor/Twitter-bootstrap/js/bootstrap-scrollspy.js
+../../../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js

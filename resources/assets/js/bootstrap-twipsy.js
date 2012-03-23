@@ -1,1 +1,1 @@
-../../../vendor/Twitter-bootstrap/js/bootstrap-twipsy.js
+../../../vendor/twitter/bootstrap/js/bootstrap-twipsy.js

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/silex/autoload.php';
+require_once __DIR__.'/../vendor/.composer/autoload.php';
 
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\SessionServiceProvider;
