@@ -1,1 +1,1 @@
-../../../vendor/Twitter-bootstrap/js/bootstrap-dropdown.js
+../../../vendor/twitter/bootstrap/js/bootstrap-dropdown.js

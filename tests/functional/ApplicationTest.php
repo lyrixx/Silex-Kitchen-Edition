@@ -1,7 +1,7 @@
 <?php
 
 use Silex\WebTestCase;
-use Symfony\Component\HttpFoundation\SessionStorage\FilesystemSessionStorage;
+use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 use Silex\Provider\DoctrineServiceProvider;
 
 class ApplicationTest extends WebTestCase
@@ -18,7 +18,7 @@ class ApplicationTest extends WebTestCase
 
         // Use FilesystemSessionStorage to store session
         $this->app['session.storage'] = $this->app->share(function() {
-            return new FilesystemSessionStorage(sys_get_temp_dir());
+            return new MockFileSessionStorage(sys_get_temp_dir());
         });
 
         // Controllers
@@ -44,7 +44,7 @@ class ApplicationTest extends WebTestCase
 
         $form = $crawler->selectButton('Send')->form(array());
         $crawler = $client->submit($form);
-        $this->assertEquals(2, $crawler->filter('.error')->count());
+        $this->assertEquals(3, $crawler->filter('.error')->count());
 
         $form = $crawler->selectButton('Send')->form();
         $crawler = $client->submit($form, array(

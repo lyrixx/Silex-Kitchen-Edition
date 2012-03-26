@@ -1,3 +1,5 @@
-cache/*
-web/assets/*
+/cache/*
+/composer.phar
 /log/*
+/vendor/
+/web/assets/*
