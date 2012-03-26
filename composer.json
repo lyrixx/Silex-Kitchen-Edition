@@ -43,7 +43,7 @@
     "require": {
         "php"                   : ">=5.3.2",
         "silex/silex"           : "dev-master",
-        "twig/twig"             : ">=1.2.0",
+        "twig/twig"             : "1.6.2",
         "monolog/monolog"       : ">=1.0.0",
         "symfony/form"          : "2.1.*",
         "symfony/translation"   : "2.1.*",

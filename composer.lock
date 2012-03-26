@@ -1,5 +1,5 @@
 {
-    "hash": "197f283a48e0fe6899e3114c9e714391",
+    "hash": "995b8e37e60b2a81d082d44e9c59d55e",
     "packages": [
         {
             "package": "doctrine/common",
@@ -13,7 +13,7 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "1.0.x-dev",
-            "source-reference": "5f9935d352f7be19f1b78199023e6749a5d5a7ed"
+            "source-reference": "14505a5dea4c8fbf3513b70608ba585d5235ee8b"
         },
         {
             "package": "monolog/monolog",
@@ -75,7 +75,7 @@
         {
             "package": "symfony/form",
             "version": "dev-master",
-            "source-reference": "56a5f5c3cb140fac7ab769ee119fbde7bf51398a",
+            "source-reference": "1bef160814ba0a5ce90aeda6c527d19af490ebdc",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -87,7 +87,7 @@
         {
             "package": "symfony/http-kernel",
             "version": "dev-master",
-            "source-reference": "18bbb1d116fecb5b4c6c110322eab56577a731c5",
+            "source-reference": "cb9201083399274f54437b8177bf983fc185f404",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -99,7 +99,7 @@
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "d08c4ea1530453ce270fcba78f0bff57a0869a9b",
+            "source-reference": "8cf4f692dacd94261548c12e90ef310a609a054c",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -111,7 +111,7 @@
         {
             "package": "symfony/translation",
             "version": "dev-master",
-            "source-reference": "acf8a3b0a0f2deff93080e0c18e706c255ef813b",
+            "source-reference": "fdb2cdd093893b7912c98940f4dd6aacae66bdee",
             "alias": "2.1.9999999.9999999-dev"
         },
         {
@@ -134,7 +134,7 @@
         },
         {
             "package": "twig/twig",
-            "version": "1.6.3"
+            "version": "1.6.2"
         },
         {
             "package": "twitter/bootstrap",
