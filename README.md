@@ -38,7 +38,7 @@ Todo
 Tests
 -----
 
-[![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
+[![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png?branch=master)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
 
 Just run `phpunit`
 
