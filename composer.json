@@ -25,24 +25,13 @@
             }
         },
         {
-            "type": "package",
-            "package": {
-                "name"    : "fate/silex-extentions",
-                "version" : "dev-master",
-                "source"  : {
-                    "url"       : "https://github.com/fate/Silex-Extensions.git",
-                    "type"      : "git",
-                    "reference" : "origin/master"
-                },
-                "autoload": {
-                  "psr-0": {"SilexExtension": "src/"}
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/fate/Silex-Extensions.git"
         }
     ],
     "require": {
         "php"                   : ">=5.3.2",
-        "silex/silex"           : "dev-master",
+        "silex/silex"           : "1.0.*",
         "twig/twig"             : "1.6.2",
         "monolog/monolog"       : ">=1.0.0",
         "symfony/form"          : "2.1.*",
