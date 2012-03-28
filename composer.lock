@@ -1,14 +1,14 @@
 {
-    "hash": "995b8e37e60b2a81d082d44e9c59d55e",
+    "hash": "385bdea699b354b0b419be5696bfbdcb",
     "packages": [
         {
             "package": "doctrine/common",
             "version": "2.2.1"
         },
         {
-            "package": "fate/silex-extentions",
+            "package": "fate/silex-extensions",
             "version": "dev-master",
-            "source-reference": "origin/master"
+            "source-reference": "03add1c3ca0d2b75561900c5c94e56f777bf8777"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -28,7 +28,8 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "1d62671cb0db7b41c33ce87fb4fffc269a9eaf76"
+            "source-reference": "3fe1e25bac949d9bab43a0e556b0c7a3fe4030f3",
+            "alias": "1.0.9999999.9999999-dev"
         },
         {
             "package": "symfony/browser-kit",
@@ -141,5 +142,7 @@
             "version": "1.4.0"
         }
     ],
-    "aliases": []
+    "aliases": [
+
+    ]
 }
