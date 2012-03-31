@@ -34,7 +34,6 @@ $app['translator.loader'] = new Symfony\Component\Translation\Loader\YamlFileLoa
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile'       => __DIR__.'/../log/app.log',
-    'monolog.class_path'    => __DIR__.'/../vendor/silex/vendor/monolog/src',
     'monolog.name'          => 'app',
     'monolog.level'         => 300 // = Logger::WARNING
 ));
@@ -52,9 +51,7 @@ $app->register(new DoctrineServiceProvider(), array(
         'host'      => $app['db.config.host'],
         'user'      => $app['db.config.user'],
         'password'  => $app['db.config.password'],
-    ),
-    'db.dbal.class_path'    => __DIR__ . '/../vendor/silex/vendor/doctrine-dbal/lib',
-    'db.common.class_path'  => __DIR__ . '/../vendor/silex/vendor/doctrine-common/lib',
+    )
 ));
 
 $app->register(new AsseticExtension(), array(

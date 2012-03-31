@@ -53,6 +53,7 @@
         "symfony/config"        : "2.1.*",
         "kriswallsmith/assetic" : "1.0.x-dev",
         "twitter/bootstrap"     : "1.4.0",
-        "fate/silex-extentions" : "dev-master"
+        "fate/silex-extentions" : "dev-master",
+        "doctrine/dbal"         : ">=2.1,<2.3"
     }
 }
