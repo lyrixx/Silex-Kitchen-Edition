@@ -1,7 +1,7 @@
 {
     "name"        : "lyrixx/Silex-Kitchen-Edition",
     "type"        : "library",
-    "description" : "A Silex Edition",
+    "description" : "A Silex Edition. This project is a base for your silex applications.",
     "keywords"    : ["framework"],
     "homepage"    : "https://github.com/lyrixx/Silex-Kitchen-Edition",
     "license"     : "MIT",
