@@ -26,17 +26,17 @@
         }
     ],
     "require": {
-        "php"                   : ">=5.3.2",
+        "php"                   : ">=5.3.3",
         "silex/silex"           : "dev-master",
-        "twig/twig"             : "1.8.0",
-        "monolog/monolog"       : ">=1.0.0",
+        "twig/twig"             : "1.*",
+        "monolog/monolog"       : "1.0.*",
         "symfony/form"          : "2.1.*",
         "symfony/translation"   : "2.1.*",
         "symfony/twig-bridge"   : "2.1.*",
         "symfony/validator"     : "2.1.*",
         "symfony/yaml"          : "2.1.*",
         "symfony/config"        : "2.1.*",
-        "kriswallsmith/assetic" : "1.0.x-dev",
+        "kriswallsmith/assetic" : "1.0.*",
         "twitter/bootstrap"     : "1.4.0",
         "fate/silex-extensions" : "dev-master",
         "doctrine/dbal"         : ">=2.1,<2.3"
