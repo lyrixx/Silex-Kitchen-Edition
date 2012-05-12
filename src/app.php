@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/.composer/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\SessionServiceProvider;
@@ -21,7 +21,11 @@ require __DIR__ . '/config.php';
 
 $app->register(new HttpCacheServiceProvider());
 
-$app->register(new SessionServiceProvider());
+$app->register(new SessionServiceProvider(), array(
+    'session.storage.options' => array(
+        'auto_start' => 1,
+    ),
+));
 $app->register(new SymfonyBridgesServiceProvider());
 $app->register(new ValidatorServiceProvider());
 $app->register(new FormServiceProvider());
