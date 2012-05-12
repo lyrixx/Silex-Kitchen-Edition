@@ -1,39 +1,53 @@
 Silex - Kitchen Edition
 =======================
 
-This project is a base for your silex applications.
+This project is a sample base for your silex applications.
 
 It already embed :
 
 * HTML5 boilerplate (http://html5boilerplate.com/)
 * Twitter Bootrap with form integration (http://twitter.github.com/bootstrap/)
 * Few extensions :
-
-  * Doctrine
-  * Form
-  * Session
-  * SymfonyBrige
-  * Translation
-  * Twig (with debug extension)
-  * UrlGenerator
+    * Assetics
+    * Doctrine
+    * Form
+    * Monolog
+    * Session
+    * SymfonyBrige
+    * Translation
+    * Twig
+    * UrlGenerator
 
 Installation
 ------------
 
+### Without git clone
+
 Run the following commands:
 
     curl -s http://getcomposer.org/installer | php
+    php composer.phar create-project lyrixx/Silex-Kitchen-Edition PATH/TO/YOUR/APP
+    cd PATH/TO/YOUR/APP
+
+### With git clone
+
+Run the following commands:
+
+    git clone https://github.com/lyrixx/Silex-Kitchen-Edition.git PATH/TO/YOUR/APP
+    cd PATH/TO/YOUR/APP
+    curl -s http://getcomposer.org/installer | php
     php composer.phar install
 
-And then you can edit `src/config.php` and start hacking in `src/controllers.php`
+### Then
+
+You can edit `src/config.php` and start hacking in `src/controllers.php`
 
 Todo
 ----
 
 * Extensions
-  * SwiftMailer
-* Code Sample
-  * Before / after
+
+    * SwiftMailer
 
 Tests
 -----
@@ -42,9 +56,20 @@ Tests
 
 Just run `phpunit`
 
-sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI does not run with the same user as  [mode_php|php-fpm|.*].
+Sometimes, you have to run : `chmod 777 -R cache/ web/assets`, because CLI does not run with the same user as  [mode_php|php-fpm|.*].
 
 Help
 ----
 
 * http://silex.sensiolabs.org/documentation
+
+Licence
+-------
+
+    Copyright (C) 2012 Grégoire Pineau
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
