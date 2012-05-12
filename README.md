@@ -20,12 +20,12 @@ It already embed :
 Installation
 ------------
 
-*  `curl -s http://getcomposer.org/installer | php`
-*  `php composer.phar install`
-*  edit `src/config.php`
-*  `chmod 777 -R cache/ log/ web/assets/`
+Run the following commands:
 
-Start hacking in `src/controllers.php`
+   curl -s http://getcomposer.org/installer | php
+   php composer.phar install
+
+And then you can edit `src/config.php` and start hacking in `src/controllers.php`
 
 Todo
 ----

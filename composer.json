@@ -40,5 +40,13 @@
         "twitter/bootstrap"     : "1.4.0",
         "fate/silex-extensions" : "dev-master",
         "doctrine/dbal"         : ">=2.1,<2.3"
+    },
+    "scripts": {
+        "post-install-cmd": "Lx\\Composer\\Script::postInstall"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lx": "src/"
+        }
     }
 }

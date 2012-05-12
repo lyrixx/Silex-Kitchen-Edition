@@ -1,8 +1,9 @@
 language: php
+
 php:
-  - 5.3
-  - 5.4
+    - 5.3
+    - 5.4
 
-before_script: curl -s http://getcomposer.org/installer | php && php composer.phar install && chmod 777 -R cache/ log/ web/assets/
-
-script: phpunit
+before_script:
+    - curl -s http://getcomposer.org/installer | php
+    - php composer.phar install
