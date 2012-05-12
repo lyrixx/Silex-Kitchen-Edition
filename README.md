@@ -22,8 +22,8 @@ Installation
 
 Run the following commands:
 
-   curl -s http://getcomposer.org/installer | php
-   php composer.phar install
+    curl -s http://getcomposer.org/installer | php
+    php composer.phar install
 
 And then you can edit `src/config.php` and start hacking in `src/controllers.php`
 
