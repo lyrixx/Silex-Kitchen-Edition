@@ -44,7 +44,7 @@ class ApplicationTest extends WebTestCase
 
         $form = $crawler->selectButton('Send')->form(array());
         $crawler = $client->submit($form);
-        $this->assertEquals(3, $crawler->filter('.error')->count());
+        $this->assertEquals(2, $crawler->filter('.error')->count());
 
         $form = $crawler->selectButton('Send')->form();
         $crawler = $client->submit($form, array(
@@ -56,7 +56,7 @@ class ApplicationTest extends WebTestCase
         $form = $crawler->selectButton('Send')->form();
         $crawler = $client->submit($form, array(
             'form[email]'     => 'email@example.com',
-            'form[password]'  => 'wrong password',
+            'form[password]'  => '',
         ));
         $this->assertEquals(1, $crawler->filter('.error')->count());
 
