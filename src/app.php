@@ -4,7 +4,6 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\SessionServiceProvider;
-use Silex\Provider\SymfonyBridgesServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
@@ -12,6 +11,8 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
+
+use Symfony\Component\Translation\Loader\YamlFileLoader;
 
 use SilexExtension\AsseticExtension;
 
@@ -22,15 +23,21 @@ require __DIR__ . '/config.php';
 $app->register(new HttpCacheServiceProvider());
 
 $app->register(new SessionServiceProvider());
-$app->register(new SymfonyBridgesServiceProvider());
 $app->register(new ValidatorServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
 
 $app->register(new TranslationServiceProvider(), array(
-    'locale_fallback' => $app['locale'],
+    'local' => $app['locale'],
+    'translator.domains' => array(
+        'messages' => array(
+            'fr' => __DIR__.'/../resources/locales/fr.yml',
+        ),
+    )
 ));
-$app['translator.loader'] = new Symfony\Component\Translation\Loader\YamlFileLoader();
+$app['translator.loader'] = $app->share(function () {
+    return new YamlFileLoader();
+});
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile'       => __DIR__.'/../log/app.log',
@@ -94,5 +101,10 @@ $app->register(new AsseticExtension(), array(
         $am->get('scripts')->setTargetPath($app['assetic.output.path_to_js']);
     })
 ));
+
+// Temporary hack. Silex should start session on demand.
+$app->before(function() use ($app) {
+    $app['session']->start();
+});
 
 return $app;

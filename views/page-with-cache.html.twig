@@ -1,23 +1,26 @@
 {% extends 'layout.html.twig' %}
+{% set active = 'page_with_cache' %}
 
 {% block content %}
 
     {% if app.debug %}
-        <div class="alert-message block-message error">
+        <div class="alert alert-error" >
+            <button class="close" data-dismiss="alert">×</button>
             <p>
-                <strong>
+                <h4>
                     Debug mode is enabled.
-                </strong>
-                <br/>
-                The cache is enabled only if $app['debug'] is false.<br/>
-                Please, see '/src/config.php'.<br/>
+                </h4>
+                The cache is enabled only if <pre>$app['debug'] = false</pre>.
+                Please, see : <pre>/src/config.php</pre>.
             </p>
+        </div>
+        <div class="alert-message block-message error">
         </div>
     {% endif %}
 
     <p>
         This page is cached for 10 secondes<br />
-        First hit : {{ date }}.<br />
+        Hit @ : {{ date }}.<br />
         Try to refresh the page.<br />
     </p>
 

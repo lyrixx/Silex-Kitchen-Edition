@@ -1,3 +1,4 @@
-$('.topbar').dropdown()
-
-$(".close").alert()
+(function($) {
+    $(function(){
+    });
+})(jQuery);

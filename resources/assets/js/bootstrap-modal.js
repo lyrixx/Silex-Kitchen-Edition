@@ -1,1 +1,0 @@
-../../../vendor/twitter/bootstrap/js/bootstrap-modal.js
