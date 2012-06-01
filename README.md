@@ -1,12 +1,14 @@
 Silex - Kitchen Edition
 =======================
 
+See the [dedicated page on github](http://lyrixx.github.com/Silex-Kitchen-Edition/)
+
 This project is a sample base for your silex applications.
 
 It already embed :
 
 * HTML5 boilerplate (http://html5boilerplate.com/)
-* Twitter Bootrap with form integration (http://twitter.github.com/bootstrap/)
+* Twitter Bootrap with form integration (http://twitter.github.com/bootstrap/) **version 2**
 * Few extensions :
     * Assetics
     * Doctrine
@@ -17,6 +19,9 @@ It already embed :
     * Translation
     * Twig
     * UrlGenerator
+
+![Homepage](https://raw.github.com/lyrixx/Silex-Kitchen-Edition/master/resources/assets/img/hp.jpg)
+![Form sample](https://raw.github.com/lyrixx/Silex-Kitchen-Edition/master/resources/assets/img/form.jpg)
 
 Installation
 ------------
