@@ -13,6 +13,7 @@ $app->match('/', function() use ($app) {
     $app['session']->setFlash('info', 'Info flash message');
     $app['session']->setFlash('success', 'Success flash message');
     $app['session']->setFlash('error', 'Error flash message');
+
     return $app['twig']->render('index.html.twig');
 })->bind('homepage');
 
@@ -156,10 +157,7 @@ $app->match('/logout', function() use ($app) {
 
 $app->get('/page-with-cache', function() use ($app) {
     $response = new Response($app['twig']->render('page-with-cache.html.twig', array('date' => date('Y-M-d h:i:s'))));
-    $response->setCache(array(
-        'max_age'       => 10,
-        's_maxage'      => 10,
-    ));
+    $response->setTtl(10);
 
     return $response;
 })->bind('page_with_cache');
