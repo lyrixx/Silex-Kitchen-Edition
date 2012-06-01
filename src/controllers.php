@@ -18,19 +18,20 @@ $app->match('/', function() use ($app) {
 
 $app->match('/login', function() use ($app) {
 
-    $constraint = new Assert\Collection(array(
-        'email'         => array(
-            new Assert\NotBlank(),
-            new Assert\Email(),
-        ),
-        'password'  => new Assert\NotBlank(),
-    ));
-
-    $builder = $app['form.factory']->createBuilder('form', array(), array('validation_constraint' => $constraint));
-
-    $form = $builder
-        ->add('email',      'email',    array('label' => 'Email'))
-        ->add('password',   'password', array('label' => 'Password'))
+    $form = $app['form.factory']->createBuilder('form')
+        ->add('email', 'email', array(
+            'label'       => 'Email',
+            'constraints' => array(
+                new Assert\NotBlank(),
+                new Assert\Email(),
+            ),
+        ))
+        ->add('password', 'password', array(
+            'label'       => 'Password',
+            'constraints' => array(
+                new Assert\NotBlank(),
+            ),
+        ))
         ->getForm()
     ;
 
