@@ -62,7 +62,7 @@ Tests
 Just run `phpunit`
 
 Sometimes, you have to run : `chmod 777 -R cache/ web/assets`,
-because CLI does not run with the same user as  [mode_php|php-fpm|.*].
+because CLI does not run with the same user as  [mod_php|php-fpm|.*].
 
 Help
 ----
