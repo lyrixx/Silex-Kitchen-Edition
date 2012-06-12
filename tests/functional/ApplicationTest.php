@@ -2,7 +2,6 @@
 
 use Silex\WebTestCase;
 use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
-use Silex\Provider\DoctrineServiceProvider;
 
 class ApplicationTest extends WebTestCase
 {

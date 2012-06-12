@@ -1,11 +1,9 @@
 <?php
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormError;
 
 $app->match('/', function() use ($app) {
@@ -147,7 +145,6 @@ $app->match('/form', function() use ($app) {
 
     return $app['twig']->render('form.html.twig', array('form' => $form->createView()));
 })->bind('form');
-
 
 $app->match('/logout', function() use ($app) {
     $app['session']->clear();
