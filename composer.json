@@ -16,11 +16,11 @@
             "type": "package",
             "package": {
                 "name"    : "twitter/bootstrap",
-                "version" : "2.0.3",
+                "version" : "2.0.4",
                 "source"  : {
                     "url"       : "https://github.com/twitter/bootstrap.git",
                     "type"      : "git",
-                    "reference" : "v2.0.3"
+                    "reference" : "v2.0.4"
                 }
             }
         }
@@ -37,9 +37,14 @@
         "symfony/yaml"          : "2.1.*",
         "symfony/config"        : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
-        "twitter/bootstrap"     : "2.0.3",
+        "twitter/bootstrap"     : "2.0.4",
         "fate/silex-extensions" : "dev-master",
         "doctrine/dbal"         : ">=2.1,<2.3"
+    },
+    "require-dev": {
+        "symfony/dom-crawler"  : "2.1.*",
+        "symfony/css-selector"  : "2.1.*",
+        "symfony/browser-kit"  : "2.1.*"
     },
     "scripts": {
         "post-install-cmd": "Lx\\Composer\\Script::postInstall"
