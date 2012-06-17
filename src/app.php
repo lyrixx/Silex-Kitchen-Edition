@@ -27,7 +27,6 @@ $app->register(new ValidatorServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
 
-
 $app->register(new TranslationServiceProvider(), array(
     'locale'          => $app['locale'],
 ));
