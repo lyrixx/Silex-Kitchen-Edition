@@ -2,15 +2,15 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use Silex\Provider\HttpCacheServiceProvider;
-use Silex\Provider\SessionServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\HttpCacheServiceProvider;
+use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\DoctrineServiceProvider;
-use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
@@ -27,17 +27,19 @@ $app->register(new ValidatorServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
 
+
 $app->register(new TranslationServiceProvider(), array(
-    'local' => $app['locale'],
-    'translator.domains' => array(
-        'messages' => array(
-            'fr' => __DIR__.'/../resources/locales/fr.yml',
-        ),
-    )
+    'locale'          => $app['locale'],
 ));
-$app['translator.loader'] = $app->share(function () {
-    return new YamlFileLoader();
-});
+$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
+    $translator->addLoader('yaml', new YamlFileLoader());
+
+    $translator->addResource('yaml', __DIR__.'/../resources/locales/fr.yml', 'fr');
+
+    return $translator;
+}));
+// Temporarly hack
+$app['translator.domains'] = array();
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile'       => __DIR__.'/../log/app.log',

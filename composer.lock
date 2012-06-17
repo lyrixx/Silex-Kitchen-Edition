@@ -1,5 +1,5 @@
 {
-    "hash": "5c93c8ea4a81f3b34948b62c7826051d",
+    "hash": "f3d90854a062d4e17d76d9f546de3cd4",
     "packages": [
         {
             "package": "doctrine/common",
@@ -38,7 +38,13 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "4b70fb1a9b498228146ba0f363209b5829f10ca7"
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
+        },
+        {
+            "package": "silex/silex",
+            "version": "dev-master",
+            "source-reference": "55d7a266dcd3c14eb40b476dcf5e56bdaedd3dd2"
         },
         {
             "package": "symfony/config",
@@ -49,7 +55,13 @@
         {
             "package": "symfony/config",
             "version": "dev-master",
-            "source-reference": "dc19d63559641fd283040471530b0117aa9a8c99"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/config",
+            "version": "dev-master",
+            "source-reference": "ac127ca0a1002726953eced989897e7b5c454292"
         },
         {
             "package": "symfony/event-dispatcher",
@@ -65,7 +77,8 @@
         {
             "package": "symfony/form",
             "version": "dev-master",
-            "source-reference": "e9068070fab8919f63e1a4e6313325082f4a1aa2"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/form",
@@ -74,9 +87,9 @@
             "alias-version": "2.1.9999999.9999999-dev"
         },
         {
-            "package": "symfony/http-foundation",
+            "package": "symfony/form",
             "version": "dev-master",
-            "source-reference": "526d5d663f0b3170a91f916f912075609120e09a"
+            "source-reference": "810e9ddffab12d0c90dc5bd7c430aa04cdb053a1"
         },
         {
             "package": "symfony/http-foundation",
@@ -85,15 +98,32 @@
             "alias-version": "2.1.9999999.9999999-dev"
         },
         {
-            "package": "symfony/http-kernel",
+            "package": "symfony/http-foundation",
             "version": "dev-master",
-            "source-reference": "fd5935fb6cd03dbd06930f2e3065c931694a5c92"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-foundation",
+            "version": "dev-master",
+            "source-reference": "5d15807c883c6a927eb3ac3c04e9a3f62b92e5b4"
         },
         {
             "package": "symfony/http-kernel",
             "version": "dev-master",
             "alias-pretty-version": "2.1.x-dev",
             "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-kernel",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-kernel",
+            "version": "dev-master",
+            "source-reference": "cca9802587090c5d24ed015437cebdb4e6a770c0"
         },
         {
             "package": "symfony/locale",
@@ -115,7 +145,13 @@
         {
             "package": "symfony/options-resolver",
             "version": "dev-master",
-            "source-reference": "201aceefc43f75e974c37be8d671f9f3e387847f"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/options-resolver",
+            "version": "dev-master",
+            "source-reference": "915b39d1e0ad1c1f2526b93a16a10e5e504aefad"
         },
         {
             "package": "symfony/routing",
@@ -126,7 +162,13 @@
         {
             "package": "symfony/routing",
             "version": "dev-master",
-            "source-reference": "4eef37eee0961782dfe66a23df4fc280ff1a9e44"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/routing",
+            "version": "dev-master",
+            "source-reference": "9e0b9b0d4143a6b90752e1111d9948416ef62b50"
         },
         {
             "package": "symfony/translation",
@@ -159,7 +201,13 @@
         {
             "package": "symfony/validator",
             "version": "dev-master",
-            "source-reference": "9c89324845ccc24214f7fd307b9dc646d41a0a6f"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/validator",
+            "version": "dev-master",
+            "source-reference": "2787f1d5725874054275cdd03730a258d4460582"
         },
         {
             "package": "symfony/yaml",
@@ -170,18 +218,30 @@
         {
             "package": "symfony/yaml",
             "version": "dev-master",
-            "source-reference": "c634a6b17c2ccff4c8ed48464023a53289b69dda"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
-            "package": "twig/twig",
+            "package": "symfony/yaml",
             "version": "dev-master",
-            "source-reference": "d4511d02b45725a56c8cc49127244bca640c9d13"
+            "source-reference": "8272d98f8087878db37e8e5f6d4e37c5cc783dc3"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
             "alias-pretty-version": "1.8.x-dev",
             "alias-version": "1.8.9999999.9999999-dev"
+        },
+        {
+            "package": "twig/twig",
+            "version": "dev-master",
+            "alias-pretty-version": "1.8.x-dev",
+            "alias-version": "1.8.9999999.9999999-dev"
+        },
+        {
+            "package": "twig/twig",
+            "version": "dev-master",
+            "source-reference": "4679ad51c5390648b7ea4c8f0ecd2c0c344145ba"
         },
         {
             "package": "twitter/bootstrap",
