@@ -103,9 +103,4 @@ $app->register(new AsseticExtension(), array(
     })
 ));
 
-// Temporary hack. Silex should start session on demand.
-$app->before(function() use ($app) {
-    $app['session']->start();
-});
-
 return $app;
