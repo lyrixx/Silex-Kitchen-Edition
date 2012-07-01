@@ -42,12 +42,6 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
-        },
-        {
-            "package": "silex/silex",
-            "version": "dev-master",
             "source-reference": "a282dd088975b8302cf3312a4f51ef34b55f8f1c",
             "commit-date": "1341136064"
         },
