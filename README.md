@@ -45,7 +45,7 @@ Run the following commands:
 
 ### Then
 
-You can edit `src/config.php` and start hacking in `src/controllers.php`
+You can edit `resources/config/prod.php` and start hacking in `src/controllers.php`
 
 Todo
 ----
