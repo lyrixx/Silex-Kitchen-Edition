@@ -8,22 +8,22 @@ class ApplicationTest extends WebTestCase
     public function createApplication()
     {
         // Silex
-        $this->app = require __DIR__.'/../../src/app.php';
+        $app = require __DIR__.'/../../src/app.php';
+        require __DIR__.'/../../resources/config/dev.php';
 
         // Tests mode
-        $this->app['debug'] = true;
-        unset($this->app['exception_handler']);
+        unset($app['exception_handler']);
         $app['translator.messages'] = array();
 
         // Use FilesystemSessionStorage to store session
-        $this->app['session.storage'] = $this->app->share(function() {
+        $app['session.storage'] = $app->share(function() {
             return new MockFileSessionStorage(sys_get_temp_dir());
         });
 
         // Controllers
         require __DIR__ . '/../../src/controllers.php';
 
-        return $app;
+        return $this->app = $app;
     }
 
     public function test404()

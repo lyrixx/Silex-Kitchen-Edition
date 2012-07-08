@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
-
-use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
@@ -17,8 +14,6 @@ use Symfony\Component\Translation\Loader\YamlFileLoader;
 use SilexExtension\AsseticExtension;
 
 $app = new Silex\Application();
-
-require __DIR__ . '/config.php';
 
 $app->register(new HttpCacheServiceProvider());
 
@@ -50,16 +45,6 @@ $app->register(new TwigServiceProvider(), array(
     'twig.options'          => array('cache' => false, 'strict_variables' => true),
     'twig.form.templates'   => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
     'twig.path'             => array(__DIR__ . '/../views')
-));
-
-$app->register(new DoctrineServiceProvider(), array(
-    'db.options'    => array(
-        'driver'    => $app['db.config.driver'],
-        'dbname'    => $app['db.config.dbname'],
-        'host'      => $app['db.config.host'],
-        'user'      => $app['db.config.user'],
-        'password'  => $app['db.config.password'],
-    )
 ));
 
 $app->register(new AsseticExtension(), array(
