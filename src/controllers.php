@@ -69,7 +69,8 @@ $app->match('/form', function() use ($app) {
             $builder->create('sub-form', 'form')
                 ->add('subformemail1', 'email', array(
                     'constraints' => array(new Assert\NotBlank(), new Assert\Email()),
-                    'attr'        => array('placeholder' => 'email constraints')
+                    'attr'        => array('placeholder' => 'email constraints'),
+                    'label'       => 'Label',
                 ))
                 ->add('subformtext1', 'text')
         )
