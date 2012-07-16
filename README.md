@@ -8,7 +8,7 @@ This project is a sample base for your silex applications.
 It already embed :
 
 * HTML5 boilerplate (http://html5boilerplate.com/)
-* Twitter Bootrap with form integration (http://twitter.github.com/bootstrap/) **version 2**
+* Twitter Bootstrap with form integration (http://twitter.github.com/bootstrap/) **version 2**
 * Few extensions :
     * Assetics
     * Doctrine
