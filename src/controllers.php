@@ -70,7 +70,7 @@ $app->match('/form', function() use ($app) {
                 ->add('subformemail1', 'email', array(
                     'constraints' => array(new Assert\NotBlank(), new Assert\Email()),
                     'attr'        => array('placeholder' => 'email constraints'),
-                    'label'       => 'Label',
+                    'label'       => 'A custome label : ',
                 ))
                 ->add('subformtext1', 'text')
         )

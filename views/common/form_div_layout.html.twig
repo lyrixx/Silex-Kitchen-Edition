@@ -109,6 +109,10 @@
         {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
     {% endif %}
 
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+
     {% if in_choice_list is defined and in_choice_list and widget is defined %}
         {% if multiple is defined and multiple %}
             {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' checkbox')|trim}) %}
