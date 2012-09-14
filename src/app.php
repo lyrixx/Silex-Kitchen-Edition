@@ -11,7 +11,7 @@ use Silex\Provider\ValidatorServiceProvider;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
-use SilexExtension\AsseticExtension;
+use SilexAssetic\AsseticExtension;
 
 $app = new Silex\Application();
 
@@ -49,7 +49,8 @@ $app->register(new TwigServiceProvider(), array(
 
 $app->register(new AsseticExtension(), array(
     'assetic.options' => array(
-        'debug' => $app['debug']
+        'debug'             => $app['debug'],
+        'auto_dump_assets'  => true
     ),
     'assetic.filters' => $app->protect(function($fm) use ($app) {
         $fm->set('yui_css', new Assetic\Filter\Yui\CssCompressorFilter(
