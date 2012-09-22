@@ -11,7 +11,7 @@ use Silex\Provider\ValidatorServiceProvider;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
-use SilexExtension\AsseticExtension;
+use SilexAssetic\AsseticExtension;
 
 $app = new Silex\Application();
 

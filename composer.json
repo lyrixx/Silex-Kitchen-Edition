@@ -38,7 +38,7 @@
         "symfony/config"        : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
         "twitter/bootstrap"     : "2.0.4",
-        "fate/silex-extensions" : "dev-master"
+        "mheap/silex-assetic"   : "dev-master"
     },
     "require-dev": {
         "symfony/dom-crawler"   : "2.1.*",
