@@ -1,5 +1,5 @@
 {
-    "hash": "dfde9a29f95d5874e74dc4a0ae843ab5",
+    "hash": "70c9136b7f152d7bda1c4bf660a2de63",
     "packages": [
         {
             "name": "kriswallsmith/assetic",
@@ -117,7 +117,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2011-10-24 07:39:02",
+            "time": "2011-10-24 03:39:02",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -1022,11 +1022,11 @@
         },
         {
             "name": "twitter/bootstrap",
-            "version": "2.0.4",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twitter/bootstrap.git",
-                "reference": "v2.0.4"
+                "reference": "v2.1.1"
             },
             "type": "library",
             "installation-source": "source"

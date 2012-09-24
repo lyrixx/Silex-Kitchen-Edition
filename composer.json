@@ -16,11 +16,11 @@
             "type": "package",
             "package": {
                 "name"    : "twitter/bootstrap",
-                "version" : "2.0.4",
+                "version" : "2.1.1",
                 "source"  : {
                     "url"       : "https://github.com/twitter/bootstrap.git",
                     "type"      : "git",
-                    "reference" : "v2.0.4"
+                    "reference" : "v2.1.1"
                 }
             }
         }
@@ -37,7 +37,7 @@
         "symfony/yaml"          : "2.1.*",
         "symfony/config"        : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
-        "twitter/bootstrap"     : "2.0.4",
+        "twitter/bootstrap"     : "2.1.1",
         "mheap/silex-assetic"   : "dev-master"
     },
     "require-dev": {
