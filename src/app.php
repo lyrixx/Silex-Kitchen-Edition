@@ -23,7 +23,7 @@ $app->register(new FormServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
 
 $app->register(new TranslationServiceProvider(), array(
-    'locale'          => $app['locale'],
+    'locale' => $app['locale'],
 ));
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
@@ -36,15 +36,15 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app['translator.domains'] = array();
 
 $app->register(new MonologServiceProvider(), array(
-    'monolog.logfile'       => __DIR__.'/../log/app.log',
-    'monolog.name'          => 'app',
-    'monolog.level'         => 300 // = Logger::WARNING
+    'monolog.logfile' => __DIR__.'/../log/app.log',
+    'monolog.name'    => 'app',
+    'monolog.level'   => 300 // = Logger::WARNING
 ));
 
 $app->register(new TwigServiceProvider(), array(
-    'twig.options'          => array('cache' => false, 'strict_variables' => true),
-    'twig.form.templates'   => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
-    'twig.path'             => array(__DIR__ . '/../views')
+    'twig.options'        => array('cache' => false, 'strict_variables' => true),
+    'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
+    'twig.path'           => array(__DIR__ . '/../views')
 ));
 
 $app->register(new AsseticExtension(), array(
