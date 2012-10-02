@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ *  (c) Саша Стаменковић <umpirsky@gmail.com>
+ */
+
+if (file_exists($a = __DIR__.'/../../../autoload.php')) {
+    require_once $a;
+} else {
+    require_once __DIR__.'/../vendor/autoload.php';
+}
+
+$app = new Silex\Application();
+
+require __DIR__.'/../resources/config/dev.php';
+require __DIR__.'/../src/app.php';
+
+$dumper = $app['assetic.dumper'];
+if (isset($app['twig'])) {
+    $dumper->addTwigAssets();
+}
+$dumper->dumpAssets();

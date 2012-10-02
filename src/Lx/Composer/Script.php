@@ -12,6 +12,7 @@ class Script
         chmod('cache', 0777);
         chmod('log', 0777);
         chmod('web/assets', 0777);
+        chmod('bin/rebuild-assets', 0500);
     }
 
 }
