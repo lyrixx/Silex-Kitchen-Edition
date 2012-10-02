@@ -47,7 +47,8 @@ $app->register(new TwigServiceProvider(), array(
 
 $app->register(new AsseticExtension(), array(
     'assetic.options' => array(
-        'debug' => $app['debug'],
+        'debug'            => $app['debug'],
+        'auto_dump_assets' => $app['debug'],
     ),
     'assetic.filters' => $app->protect(function($fm) use ($app) {
         $fm->set('yui_css', new Assetic\Filter\Yui\CssCompressorFilter(
