@@ -1,9 +1,5 @@
 <?php
 
-/**
- *  (c) Саша Стаменковић <umpirsky@gmail.com>
- */
-
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
