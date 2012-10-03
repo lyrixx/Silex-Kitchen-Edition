@@ -51,7 +51,7 @@ You can edit `resources/config/prod.php` and start hacking in `src/controllers.p
 
 Assets are auto generated in debug mode. Letting Assetic generate assets dynamically
 in a production environment is just too slow. Instead, each time you deploy your app
-in the production environment, you should dump assets using `./bin/rebuild-assets`.
+in the production environment, you should dump assets using `./console assetic:dump`.
 
 Todo
 ----
