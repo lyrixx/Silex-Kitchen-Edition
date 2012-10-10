@@ -59,6 +59,15 @@ $app->match('/login', function() use ($app) {
     return $app['twig']->render('login.html.twig', array('form' => $form->createView()));
 })->bind('login');
 
+$app->match('/doctrine', function() use ($app) {
+    return $app['twig']->render(
+        'doctrine.html.twig',
+        array(
+            'posts' => $app['db']->fetchAll('SELECT * FROM post')
+        )
+    );
+})->bind('doctrine');
+
 $app->match('/form', function() use ($app) {
 
     $builder = $app['form.factory']->createBuilder('form');
