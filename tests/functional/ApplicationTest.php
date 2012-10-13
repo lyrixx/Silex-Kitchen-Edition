@@ -9,12 +9,8 @@ class ApplicationTest extends WebTestCase
     {
         // Silex
         $app = new Silex\Application();
+        require __DIR__.'/../../resources/config/test.php';
         require __DIR__.'/../../src/app.php';
-        require __DIR__.'/../../resources/config/dev.php';
-
-        // Tests mode
-        unset($app['exception_handler']);
-        $app['translator.messages'] = array();
 
         // Use FilesystemSessionStorage to store session
         $app['session.storage'] = $app->share(function() {
@@ -31,8 +27,8 @@ class ApplicationTest extends WebTestCase
     {
         $client = $this->createClient();
 
-        $this->setExpectedException('Symfony\Component\HttpKernel\Exception\NotFoundHttpException');
         $client->request('GET', '/give-me-a-404');
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 
     public function testLogin()

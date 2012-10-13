@@ -14,6 +14,7 @@ $app['cache.path'] = __DIR__ . '/../cache';
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
 
 // Assetic
+$app['assetic.enabled'] = true;
 $app['assetic.path_to_cache']       = $app['cache.path'] . '/assetic' ;
 $app['assetic.path_to_web']         = __DIR__ . '/../../web/assets';
 $app['assetic.input.path_to_assets']    = __DIR__ . '/../assets/';
