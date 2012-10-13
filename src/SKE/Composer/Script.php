@@ -1,6 +1,6 @@
 <?php
 
-namespace Lx\Composer;
+namespace SKE\Composer;
 
 use Composer\Script\Event;
 

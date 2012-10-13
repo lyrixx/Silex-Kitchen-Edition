@@ -48,11 +48,11 @@
     },
     "minimum-stability" : "dev",
     "scripts": {
-        "post-install-cmd": "Lx\\Composer\\Script::postInstall"
+        "post-install-cmd": "SKE\\Composer\\Script::postInstall"
     },
     "autoload": {
         "psr-0": {
-            "Lx": "src/"
+            "SKE": "src/"
         }
     }
 }
