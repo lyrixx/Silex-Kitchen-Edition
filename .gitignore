@@ -1,5 +1,4 @@
 resources/cache/*
-composer.phar
 resources/log/*
 vendor/
 web/assets/*
