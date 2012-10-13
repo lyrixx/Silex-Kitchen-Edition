@@ -34,7 +34,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app['translator.domains'] = array();
 
 $app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/../log/app.log',
+    'monolog.logfile' => __DIR__.'/../resources/log/app.log',
     'monolog.name'    => 'app',
     'monolog.level'   => 300 // = Logger::WARNING
 ));
@@ -42,7 +42,7 @@ $app->register(new MonologServiceProvider(), array(
 $app->register(new TwigServiceProvider(), array(
     'twig.options'        => array('cache' => false, 'strict_variables' => true),
     'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
-    'twig.path'           => array(__DIR__ . '/../views')
+    'twig.path'           => array(__DIR__ . '/../resources/views')
 ));
 
 $app->register(new AsseticExtension(), array(

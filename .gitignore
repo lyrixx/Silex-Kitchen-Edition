@@ -1,5 +1,5 @@
-/cache/*
-/composer.phar
-/log/*
-/vendor/
-/web/assets/*
+resources/cache/*
+composer.phar
+resources/log/*
+vendor/
+web/assets/*
