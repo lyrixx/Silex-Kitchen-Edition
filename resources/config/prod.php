@@ -29,3 +29,11 @@ $app['assetic.input.path_to_js']        = array(
 );
 $app['assetic.output.path_to_js']       = 'js/scripts.js';
 $app['assetic.filter.yui_compressor.path'] = '/usr/share/yui-compressor/yui-compressor.jar';
+
+$app['doctrine.dsn'] = array(
+    'driver'   => 'pdo_mysql',
+    'host'     => 'localhost',
+    'dbname'   => 'silex_kitchen',
+    'user'     => 'root',
+    'password' => '',
+);

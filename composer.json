@@ -38,6 +38,7 @@
         "symfony/config"        : "2.1.*",
         "symfony/console"       : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
+        "doctrine/dbal"         : "2.3.*",
         "twitter/bootstrap"     : "2.1.1",
         "mheap/silex-assetic"   : "dev-master"
     },
