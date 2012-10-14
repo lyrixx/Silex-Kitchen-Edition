@@ -140,9 +140,7 @@
         {{ form_label(form, label|default(null)) }}
         <div class="controls">
             {{ form_widget(form) }}
-            {% if not compound %}
-                {{ form_errors(form) }}
-            {% endif %}
+            {{ form_errors(form) }}
         </div>
     </div>
 {% endspaceless %}
@@ -151,7 +149,7 @@
 {% block form_errors %}
 {% spaceless %}
     {% if errors|length > 0 %}
-    {% if form.parent %}<span class="help-inline">{% endif %}
+        {% if form.parent %}<span class="help-inline">{% else %}<div class="alert alert-error error" >{% endif %}
         <ul>
             {% for error in errors %}
                 <li>{{
@@ -161,24 +159,7 @@
                 }}</li>
             {% endfor %}
         </ul>
-    {% if form.parent %}</span>{% endif %}
+        {% if form.parent %}</span>{% else %}</div>{% endif %}
     {% endif %}
 {% endspaceless %}
 {% endblock form_errors %}
-
-{# Support #}
-
-{% block form_rows %}
-{% spaceless %}
-    {% if not form.parent and 0 < form_errors(form)|length %}
-        <div class="alert alert-error error" >
-            {{ form_errors(form) }}
-        </div>
-    {% else %}
-        {{ form_errors(form) }}
-    {% endif %}
-    {% for child in form %}
-        {{ form_row(child) }}
-    {% endfor %}
-{% endspaceless %}
-{% endblock form_rows %}
