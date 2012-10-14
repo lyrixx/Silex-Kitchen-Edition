@@ -4,7 +4,7 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-$console = new Application('Silex - Kitchen Edition');
+$console = new Application('Silex - Kitchen Edition', '0.1');
 
 $console
     ->register('assetic:dump')
