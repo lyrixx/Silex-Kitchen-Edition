@@ -13,6 +13,9 @@ $app['cache.path'] = __DIR__ . '/../cache';
 // Http cache
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
 
+// Twig cache
+$app['twig.options.cache'] = $app['cache.path'] . '/twig';
+
 // Assetic
 $app['assetic.enabled'] = true;
 $app['assetic.path_to_cache']       = $app['cache.path'] . '/assetic' ;
