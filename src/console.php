@@ -19,4 +19,16 @@ $console
     })
 ;
 
+$console
+    ->register('doctrine:schema:show')
+    ->setDescription('Output schema declaration')
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+        $schema = require __DIR__.'/../resources/db/schema.php';
+
+        foreach ($schema->toSql($app['db']->getDatabasePlatform()) as $sql) {
+            $output->writeln($sql.';');
+        }
+    })
+;
+
 return $console;
