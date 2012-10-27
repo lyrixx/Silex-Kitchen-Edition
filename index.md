@@ -10,7 +10,7 @@ tagline: A sample/base silex applications
 What is it
 ----------
 
-This project is a sample or a bootstrap silex applications.
+This project is a sample or a bootstrap silex application.
 You can use it for your next php application.
 
 ### HTML / CSS / Javascripts are powered by:
