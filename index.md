@@ -5,13 +5,15 @@ tagline: A sample/base silex applications
 ---
 {% include JB/setup %}
 
+[See project on github](https://github.com/lyrixx/Silex-Kitchen-Edition)
+
 What is it
 ----------
 
 This project is a sample or a bootstrap silex applications.
 You can use it for your next php application.
 
-### HTML / CSS / Javascripts are poweredby:
+### HTML / CSS / Javascripts are powered by:
 
 * [HTML5 boilerplate](http://html5boilerplate.com/)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) with form integration. **version 2.1**
