@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+      <title>{{ page.title }}</title>
+      {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+      <meta name="author" content="{{ site.author.name }}">
+      <meta name="viewport" content="width=device-width">
+
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap-responsive.min.css">
+      <link rel="stylesheet" href="{{ ASSET_PATH }}/css/main.css">
+
+      <script src="{{ ASSET_PATH }}/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    {% assign pages_list = site.pages %}
+                    {% assign group = 'navigation' %}
+                    {% include JB/pages_list %}
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="span10 offset1 content">
+          {{ content }}
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          &copy; <a href="http://gregoirepineau.fr">{{ site.author.name }}</a> 2012
+          <small>
+            with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+            and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </small>
+        </p>
+      </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ ASSET_PATH }}/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+    <script src="{{ ASSET_PATH }}/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ ASSET_PATH }}/js/main.js"></script>
+    {% include JB/analytics %}
+  </body>
+</html>

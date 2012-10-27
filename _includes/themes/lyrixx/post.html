@@ -1,9 +1,9 @@
 <div class="page-header">
-  <h1>{{ page.title }} <small>Supporting tagline</small></h1>
+  <h1>{{ page.title }}{% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span10">
     {{ content }}
     <hr>
     <div class="pagination">
@@ -24,7 +24,7 @@
     <hr>
     {% include JB/comments %}
   </div>
-  
+
   <div class="span4">
     <h4>Published</h4>
     <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
@@ -35,6 +35,6 @@
     {% assign tags_list = page.tags %}
     {% include JB/tags_list %}
     </ul>
-  {% endunless %}  
+  {% endunless %}
   </div>
 </div>
