@@ -35,8 +35,8 @@ You can use it for your next php application.
 Screeshots
 ----------
 
-![Form sample]({{ HOME_PATH }}/assets/img/form.jpg)
-![Homepage]({{ HOME_PATH }}/assets/img/hp.jpg)
+![Form sample]({{ BASE_PATH }}/assets/img/form.jpg)
+![Homepage]({{ BASE_PATH }}/assets/img/hp.jpg)
 
 Installation
 ------------
