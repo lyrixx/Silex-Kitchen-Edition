@@ -1,79 +1,13 @@
-Silex - Kitchen Edition
-=======================
+Silex - Kitchen Sink Edition
+============================
 
-See the [dedicated page on github](http://lyrixx.github.com/Silex-Kitchen-Edition/)
+This project is a sample or a bootstrap silex applications.
+You can use it for your next php application.
 
-This project is a sample base for your silex applications.
-
-It already embed :
-
-* HTML5 boilerplate (http://html5boilerplate.com/)
-* Twitter Bootstrap with form integration (http://twitter.github.com/bootstrap/) **version 2**
-* Few extensions :
-    * Assetics
-    * Doctrine
-    * Form
-    * Monolog
-    * Session
-    * SymfonyBrige
-    * Translation
-    * Twig
-    * UrlGenerator
-
-![Homepage](https://raw.github.com/lyrixx/Silex-Kitchen-Edition/master/resources/assets/img/hp.jpg)
-![Form sample](https://raw.github.com/lyrixx/Silex-Kitchen-Edition/master/resources/assets/img/form.jpg)
-
-Installation
-------------
-
-### Without git clone
-
-Run the following commands:
-
-    curl -s http://getcomposer.org/installer | php
-    php composer.phar create-project lyrixx/Silex-Kitchen-Edition PATH/TO/YOUR/APP
-    cd PATH/TO/YOUR/APP
-
-### With git clone
-
-Run the following commands:
-
-    git clone https://github.com/lyrixx/Silex-Kitchen-Edition.git PATH/TO/YOUR/APP
-    cd PATH/TO/YOUR/APP
-    curl -s http://getcomposer.org/installer | php
-    php composer.phar install
-
-### Then
-
-You can edit `resources/config/prod.php` and start hacking in `src/controllers.php`
-
-### Assets management
-
-Assets are auto generated in debug mode. Letting Assetic generate assets dynamically
-in a production environment is just too slow. Instead, each time you deploy your app
-in the production environment, you should dump assets using `./console assetic:dump`.
-
-Todo
-----
-
-* Extensions
-
-    * SwiftMailer
-
-Tests
------
+For more informations, see the
+[dedicated page](http://lyrixx.github.com/Silex-Kitchen-Edition).
 
 [![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png?branch=master)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
-
-Just run `phpunit`
-
-Sometimes, you have to run : `chmod 777 -R resources/cache/ web/assets/`,
-because CLI does not run with the same user as  [mod_php|php-fpm|.*].
-
-Help
-----
-
-* http://silex.sensiolabs.org/documentation
 
 Licence
 -------
