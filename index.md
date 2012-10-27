@@ -5,7 +5,7 @@ tagline: A sample/base silex applications
 ---
 {% include JB/setup %}
 
-[See project on github](https://github.com/lyrixx/Silex-Kitchen-Edition)
+[**See project on github**](https://github.com/lyrixx/Silex-Kitchen-Edition)
 
 What is it
 ----------
