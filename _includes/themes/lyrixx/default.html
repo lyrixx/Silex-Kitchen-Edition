@@ -25,7 +25,7 @@
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -39,6 +39,48 @@
                     {% assign pages_list = site.pages %}
                     {% assign group = 'navigation' %}
                     {% include JB/pages_list %}
+                  </ul>
+                  <ul class="nav pull-right">
+                    <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Other OSS project">
+                        Lyrixx
+                        <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a href="http://github.com/lyrixx/Silex-Kitchen-Edition" target="_blank">
+                            Silex Kitchen Edition
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://github.com/lyrixx/lifestream" target="_blank">
+                            Lifestream
+                          </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="nav-header">Follow me on</li>
+                        <li>
+                          <a href="http://github.com/lyrixx" target="_blank">
+                            Github
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://twitter.com/lyrixx" target="_blank">
+                            Twitter
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://gregoirepineau.fr" target="_blank">
+                            My Personal Homepage
+                          </a>
+                        </li>
+                        <li>
+                          <a href="http://gregoirepineau.fr" target="_blank">
+                            My Blog
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
                   </ul>
                 </div>
             </div>
