@@ -89,7 +89,7 @@ you may run : `chmod 777 -R resources/cache/ web/assets/`.
 Help
 ----
 
-* http://silex.sensiolabs.org/documentation
+* [silex doc](http://silex.sensiolabs.org/documentation)
 
 Licence
 -------
