@@ -1,7 +1,7 @@
 ---
 layout: page
-title : Silex kitchen Sink Edition
-tagline: A sample/base silex applications
+title : Silex Kitchen Sink Edition
+tagline: A sample/base silex application
 ---
 {% include JB/setup %}
 

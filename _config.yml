@@ -4,8 +4,8 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
 
-title : Silex kitchen Sink Edition
-tagline: A sample/base silex applications
+title : Silex Kitchen Sink Edition
+tagline: A sample/base silex application
 author :
   name : Grégoire Pineau
   email : lyrixx@lyrixx.info
