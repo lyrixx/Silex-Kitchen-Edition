@@ -11,20 +11,6 @@
             "email" : "lyrixx@lyrixx.info"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name"    : "twitter/bootstrap",
-                "version" : "2.1.1",
-                "source"  : {
-                    "url"       : "https://github.com/twitter/bootstrap.git",
-                    "type"      : "git",
-                    "reference" : "v2.1.1"
-                }
-            }
-        }
-    ],
     "require": {
         "php"                   : ">=5.3.3",
         "silex/silex"           : "dev-master",
@@ -39,7 +25,7 @@
         "symfony/console"       : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
         "doctrine/dbal"         : "2.3.*",
-        "twitter/bootstrap"     : "2.1.1",
+        "twitter/bootstrap"     : "v2.2.2",
         "mheap/silex-assetic"   : "dev-master"
     },
     "require-dev": {
