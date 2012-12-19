@@ -20,9 +20,7 @@ $app->register(new ValidatorServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
 
-$app->register(new TranslationServiceProvider(), array(
-    'locale' => $app['locale'],
-));
+$app->register(new TranslationServiceProvider());
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
@@ -30,8 +28,6 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 
     return $translator;
 }));
-// Temporarly hack
-$app['translator.domains'] = array();
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../resources/log/app.log',
