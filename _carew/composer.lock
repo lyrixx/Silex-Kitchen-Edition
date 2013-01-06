@@ -1,0 +1,727 @@
+{
+    "hash": "f7104f0b4930857c2d770b7484dfb62d",
+    "packages": [
+        {
+            "name": "carew/carew",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/carew/carew.git",
+                "reference": "5cb8eba960223be34dc7925db21695cbce25bdc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/carew/carew/archive/5cb8eba960223be34dc7925db21695cbce25bdc3.zip",
+                "reference": "5cb8eba960223be34dc7925db21695cbce25bdc3",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/markdown": ">=1.0,<2.0",
+                "kevinlebrun/slug.php": "*",
+                "pimple/pimple": ">=1.0,<2.0",
+                "symfony/console": ">=2.1,<3.0",
+                "symfony/event-dispatcher": ">=2.0,<3.0",
+                "symfony/filesystem": ">=2.1,<3.0",
+                "symfony/finder": ">=2.1,<3.0",
+                "symfony/yaml": ">=2.1,<3.0",
+                "twig/twig": ">=1.11.0,<2.0"
+            },
+            "time": "2013-01-06 15:55:31",
+            "bin": [
+                "bin/carew"
+            ],
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Carew": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
+                },
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info",
+                    "homepage": "http://gregoirepineau.fr"
+                }
+            ],
+            "description": "The tiny static site generator.",
+            "homepage": "http://carew.github.com/",
+            "keywords": [
+                "static-site-generator",
+                "carew"
+            ]
+        },
+        {
+            "name": "carew/plugin-highlight",
+            "version": "dev-master",
+            "target-dir": "Carew/Plugin/Highlight",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carew/plugin-highlight",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/carew/plugin-highlight/archive/v1.0.1.zip",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "carew/carew": "*",
+                "easybook/geshi": "dev-master@dev"
+            },
+            "time": "2013-01-05 22:21:12",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Carew\\Plugin\\Highlight": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info",
+                    "homepage": "http://gregoirepineau.fr"
+                }
+            ],
+            "description": "Highlight plugin for carew",
+            "homepage": "http://carew.github.com/",
+            "keywords": [
+                "carew"
+            ]
+        },
+        {
+            "name": "carew/plugin-toc",
+            "version": "dev-master",
+            "target-dir": "Carew/Plugin/Toc",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carew/plugin-toc",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/carew/plugin-toc/archive/v1.0.1.zip",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "carew/carew": "*"
+            },
+            "time": "2013-01-05 22:14:25",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Carew\\Plugin\\Toc": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info",
+                    "homepage": "http://gregoirepineau.fr"
+                }
+            ],
+            "description": "Toc plugin for carew",
+            "homepage": "http://carew.github.com/",
+            "keywords": [
+                "carew"
+            ]
+        },
+        {
+            "name": "carew/theme-bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/carew/theme-bootstrap.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/carew/theme-bootstrap/archive/v1.0.0.zip",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "carew/carew": "*"
+            },
+            "time": "2013-01-05 18:09:52",
+            "type": "library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info",
+                    "homepage": "http://gregoirepineau.fr"
+                }
+            ],
+            "description": "Twitter bootstrap theme for Carew"
+        },
+        {
+            "name": "dflydev/markdown",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-markdown.git",
+                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dflydev/dflydev-markdown/archive/11f8faa2d17f717a038b4d372abd22a6ac4a15dc.zip",
+                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "time": "2012-07-15 16:31:27",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "dflydev\\markdown": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dragonfly Development Inc.",
+                    "email": "info@dflydev.com",
+                    "homepage": "http://dflydev.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com",
+                    "homepage": "http://beausimensen.com"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "homepage": "http://michelf.com"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net"
+                }
+            ],
+            "description": "PHP Markdown & Extra",
+            "homepage": "http://github.com/dflydev/dflydev-markdown",
+            "keywords": [
+                "markdown"
+            ]
+        },
+        {
+            "name": "easybook/geshi",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javiereguiluz/geshi",
+                "reference": "6f5f9c621936faf90d92f355967604fe07f7a60f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/javiereguiluz/geshi/archive/6f5f9c621936faf90d92f355967604fe07f7a60f.zip",
+                "reference": "6f5f9c621936faf90d92f355967604fe07f7a60f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">4.3.0"
+            },
+            "time": "2012-09-28 10:33:45",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Benny Baumann",
+                    "email": "BenBE@geshi.org"
+                },
+                {
+                    "name": "Nigel McNie",
+                    "email": "nigel@geshi.org"
+                }
+            ],
+            "description": "GeSHi - Generic Syntax Highlighter. This is an unmodified port of GeSHi project code found on SourceForge.",
+            "homepage": "http://qbnz.com/highlighter",
+            "keywords": [
+                "syntax",
+                "highlight",
+                "highlighter"
+            ]
+        },
+        {
+            "name": "kevinlebrun/slug.php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinlebrun/slug.php",
+                "reference": "9190c5ccd64c1e1897e42b93ce1ebc88abbf2d9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kevinlebrun/slug.php/archive/9190c5ccd64c1e1897e42b93ce1ebc88abbf2d9d.zip",
+                "reference": "9190c5ccd64c1e1897e42b93ce1ebc88abbf2d9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "squizlabs/php_codesniffer": "1.*"
+            },
+            "time": "2012-12-04 20:50:19",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Slug": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Le Brun",
+                    "email": "lebrun.k@gmail.com",
+                    "homepage": "http://kevinlebrun.fr",
+                    "role": "developer"
+                }
+            ],
+            "description": "Slug helpers",
+            "homepage": "https://github.com/kevinlebrun/slug.php",
+            "keywords": [
+                "util",
+                "slug",
+                "helper",
+                "generate"
+            ]
+        },
+        {
+            "name": "lyrixx/my-theme-bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lyrixx/my-theme-bootstrap",
+                "reference": "298c389703e45f8ef63368b8a0007fecd19c3361"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/lyrixx/my-theme-bootstrap/archive/298c389703e45f8ef63368b8a0007fecd19c3361.zip",
+                "reference": "298c389703e45f8ef63368b8a0007fecd19c3361",
+                "shasum": ""
+            },
+            "require": {
+                "carew/carew": "*",
+                "carew/theme-bootstrap": "*"
+            },
+            "time": "2013-01-06 16:05:36",
+            "type": "library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info",
+                    "homepage": "http://gregoirepineau.fr"
+                }
+            ],
+            "description": "My Twitter bootstrap theme for Carew"
+        },
+        {
+            "name": "pimple/pimple",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fabpot/Pimple.git",
+                "reference": "f145dc796b76635e5419354e6d7dce4d6c8cd04d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/fabpot/Pimple/archive/f145dc796b76635e5419354e6d7dce4d6c8cd04d.zip",
+                "reference": "f145dc796b76635e5419354e6d7dce4d6c8cd04d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2013-01-04 16:53:43",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
+            "homepage": "http://pimple.sensiolabs.org",
+            "keywords": [
+                "dependency injection",
+                "container"
+            ]
+        },
+        {
+            "name": "symfony/console",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console",
+                "reference": "1f654c06c5b716d2ee0080e03f0e08915b2ad9b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Console/archive/1f654c06c5b716d2ee0080e03f0e08915b2ad9b1.zip",
+                "reference": "1f654c06c5b716d2ee0080e03f0e08915b2ad9b1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-06 10:18:09",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/EventDispatcher",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/EventDispatcher",
+                "reference": "0fcc9fa82fa3ea7ec2605af2e8137698fbaca3dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/EventDispatcher/archive/0fcc9fa82fa3ea7ec2605af2e8137698fbaca3dc.zip",
+                "reference": "0fcc9fa82fa3ea7ec2605af2e8137698fbaca3dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/dependency-injection": "2.2.*"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "2.2.*",
+                "symfony/http-kernel": "2.2.*"
+            },
+            "time": "2013-01-04 17:02:19",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Filesystem",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem",
+                "reference": "bd936471934f0a718bce5b057ae658079c71b97c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Filesystem/archive/bd936471934f0a718bce5b057ae658079c71b97c.zip",
+                "reference": "bd936471934f0a718bce5b057ae658079c71b97c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-05 17:52:40",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Finder",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Finder",
+                "reference": "f6def71f171a9c897d4abcbb653919f9bd01dc9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Finder/archive/f6def71f171a9c897d4abcbb653919f9bd01dc9d.zip",
+                "reference": "f6def71f171a9c897d4abcbb653919f9bd01dc9d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-04 16:58:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Finder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml",
+                "reference": "edec5d74dff258a3af1734c9870f3e7d7700e6a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Yaml/archive/edec5d74dff258a3af1734c9870f3e7d7700e6a0.zip",
+                "reference": "edec5d74dff258a3af1734c9870f3e7d7700e6a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-05 17:52:40",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "twig/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fabpot/Twig.git",
+                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/fabpot/Twig/archive/ddd4b732f9aa182edb54b89891c7fd25668354a4.zip",
+                "reference": "ddd4b732f9aa182edb54b89891c7fd25668354a4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "time": "2013-01-05 10:14:46",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.12-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ]
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": [
+
+    ]
+}
