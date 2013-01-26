@@ -42,7 +42,7 @@ Installation
 
 Run the following commands:
 
-    php composer.phar create-project lyrixx/Silex-Kitchen-Edition PATH/TO/YOUR/APP
+    php composer.phar create-project -s dev lyrixx/Silex-Kitchen-Edition PATH/TO/YOUR/APP
     cd PATH/TO/YOUR/APP
 
 ### With git
