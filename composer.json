@@ -35,7 +35,8 @@
     },
     "minimum-stability" : "dev",
     "scripts": {
-        "post-install-cmd": "SKE\\Composer\\Script::postInstall"
+        "post-install-cmd": "SKE\\Composer\\Script::install",
+        "post-update-cmd": "SKE\\Composer\\Script::install"
     },
     "autoload": {
         "psr-0": {

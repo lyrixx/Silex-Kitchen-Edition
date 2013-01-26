@@ -6,8 +6,7 @@ use Composer\Script\Event;
 
 class Script
 {
-
-    public static function postInstall(Event $event)
+    public static function install()
     {
         chmod('resources/cache', 0777);
         chmod('resources/log', 0777);
@@ -15,5 +14,4 @@ class Script
         chmod('console', 0500);
         exec('php console assetic:dump');
     }
-
 }
