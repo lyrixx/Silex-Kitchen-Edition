@@ -11,16 +11,11 @@
 
     <meta name="description" content="A sample/base silex application">
     <meta name="author" content="Grégoire Pineau">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
     
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/highlight.css">
-
-    
+    <link rel="stylesheet" href="./css/bootstrap.min.css"><link rel="stylesheet" href="./css/bootstrap-responsive.min.css"><link rel="stylesheet" href="./css/main.css"><link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/pojoaque.min.css">
     <script src="./js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
   </head>
 
@@ -29,8 +24,8 @@
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
 
-          <a href="https://github.com/lyrixx/Silex-Kitchen-Edition" target="_blank"><img style="position: fixed; top: 40px; left: 0; border: 0; z-index:10000" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
-  
+                <a href="https://github.com/lyrixx/Silex-Kitchen-Edition" target="_blank" class="hidden-tablet hidden-phone"><img style="position: fixed; top: 40px; left: 0; border: 0; z-index:10000" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
           <div class="navbar navbar-fixed-top">
           <div class="navbar-inner">
               <div class="container">
@@ -41,36 +36,34 @@
                   </a>
                   <a class="brand" href=".">Silex Kitchen Sink Edition</a>
                   <div class="nav-collapse collapse">
-                        <ul class="nav">
-                              <ul class="nav">
-                                              </ul>
-                    
-         <li class="divider-vertical"></li>
-                                    <li><a href="#what-is-it">What is it</a></li>
-                            <li><a href="#screeshots">Screeshots</a></li>
-                            <li><a href="#installation">Installation</a></li>
-                            <li><a href="#todo">Todo</a></li>
-                            <li><a href="#tests">Tests</a></li>
-                        </ul>
-                      <ul class="nav pull-right">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Other OSS project">
-        Lyrixx
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-                          <li><a href="http://carew.github.com" target="_blank">Carew</a></li>
-                  <li><a href="http://lyrixx.github.com/Silex-Kitchen-Edition/" target="_blank">Silex Kitchen Edition</a></li>
-                  <li><a href="http://lyrixx.github.com/lifestream/" target="_blank">Lifestream</a></li>
-                  <li><a href="http://lyrixx.github.com/Series/" target="_blank">Series</a></li>
-                <li class="divider"></li>
-        <li class="nav-header">Follow me on</li>
-                          <li><a href="http://github.com/lyrixx" target="_blank">Github</a></li>
-                  <li><a href="http://twitter.com/lyrixx" target="_blank">Twitter</a></li>
-                  <li><a href="http://blog.lyrixx.info" target="_blank">Blog</a></li>
-              </ul>
-    </li>
-  </ul>
+                    <ul class="nav">
+                                                                          
+    <li class="divider-vertical"></li>
+                        <li><a href="#what-is-it">What is it</a></li>
+                    <li><a href="#screeshots">Screeshots</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#todo">Todo</a></li>
+                    <li><a href="#tests">Tests</a></li>
+                                </ul>
+                        <ul class="nav pull-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Other OSS project">
+                Lyrixx
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                                                    <li><a href="http://carew.github.com" target="_blank">Carew</a></li>
+                                    <li><a href="http://lyrixx.github.com/Silex-Kitchen-Edition/" target="_blank">Silex Kitchen Edition</a></li>
+                                    <li><a href="http://lyrixx.github.com/lifestream/" target="_blank">Lifestream</a></li>
+                                    <li><a href="http://lyrixx.github.com/Series/" target="_blank">Series</a></li>
+                                <li class="divider"></li>
+                <li class="nav-header">Follow me on</li>
+                                                    <li><a href="http://github.com/lyrixx" target="_blank">Github</a></li>
+                                    <li><a href="http://twitter.com/lyrixx" target="_blank">Twitter</a></li>
+                                    <li><a href="http://blog.lyrixx.info" target="_blank">Blog</a></li>
+                            </ul>
+        </li>
+    </ul>
                   </div>
               </div>
           </div>
@@ -118,8 +111,9 @@ You can use it for your next php application.</p>
 
 <p>Run the following commands:</p>
 
-<pre class="php" style="font-family:monospace;">composer<span style="color: #339933;">.</span>phar create<span style="color: #339933;">-</span>project <span style="color: #339933;">-</span>s dev lyrixx<span style="color: #339933;">/</span>Silex<span style="color: #339933;">-</span>Kitchen<span style="color: #339933;">-</span>Edition PATH<span style="color: #339933;">/</span>TO<span style="color: #339933;">/</span>YOUR<span style="color: #339933;">/</span>APP
-cd PATH<span style="color: #339933;">/</span>TO<span style="color: #339933;">/</span>YOUR<span style="color: #339933;">/</span>APP</pre>
+<pre><code>php composer.phar create-project -s dev lyrixx/Silex-Kitchen-Edition PATH/TO/YOUR/APP
+cd PATH/TO/YOUR/APP
+</code></pre>
 
 <h3 id="with-git">With git<a href="#with-git" class="anchor">#</a></h3>
 
@@ -156,7 +150,8 @@ phpunit
 </code></pre>
 
 <p>If your web server do not run with the same user as your CLI,
-you may run : <code>chmod 777 -R resources/cache/ web/assets/</code>.</p>            </div>
+you may run : <code>chmod 777 -R resources/cache/ web/assets/</code>.</p>
+                                                        </div>
           </div>
         
                   <footer>
@@ -174,9 +169,5 @@ you may run : <code>chmod 777 -R resources/cache/ web/assets/</code>.</p>       
               </div>
     
     
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="./js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-    <script src="./js/vendor/bootstrap.min.js"></script>
-    <script src="./js/main.js"></script>
-      </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script><script>window.jQuery || document.write('<script src="./js/vendor/jquery-1.9.0.min.js"><\/script>')</script><script src="./js/vendor/bootstrap.min.js"></script><script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script type="text/javascript"></script>  </body>
 </html>
