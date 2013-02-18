@@ -9,9 +9,9 @@
             child,
             null,
             {
-                'in_choice_list': true,
-                'widget'        : form_widget(child),
-                'multiple'      : multiple,
+                in_choice_list: true,
+                widget        : form_widget(child),
+                multiple      : multiple,
             }
         ) }}
     {% endfor %}
@@ -26,8 +26,8 @@
         <div {{ block('widget_container_attributes') }}>
             {{ form_errors(form.date) }}
             {{ form_errors(form.time) }}
-            {{ form_widget(form.date, { 'datetime': true } ) }}&nbsp;
-            {{ form_widget(form.time, { 'datetime': true } ) }}
+            {{ form_widget(form.date, { datetime: true } ) }}&nbsp;
+            {{ form_widget(form.time, { datetime: true } ) }}
         </div>
     {% endif %}
 {% endspaceless %}
@@ -42,9 +42,9 @@
         <div {{ block('widget_container_attributes') }}>
         {% endif %}
             {{ date_pattern|replace({
-                '{{ year }}':  form_widget(form.year, {'attr': { 'class' : 'span1'} }),
-                '{{ month }}': form_widget(form.month, {'attr': { 'class' : 'span1'} }),
-                '{{ day }}':   form_widget(form.day, {'attr': { 'class' : 'span1' } }),
+                '{{ year }}':  form_widget(form.year, {attr: { class : 'span1'} }),
+                '{{ month }}': form_widget(form.month, {attr: { class : 'span1'} }),
+                '{{ day }}':   form_widget(form.day, {attr: { class : 'span1' } }),
             })|raw }}
         {% if datetime is not defined or false == datetime %}
         </div>
@@ -61,7 +61,7 @@
         {% if datetime is not defined or false == datetime %}
         <div {{ block('widget_container_attributes') }}>
         {% endif %}
-            {{ form_widget(form.hour, { 'attr': { 'class' : 'span1' } }) }}:{{ form_widget(form.minute, { 'attr': { 'class' : 'span1' } }) }}{% if with_seconds %}:{{ form_widget(form.second, { 'attr': { 'class' : 'span1' } }) }}{% endif %}
+            {{ form_widget(form.hour, { attr: { class : 'span1' } }) }}:{{ form_widget(form.minute, { attr: { class : 'span1' } }) }}{% if with_seconds %}:{{ form_widget(form.second, { attr: { class : 'span1' } }) }}{% endif %}
         {% if datetime is not defined or false == datetime %}
         </div>
         {% endif %}
@@ -105,19 +105,19 @@
 {% spaceless %}
     {% if in_choice_list is defined and in_choice_list and widget is defined %}
         {% if not compound %}
-            {% set label_attr = label_attr|merge({'for': id}) %}
+            {% set label_attr = label_attr|merge({for: id}) %}
         {% endif %}
         {% if required %}
-            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
         {% endif %}
         {% if label is empty %}
             {% set label = name|humanize %}
         {% endif %}
 
         {% if multiple is defined and multiple %}
-            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' checkbox')|trim}) %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' checkbox')|trim}) %}
         {% elseif multiple is defined and not multiple %}
-            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' radio')|trim}) %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' radio')|trim}) %}
         {% endif %}
         <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
             {{ widget|raw }}
@@ -126,7 +126,7 @@
             </span>
         </label>
     {% else %}
-        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
+        {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' control-label')|trim}) %}
         {{ parent() }}
     {% endif %}
 {% endspaceless %}
