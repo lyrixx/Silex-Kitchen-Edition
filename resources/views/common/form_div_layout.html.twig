@@ -1,3 +1,5 @@
+{% extends "form_div_layout.html.twig" %}
+
 {# Widgets #}
 
 {% block choice_widget_expanded %}
@@ -90,9 +92,8 @@
 
 {% block percent_widget %}
 {% spaceless %}
-    {% set type = type|default('text') %}
     <div class="input-append">
-        {{ block('form_widget_simple') }}
+        {{ parent() }}
         <span class="add-on">%</span>
     </div>
 {% endspaceless %}
@@ -102,18 +103,17 @@
 
 {% block form_label %}
 {% spaceless %}
-    {% if not compound %}
-        {% set label_attr = label_attr|merge({'for': id}) %}
-    {% endif %}
-    {% if required %}
-        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
-    {% endif %}
-
-    {% if label is empty %}
-        {% set label = name|humanize %}
-    {% endif %}
-
     {% if in_choice_list is defined and in_choice_list and widget is defined %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+
         {% if multiple is defined and multiple %}
             {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' checkbox')|trim}) %}
         {% elseif multiple is defined and not multiple %}
@@ -127,7 +127,7 @@
         </label>
     {% else %}
         {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label')|trim}) %}
-        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+        {{ parent() }}
     {% endif %}
 {% endspaceless %}
 {% endblock form_label %}
@@ -149,17 +149,9 @@
 {% block form_errors %}
 {% spaceless %}
     {% if errors|length > 0 %}
-        {% if form.parent %}<span class="help-inline">{% else %}<div class="alert alert-error error" >{% endif %}
-        <ul>
-            {% for error in errors %}
-                <li>{{
-                    error.messagePluralization is null
-                        ? error.messageTemplate|trans(error.messageParameters, 'validators')
-                        : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
-                }}</li>
-            {% endfor %}
-        </ul>
-        {% if form.parent %}</span>{% else %}</div>{% endif %}
+    {% if form.parent %}<span class="help-inline">{% else %}<div class="alert alert-error error" >{% endif %}
+        {{ parent() }}
+    {% if form.parent %}</span>{% else %}</div>{% endif %}
     {% endif %}
 {% endspaceless %}
 {% endblock form_errors %}
