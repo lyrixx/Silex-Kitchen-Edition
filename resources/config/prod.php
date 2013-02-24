@@ -1,6 +1,6 @@
 <?php
 
-// Local
+// Locale
 $app['locale'] = 'fr';
 $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
@@ -32,9 +32,42 @@ $app['assetic.filter.yui_compressor.path'] = '/usr/share/yui-compressor/yui-comp
 
 // Doctrine (db)
 $app['db.options'] = array(
+    'driver'    => 'pdo_sqlite',
+    'path'      => __DIR__ . '/../db/prod.db',
+/*
     'driver'   => 'pdo_mysql',
     'host'     => 'localhost',
-    'dbname'   => 'silex_kitchen',
+    'dbname'   => 'phplive',
     'user'     => 'root',
     'password' => '',
+*/
 );
+
+// Security
+$app['security.firewalls'] = array(
+    'login' => array('pattern' => '^/login$','anonymous'=>true), // Example of an url available as anonymous user
+    //'infos' => array('pattern' => '^/phpinfo$','anonymous' => true),
+    //'encode' => array('pattern' => '^/encode$','anonymous' => true),
+    'default' => array(
+        'pattern' => '^.*$',
+        //'anonymous' => true,
+        'form' => array('login_path' => '/login', 'check_path' => 'login_check'),
+        'logout' => array('logout_path' => '/logout'), // url to call for logging out
+        'users' => $app->share(function() use ($app) {
+            return new Oclane\UserProvider($app['db']);
+        }),
+    ),
+);
+
+$app['security.access_rules'] = array(
+    // You can rename ROLE_USER as you wish
+    array('^/login$', ''), // This url is available as anonymous user
+    //array('^/phpinfo$',''),
+    //array('^/encode$',''),
+    array('^/.+$', 'ROLE_USER'),
+);
+
+$app['security.role_hierarchy'] = array(
+    'ROLE_ADMIN' => array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'),
+);
+

@@ -5,8 +5,12 @@
 
     <h1>{{ 'Login'|trans }}</h1>
 
-    <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-vertical">
-        {{ form_widget(form) }}
+    <form action="{{ path('login_check') }}" method="post" novalidate class="form-vertical">
+        {{ error }}
+        <label for="_username">Username:</label>
+        <input type="text" id="_username" name="_username" value="{{ last_username }}" />
+        <label for="_password">Password:</label>
+        <input type="password" id="_password" name="_password" value="" />
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">{{ 'Send'|trans }}</button>
         </div>

@@ -89,5 +89,6 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
 }
 
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+$app->register(new Silex\Provider\SecurityServiceProvider());
 
 return $app;

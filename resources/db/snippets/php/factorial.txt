@@ -1,0 +1,19 @@
+function f($n) {
+    static $level=0;
+    $s = str_pad('',$level,'.');
+    if($n<=1) {
+        echo "< $s 1\n";
+        return 1;
+    }
+    else {
+        $level++;
+        $next = $n-1;
+        echo "> $s $n x f($next)\n";
+        $val = $n * f($n-1);
+        echo "< $s $val\n";
+        $level--;
+        return $val;
+    }
+}
+echo "-- Recursive walk for Factorial 15:\n";
+echo '<b>' . f(15) . '</b>';

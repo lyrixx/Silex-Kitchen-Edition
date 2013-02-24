@@ -1,0 +1,1 @@
+SELECT CAST (1+0.006*substr(abs(random()),-3) AS INTEGER);
