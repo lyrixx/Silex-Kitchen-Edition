@@ -5,8 +5,16 @@ Based on a fork of the [Silex-Kitchen-Edition](http://lyrixx.github.com/Silex-Ki
 utility to quickly test PHP, SQL and Javascript snippets, saving them
 in db for later use, etc.
 
+For more information, see the [**dedicated page**](http://electrolinux.github.com/PhpLive).
+
 Installation
 ------------
+
+* with composer
+
+```bash
+php composer.phar create-project -s dev electrolinux/phplive PATH/TO/YOUR/APP
+```
 
 * with git
 

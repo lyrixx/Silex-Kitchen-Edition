@@ -11,7 +11,7 @@ function f($n) {
     }
     return $t["$n"];
 }
-echo "-- calculating the fobonacci sequence to 18 using memoization:\n";
+echo "-- calculating the fibonacci sequence to 18 using memoization:\n";
 $sep='';
 for($x=1;$x <=18;$x++) {
 echo $sep . f($x) ;
