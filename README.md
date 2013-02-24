@@ -25,7 +25,7 @@ Edit 'resources/config/prod.php' if you want a different db, then
 ```bash
 php console doctrine:database:create
 php console doctrine:schema:load
-php console user:add
+php console user:create
 php console snippet:load --force
 ```
 
