@@ -1,5 +1,5 @@
 {
-    "name"        : "electrolinux/PhpLive",
+    "name"        : "electrolinux/phplive",
     "type"        : "utility",
     "description" : "A PHP,SQL,Javascript live interpreter based on the Silex-Kitchen-Edition.",
     "keywords"    : ["framework","tool"],
