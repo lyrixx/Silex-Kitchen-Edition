@@ -2,8 +2,6 @@
 
 namespace SKE\Composer;
 
-use Composer\Script\Event;
-
 class Script
 {
     public static function install()

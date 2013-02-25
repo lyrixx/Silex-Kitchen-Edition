@@ -14,19 +14,18 @@ if (!$schema->tablesExist('snippet')) {
     throw new \Exception("table snippet don't exists !!");
 }
 $db = $app['db'];
-//$db->delete('snippet');
 $db->executeQuery('DELETE FROM snippet');
 
 $finder = new Finder();
 $finder->files()
     ->ignoreVCS(true)
     ->name('*.txt')
-    ->notName('Compiler.php')
+    ->notName('*~')
     ->in(__DIR__.'/snippets')
 ;
-$php = new Snippet($db,'php');
-$sql = new Snippet($db,'sql');
-$js = new Snippet($db,'js');
+$php = new Snippet($db);
+$sql = new SnippetSql($db);
+$js = new SnippetJs($db);
 
 foreach ($finder as $file) {
     $name = str_replace('.txt','',basename($file));
@@ -35,12 +34,9 @@ foreach ($finder as $file) {
     echo "$interp: $name\n";
     if ($interp == 'php') {
         $php->add($name,$code);
-    }
-    elseif ($interp == 'sql') {
+    } elseif ($interp == 'sql') {
         $sql->add($name,$code);
-    }
-    elseif ($interp = 'js') {
+    } elseif ($interp = 'js') {
         $js->add($name,$code);
     }
 }
-

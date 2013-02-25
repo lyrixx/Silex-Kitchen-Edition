@@ -23,6 +23,7 @@ class Interpreter
         eval($code);
         $resultat = ob_get_contents();
         ob_end_clean();
+
         return ($resultat);
     }
 
@@ -38,42 +39,32 @@ class Interpreter
 
         $decl = preg_split('/;/',$code);
         $resultat = '';
-        foreach($decl as $sql)
-        {
+        foreach ($decl as $sql) {
             $sql=trim($sql);
             if(empty($sql)) continue;
 
             $resultat .= '<code>' . $sql . '</code><br />' . "\n";
-            if ($this->isExec($sql))
-            {
-                try
-                {
+            if ($this->isExec($sql)) {
+                try {
                     $res = $db->executeQuery($sql);
-                    if($res === false)
-                    {
+                    if ($res === false) {
                         $errinfo = $db->errorInfo();
                         $resultat .= '<b>Ooops (1)...: ['.$errinfo[0].'] ('.
                             $errinfo[1].') '.$errinfo[2].'</b>';
+
                         return $resultat;
-                    }
-                    else
-                    {
+                    } else {
                         $resultat .= '<p class="ok">' . $res->fetch() . '</p>';
                     }
-                }
-                catch(DBALException $e)
-                {
+                } catch (DBALException $e) {
                     $resultat .= '<p class="error">Ooops...(2) : ' . $e->getMessage() . '</p>';
+
                     return $resultat;
                 }
-            }
-            else
-            {
-                try
-                {
+            } else {
+                try {
                     $res = $db->fetchAll($sql);
-                    if($res === false)
-                    {
+                    if ($res === false) {
                         $errinfo = $db->errorInfo();
                         $resultat .= '<b>Oops...(3) : ['.$errinfo[0].'] ('.
                             $errinfo[1].') '.$errinfo[2].'</b>';
@@ -81,14 +72,14 @@ class Interpreter
                         return $resultat;
                     }
                     $resultat .= $this->asTable($res);
-                }
-                catch(DBALException $e)
-                {
+                } catch (DBALException $e) {
                     $resultat .= '<p class="error">Ooops...(4) : ' . $e->getMessage() . '</p>';
+
                     return $resultat;
                 }
             }
         }
+
         return $resultat;
     }
 
@@ -102,12 +93,13 @@ class Interpreter
         //$_exec = array_map('__word_iregex',array('drop','create','insert','update','delete','alter'));
         $words = array('drop','create','insert','update','delete','alter');
 
-        foreach($words as $word)
-        {
+        foreach ($words as $word) {
             if(preg_match('/\b'.$word.'\b/i',$sql))
+
                 return true;
         }
         /*if(preg_match('/\bselect\b/i',$sql) and !preg_match('/\bfrom\b/i',$sql))
+
             return true;*/
         return false;
     }
@@ -118,10 +110,8 @@ class Interpreter
         $body = '';
         $classes = array('paire','impaire');
         $x = 0;
-        foreach($result as $row)
-        {
-            if(empty($head))
-            {
+        foreach ($result as $row) {
+            if (empty($head)) {
                 $head = '<tr><th>' .
                     implode('</th><th>',array_keys($row)) . '</th></tr>' . "\n";
             }
@@ -129,6 +119,7 @@ class Interpreter
             $body .= '<tr class="'.$css.'"><td>' .
                 implode('</td><td>',array_values($row)) . '</td></tr>' . "\n";
         }
+
         return '<table cellpadding="1" cellspacing="1" border="0">' . "\n" .
             '<thead>' . $head . '</thead>' . "\n" .
             '<tbody>' . $body . '</tbody>' . "\n" . '</table>' . "\n";

@@ -176,8 +176,7 @@ EOT
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
         if ($input->getOption('force')) {
             require __DIR__.'/../resources/db/snippet_load.php';
-        }
-        else {
+        } else {
             $output->writeln('<error>ATTENTION:</error> This operation should not be executed in a production environment.');
             $output->writeln('');
             $output->writeln('<info>Would drop all snippets in the database.</info>');

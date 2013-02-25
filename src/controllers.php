@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Form\FormError;
 
 //use Oclane\Interpreter;
 //use Oclane\Snippet;
@@ -47,39 +46,36 @@ $app->match('/', function() use ($app) {
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
                 $resultat = $interp->evalPhp($code);
-            }
-            elseif($save) {
+            } elseif ($save) {
                 $name = $form->get('name')->getData();
                 if (!empty($name) && !empty($code)) {
                     $snippet->add($name,$code);
                     $resultat="snippet '$name' saved";
                     $app['session']->setFlash('success', $resultat);
+
                     return $app->redirect($app['url_generator']->generate('homepage'));
-                }
-                else {
+                } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
                 }
             }
         }
     }
-    if(empty($resultat))
-    {
+    if (empty($resultat)) {
         $resultat = '<h2>Welcome to PHPLive !</h2>';
         $pre = false;
     }
-    if ($pre)
-    {
+    if ($pre) {
         $resultat = "<pre>\n$resultat\n</pre>";
     }
 
     $bloc_resultat = "\n<div class=\"result\">$resultat</div>\n";
 
     return $app['twig']->render('index.html.twig',array(
-		'page_title' => 'Versatile interpretor, PHP mode',
-		'form' => $form->createView(),
+        'page_title' => 'Versatile interpretor, PHP mode',
+        'form' => $form->createView(),
         'snippets' => $snippets,
-		'bloc_resultat' => $bloc_resultat,
-		)
+        'bloc_resultat' => $bloc_resultat,
+        )
     );
 })->bind('homepage');
 
@@ -115,23 +111,21 @@ $app->match('/javascript', function() use ($app) {
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
                 $resultat = $interp->evalJs($code);
-            }
-            elseif($save) {
+            } elseif ($save) {
                 $name = $form->get('name')->getData();
                 if (!empty($name) && !empty($code)) {
                     $snippet->add($name,$code);
                     $resultat="snippet '$name' saved";
                     $app['session']->setFlash('success', $resultat);
+
                     return $app->redirect($app['url_generator']->generate('jscript'));
-                }
-                else {
+                } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
                 }
             }
          }
     }
-    if(empty($resultat))
-    {
+    if (empty($resultat)) {
         $resultat = '
             <script type="text/javascript">
                 document.write("<h2>Welcome to PHPLive !</h2>");
@@ -141,11 +135,11 @@ $app->match('/javascript', function() use ($app) {
 
     return $app['twig']->render('index.html.twig',array(
         'active' => 'jscript',
-		'page_title' => 'Versatile interpretor, Javascript mode',
-		'form' => $form->createView(),
+        'page_title' => 'Versatile interpretor, Javascript mode',
+        'form' => $form->createView(),
         'snippets' => $snippets,
-		'bloc_resultat' => $bloc_resultat,
-		)
+        'bloc_resultat' => $bloc_resultat,
+        )
     );
 })->bind('jscript');
 
@@ -181,34 +175,32 @@ $app->match('/sql', function() use ($app) {
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
                 $resultat = $interp->evalSql($code);
-            }
-            elseif($save) {
+            } elseif ($save) {
                 $name = $form->get('name')->getData();
                 if (!empty($name) && !empty($code)) {
                     $snippet->add($name,$code);
                     $resultat="snippet '$name' saved";
                     $app['session']->setFlash('success', $resultat);
+
                     return $app->redirect($app['url_generator']->generate('sql'));
-                }
-                else {
+                } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
                 }
             }
          }
     }
-    if(empty($resultat))
-    {
+    if (empty($resultat)) {
         $resultat = 'No default result for SQL...';
     }
     $bloc_resultat = "\n<div class=\"result\">$resultat</div>\n";
 
     return $app['twig']->render('index.html.twig',array(
         'active' => 'sql',
-		'page_title' => 'Versatile interpretor, SQL mode',
-		'form' => $form->createView(),
+        'page_title' => 'Versatile interpretor, SQL mode',
+        'form' => $form->createView(),
         'snippets' => $snippets,
-		'bloc_resultat' => $bloc_resultat,
-		)
+        'bloc_resultat' => $bloc_resultat,
+        )
     );
 })->bind('sql');
 
@@ -240,6 +232,7 @@ $app->match('/encode', function() use ($app) {
 
 $app->match('/login', function() use ($app) {
     $request = $app['request'];
+
     return $app['twig']->render('login.html.twig', array(
         'error' => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
@@ -253,7 +246,7 @@ $app->match('/logout', function() use ($app) {
     return $app->redirect($app['url_generator']->generate('homepage'));
 })->bind('logout');
 
-$app->get('/phpinfo', function() use ($app)  {
+$app->get('/phpinfo', function() use ($app) {
 
     ob_start();
     phpinfo();
@@ -266,6 +259,7 @@ $app->get('/phpinfo', function() use ($app)  {
     $parts = explode('<body>',$info);
     $parts = explode('</body>',$parts[1]);
     $info = preg_replace('#,\b#',', ',$parts[0]);
+
     return $app['twig']->render('phpinfo.html.twig', array(
         'info' => $info,
         )
@@ -274,8 +268,7 @@ $app->get('/phpinfo', function() use ($app)  {
 })
 ->bind('phpinfo');
 
-$app->get('/doc', function() use ($app)  {
-
+$app->get('/doc', function() use ($app) {
     return $app['twig']->render('doc.html.twig');
 
 })

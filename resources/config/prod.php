@@ -70,4 +70,3 @@ $app['security.access_rules'] = array(
 $app['security.role_hierarchy'] = array(
     'ROLE_ADMIN' => array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'),
 );
-
