@@ -17,7 +17,7 @@ class Interpreter
         $this->app = $app;
     }
 
-    public function code_php($code)
+    public function evalPhp($code)
     {
         ob_start();
         eval($code);
@@ -26,13 +26,13 @@ class Interpreter
         return ($resultat);
     }
 
-    public function code_js($code)
+    public function evalJs($code)
     {
         // version minimale
         return '<script type="text/javascript">' . $code . '</script>';
     }
 
-    public function code_sql($code)
+    public function evalSql($code)
     {
         $db = $this->app['db'];
 
@@ -44,7 +44,7 @@ class Interpreter
             if(empty($sql)) continue;
 
             $resultat .= '<code>' . $sql . '</code><br />' . "\n";
-            if ($this->__is_exec($sql))
+            if ($this->isExec($sql))
             {
                 try
                 {
@@ -80,7 +80,7 @@ class Interpreter
 
                         return $resultat;
                     }
-                    $resultat .= $this->as_table($res);
+                    $resultat .= $this->asTable($res);
                 }
                 catch(DBALException $e)
                 {
@@ -97,7 +97,7 @@ class Interpreter
         return '/\b' . $arg . '\b/i';
     }*/
 
-    protected function __is_exec($sql)
+    protected function isExec($sql)
     {
         //$_exec = array_map('__word_iregex',array('drop','create','insert','update','delete','alter'));
         $words = array('drop','create','insert','update','delete','alter');
@@ -112,7 +112,7 @@ class Interpreter
         return false;
     }
 
-    protected function as_table($result)
+    protected function asTable($result)
     {
         $head = '';
         $body = '';

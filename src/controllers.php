@@ -1,47 +1,22 @@
 <?php
 
+namespace Oclane;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormError;
 
-use Oclane\Interpreter;
-use Oclane\Snippet;
+//use Oclane\Interpreter;
+//use Oclane\Snippet;
 
 /*--------------------------------------------------------------------*
  * home (php)
  *--------------------------------------------------------------------*/
 $app->match('/', function() use ($app) {
-    /*$app['session']->setFlash('warning', 'Warning flash message');
-    $app['session']->setFlash('info', 'Info flash message');
-    $app['session']->setFlash('success', 'Success flash message');
-    $app['session']->setFlash('error', 'Error flash message');*/
-    $snippet = new Snippet($app['db'],'php');
-    $snippets=array();
-    $options=array(''=>'PHP Snippet...');
-	foreach($snippet->getAll() as $row)
-	{
-		$_val = $row['name'];
-		$_text = $row['code'];
-		$rows = preg_split("/(\n|\r)+/",$_text);
-		$safe_rows = array_map('addslashes',$rows);
-		$_name = $safe_rows[0];
-		if(strlen($_name) > 20)
-		{
-			$parts = explode("\n",wordwrap($_name, 20, "\n", 1));
-			$_name = $parts[0];
-			if(1) {
-			echo '<!-- $parts: ' ."\n";
-			var_dump($parts);
-			echo '$_name : ' . "$_name -->\n";
-			}
-		}
-		//$options["$_val : $_name"]=$_val;
-		$options[$_val] = "$_val : $_name";
-		$snippets[$_val]=implode('\n',$safe_rows);
-	}
-
+    $snippet = new Snippet($app['db']);
+    list($options,$snippets) = $snippet->getOptionsList();
 
     $resultat='';
     $form = $app['form.factory']->createBuilder('form')
@@ -71,7 +46,7 @@ $app->match('/', function() use ($app) {
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
-                $resultat = $interp->code_php($code);
+                $resultat = $interp->evalPhp($code);
             }
             elseif($save) {
                 $name = $form->get('name')->getData();
@@ -112,31 +87,8 @@ $app->match('/', function() use ($app) {
  * javascript
  *--------------------------------------------------------------------*/
 $app->match('/javascript', function() use ($app) {
-    $snippet = new Snippet($app['db'],'js');
-    $snippets=array();
-    $options=array(''=>'Javascript Snippet...');
-	foreach($snippet->getAll() as $row)
-	{
-		$_val = $row['name'];
-		$_text = $row['code'];
-		$rows = preg_split("/(\n|\r)+/",$_text);
-		$safe_rows = array_map('addslashes',$rows);
-		$_name = $safe_rows[0];
-		if(strlen($_name) > 20)
-		{
-			$parts = explode("\n",wordwrap($_name, 20, "\n", 1));
-			$_name = $parts[0];
-			if(1) {
-			echo '<!-- $parts: ' ."\n";
-			var_dump($parts);
-			echo '$_name : ' . "$_name -->\n";
-			}
-		}
-		//$options["$_val : $_name"]=$_val;
-		$options[$_val] = "$_val : $_name";
-		$snippets[$_val]=implode('\n',$safe_rows);
-	}
-
+    $snippet = new SnippetJs($app['db']);
+    list($options,$snippets) = $snippet->getOptionsList();
 
     $resultat='';
     $form = $app['form.factory']->createBuilder('form')
@@ -162,7 +114,7 @@ $app->match('/javascript', function() use ($app) {
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
-                $resultat = $interp->code_js($code);
+                $resultat = $interp->evalJs($code);
             }
             elseif($save) {
                 $name = $form->get('name')->getData();
@@ -201,31 +153,8 @@ $app->match('/javascript', function() use ($app) {
  * SQL
  *--------------------------------------------------------------------*/
 $app->match('/sql', function() use ($app) {
-    $snippet = new Snippet($app['db'],'sql');
-    $snippets=array();
-    $options=array(''=>'SQL Snippet...');
-	foreach($snippet->getAll() as $row)
-	{
-		$_val = $row['name'];
-		$_text = $row['code'];
-		$rows = preg_split("/(\n|\r)+/",$_text);
-		$safe_rows = array_map('addslashes',$rows);
-		$_name = $safe_rows[0];
-		if(strlen($_name) > 20)
-		{
-			$parts = explode("\n",wordwrap($_name, 20, "\n", 1));
-			$_name = $parts[0];
-			if(1) {
-			echo '<!-- $parts: ' ."\n";
-			var_dump($parts);
-			echo '$_name : ' . "$_name -->\n";
-			}
-		}
-		//$options["$_val : $_name"]=$_val;
-		$options[$_val] = "$_val : $_name";
-		$snippets[$_val]=implode('\n',$safe_rows);
-	}
-
+    $snippet = new SnippetSql($app['db']);
+    list($options,$snippets) = $snippet->getOptionsList();
 
     $resultat='';
     $form = $app['form.factory']->createBuilder('form')
@@ -251,7 +180,7 @@ $app->match('/sql', function() use ($app) {
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
             if ($test) {
-                $resultat = $interp->code_sql($code);
+                $resultat = $interp->evalSql($code);
             }
             elseif($save) {
                 $name = $form->get('name')->getData();

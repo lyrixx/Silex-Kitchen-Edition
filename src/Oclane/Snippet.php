@@ -10,21 +10,22 @@ use Doctrine\DBAL\DBALException;
 class Snippet
 {
 	protected $db;
-    protected $interp;
+    protected $interp = 'php';
+    protected $qinterp;
+    protected $name = 'PHP';
 
 	protected $_error;
-	protected $_interps = array('php','sql','js');
 
-	function __construct($db,$interp='php')
+	function __construct($db)
 	{
         $this->db = $db;
-		$this->interp = in_array($interp,$this->_interps) ? $interp : 'php';
+		$this->qinterp = $db->quote($this->interp);
 	}
 
 	function getAll()
 	{
 		$db = $this->db;
-		$qinterp = $db->quote($this->interp);
+		$qinterp = $this->qinterp;
 		try
 		{
 			$res = $db->fetchAll("SELECT id, name, code, rows, comment
@@ -36,7 +37,7 @@ class Snippet
 			return array();
 
 		}
-		catch(PDOException $e)
+		catch(DBALException $e)
 		{
 			$this->_error = $e->getMessage();
 			return array();
@@ -47,13 +48,12 @@ class Snippet
 	{
 		$db = $this->db;
 		$qname = $db->quote($name);
-		$qinterp = $db->quote($this->interp);
-		//$qcode = $pdo->quote(preg_replace("/(\n|\r)+/","\r",$code));
+		$qinterp = $this->qinterp;
 		$qcode = $db->quote($code);
 		$qcomment = $db->quote($comment);
 		$lignes = preg_split("/(\n|\r)+/",$code);
 		$rows=count($lignes);
-		if(0) {
+		if(false) {
 			$safe_lignes = array_map('addslashes',$rows);
 			$js = "xxx='".implode('\n',$safe_lignes)."';\n";
 			print("<pre>code=[ $code ]\n----\nqcode=[ $qcode ]\n----\njs=[ ".$js." ]\n");
@@ -90,8 +90,7 @@ class Snippet
 		try
 		{
 			$qname = $db->quote($name);
-			$qinterp = $db->quote($this->interp);
-			//$qcode = $pdo->quote(preg_replace("/(\n|\r)+/","\r",$code));
+			$qinterp = $this->qinterp;
 			$qcode = $db->quote($code);
 			$qcomment = $db->quote($comment);
 			$_rows = preg_split("/(\n|\r)+/",$code);
@@ -116,13 +115,13 @@ class Snippet
 		}
 	}
 
-	function del($name,$interp)
+	function del($name)
 	{
 		$db = $this->db;
 		try
 		{
 			$qname = $db->quote($name);
-			$qinterp = $db->quote($interp);
+			$qinterp = $this->qinterp;
 			$res = $db->executeQuery("DELETE FROM snippet WHERE name=$qname AND interp=$qinterp");
 			if($res)
 				return True;
@@ -140,8 +139,35 @@ class Snippet
 		}
 	}
 
-	function getError()
+	protected function getError()
 	{
 		return $this->_error;
 	}
+
+    public function getOptionsList()
+    {
+        $snippets=array();
+        $options=array(''=>$this->name . ' Snippet...');
+        foreach($this->getAll() as $row)
+        {
+            $_val = $row['name'];
+            $_text = $row['code'];
+            $rows = preg_split("/(\n|\r)+/",$_text);
+            $safe_rows = array_map('addslashes',$rows);
+            $_name = $safe_rows[0];
+            if(strlen($_name) > 20)
+            {
+                $parts = explode("\n",wordwrap($_name, 20, "\n", 1));
+                $_name = $parts[0];
+                if(false) {
+                    echo '<!-- $parts: ' ."\n";
+                    var_dump($parts);
+                    echo '$_name : ' . "$_name -->\n";
+                }
+            }
+            $options[$_val] = "$_val : $_name";
+            $snippets[$_val]=implode('\n',$safe_rows);
+        }
+        return array($options,$snippets);
+    }
 }
