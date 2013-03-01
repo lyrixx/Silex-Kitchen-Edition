@@ -16,9 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 $app->match('/', function() use ($app) {
     $snippet = new Snippet($app['db']);
     list($options,$snippets) = $snippet->getOptionsList();
+    $api_key = $app['user_api_key'];
 
     $resultat='';
-    $form = $app['form.factory']->createBuilder('form')
+    $form = $app['form.factory']->createBuilder('form',array('api_key'=>$api_key))
         ->add('code', 'textarea', array(
                 'label'      => 'Code',
                 'attr' => array('rows'=>10,'style'=>'width:100%')
@@ -32,6 +33,7 @@ $app->match('/', function() use ($app) {
             'multiple' => false,
             'expanded' => false
         ))
+        ->add('api_key','hidden')
         ->getForm()
     ;
 
@@ -42,10 +44,15 @@ $app->match('/', function() use ($app) {
             $interp = new Interpreter($app);
             $pre = $form->get('pre')->getData();
             $code = $form->get('code')->getData();
+            $key = $form->get('api_key')->getData();
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
+            $pastebin = array_key_exists('pastebin',$_POST);
             if ($test) {
                 $resultat = $interp->evalPhp($code);
+                if (empty($resultat)) {
+                    $resultat = '<strong>## Error evaling your code !! (empty result)</strong>';
+                }
             } elseif ($save) {
                 $name = $form->get('name')->getData();
                 if (!empty($name) && !empty($code)) {
@@ -56,6 +63,21 @@ $app->match('/', function() use ($app) {
                     return $app->redirect($app['url_generator']->generate('homepage'));
                 } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
+                }
+            } elseif ($pastebin) {
+                $name = $form->get('name')->getData();
+                if (!empty($code)) {
+                    $pb = $app['pastebin'];
+                    $resultat = $pb->postCode($key,'php',$code,$name);
+                    if (preg_match('/^Bad API request/',$resultat)) {
+                        $app['session']->setFlash('error', $resultat);
+                    } else {
+                        $app['session']->setFlash('success', "<a href=\"$resultat\">$resultat</a>");
+                    }
+
+                    return $app->redirect($app['url_generator']->generate('homepage'));
+                } else {
+                    $app['session']->setFlash('error', "Can't paste to pastebin without 'code' !!");
                 }
             }
         }
@@ -85,9 +107,10 @@ $app->match('/', function() use ($app) {
 $app->match('/javascript', function() use ($app) {
     $snippet = new SnippetJs($app['db']);
     list($options,$snippets) = $snippet->getOptionsList();
+    $api_key = $app['user_api_key'];
 
     $resultat='';
-    $form = $app['form.factory']->createBuilder('form')
+    $form = $app['form.factory']->createBuilder('form',array('api_key'=>$api_key))
         ->add('code', 'textarea', array(
                 'label'      => 'Code',
                 'attr' => array('rows'=>10,'style'=>'width:100%')
@@ -98,6 +121,7 @@ $app->match('/javascript', function() use ($app) {
             'multiple' => false,
             'expanded' => false
         ))
+        ->add('api_key','hidden')
         ->getForm()
     ;
 
@@ -107,8 +131,10 @@ $app->match('/javascript', function() use ($app) {
         if ($form->isValid()) {
             $interp = new Interpreter($app);
             $code = $form->get('code')->getData();
+            $key = $form->get('api_key')->getData();
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
+            $pastebin = array_key_exists('pastebin',$_POST);
             if ($test) {
                 $resultat = $interp->evalJs($code);
             } elseif ($save) {
@@ -121,6 +147,21 @@ $app->match('/javascript', function() use ($app) {
                     return $app->redirect($app['url_generator']->generate('jscript'));
                 } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
+                }
+            } elseif ($pastebin) {
+                $name = $form->get('name')->getData();
+                if (!empty($code)) {
+                    $pb = $app['pastebin'];
+                    $resultat = $pb->postCode($key,'javascript',$code,$name);
+                    if (preg_match('/^Bad API request/',$resultat)) {
+                        $app['session']->setFlash('error', $resultat);
+                    } else {
+                        $app['session']->setFlash('success', "<a href=\"$resultat\">$resultat</a>");
+                    }
+
+                    return $app->redirect($app['url_generator']->generate('jscript'));
+                } else {
+                    $app['session']->setFlash('error', "Can't paste to pastebin without 'code' !!");
                 }
             }
          }
@@ -149,9 +190,10 @@ $app->match('/javascript', function() use ($app) {
 $app->match('/sql', function() use ($app) {
     $snippet = new SnippetSql($app['db']);
     list($options,$snippets) = $snippet->getOptionsList();
+    $api_key = $app['user_api_key'];
 
     $resultat='';
-    $form = $app['form.factory']->createBuilder('form')
+    $form = $app['form.factory']->createBuilder('form',array('api_key'=>$api_key))
         ->add('code', 'textarea', array(
                 'label'      => 'Code',
                 'attr' => array('rows'=>10,'style'=>'width:100%')
@@ -162,6 +204,7 @@ $app->match('/sql', function() use ($app) {
             'multiple' => false,
             'expanded' => false
         ))
+        ->add('api_key','hidden')
         ->getForm()
     ;
 
@@ -171,8 +214,10 @@ $app->match('/sql', function() use ($app) {
         if ($form->isValid()) {
             $interp = new Interpreter($app);
             $code = $form->get('code')->getData();
+            $key = $form->get('api_key')->getData();
             $save = array_key_exists('save',$_POST);// && $_POST['save'] == 'save';
             $test = array_key_exists('test',$_POST);// && $_POST['test'] == 'test';
+            $pastebin = array_key_exists('pastebin',$_POST);
             if ($test) {
                 $resultat = $interp->evalSql($code);
             } elseif ($save) {
@@ -185,6 +230,21 @@ $app->match('/sql', function() use ($app) {
                     return $app->redirect($app['url_generator']->generate('sql'));
                 } else {
                     $app['session']->setFlash('error', "Can't save without 'name' and 'code' !!");
+                }
+            } elseif ($pastebin) {
+                $name = $form->get('name')->getData();
+                if (!empty($code)) {
+                    $pb = $app['pastebin'];
+                    $resultat = $pb->postCode($key,'sql',$code,$name);
+                    if (preg_match('/^Bad API request/',$resultat)) {
+                        $app['session']->setFlash('error', $resultat);
+                    } else {
+                        $app['session']->setFlash('success', "<a href=\"$resultat\">$resultat</a>");
+                    }
+
+                    return $app->redirect($app['url_generator']->generate('sql'));
+                } else {
+                    $app['session']->setFlash('error', "Can't paste to pastebin without 'code' !!");
                 }
             }
          }

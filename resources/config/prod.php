@@ -70,3 +70,17 @@ $app['security.access_rules'] = array(
 $app['security.role_hierarchy'] = array(
     'ROLE_ADMIN' => array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'),
 );
+
+$app['pastebin'] = $app->share(function() use ($app) {
+    return new Oclane\PasteBin($app['db']);
+});
+
+$app['user_api_key'] = $app->share(function() use ($app) {
+    $api_key = false;
+    $token = $app['security']->getToken();
+    if (null !== $token) {
+        $username = $token->getUsername();
+        $api_key = $app['pastebin']->userApiKey($username);
+    }
+    return $api_key;
+});

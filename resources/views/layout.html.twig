@@ -74,7 +74,7 @@
                 {% if app.session.hasFlash(alert) %}
                         <div class="alert alert-{{ alert }}" >
                             <button class="close" data-dismiss="alert">×</button>
-                            {{ app.session.flash(alert)|trans }}
+                            {{ app.session.flash(alert)|trans|raw }}
                         </div>
                 {% endif %}
             {% endfor %}

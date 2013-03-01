@@ -3,19 +3,46 @@
 
 {% block content %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div id="cote_code">
-        <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-horizontal">
-            {{ form_widget(form) }}
-            <div class="form-actions">
-                <button type="submit" name="test" value="test" class="btn btn-primary">{{ 'Test'|trans }}</button>
-                <button type="submit" name="save" value="save" class="btn">{{ 'Save'|trans }}</button>
-            </div>
-        </form>
-        </div><!-- #cote_code -->
+        {% set uname = app.security.getToken().getUsername() %}
+        {% set api_key = app.pastebin.userApiKey(uname) %}
 
-        <div id="cote_resultat">
-        {{ bloc_resultat|raw }}
-        </div><!-- #cote_resultat -->
+        <div class="accordion" id="accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                Code
+                </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner cote_code">
+                    <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-horizontal">
+                        {{ form_widget(form) }}
+                        <div class="form-actions">
+                            <button type="submit" name="test" value="test" class="btn btn-primary">{{ 'Test'|trans }}</button>
+                            <button type="submit" name="save" value="save" class="btn">{{ 'Save'|trans }}</button>
+                            {% if api_key %}
+                            <button type="submit" name="pastebin" value="pastebin" class="btn">{{ 'Paste to pastebin.com'|trans }}</button>
+                            {% endif %}
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                Results
+                </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse in">
+                    <div class="accordion-inner cote_resultat">
+
+                    {{ bloc_resultat|raw }}
+                    </div>
+                </div>
+            </div>
+        </div><!-- #accordion -->
 
     {% else %}
 

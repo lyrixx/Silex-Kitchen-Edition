@@ -21,6 +21,7 @@ $users->addColumn('username', 'string', array('length' => 127));
 $users->addUniqueIndex(array('username'),'username_idx');
 $users->addColumn('password', 'string', array('length' => 255));
 $users->addColumn('roles', 'string', array('length' => 255));
+$users->addColumn('pastebin_api_key','string',array('length'=>32,'notNull'=>false));
 
 $snippet = $schema->createTable('snippet');
 $snippet->addColumn('id','integer',array('unsigned'=>true,'autoincrement'=>true));

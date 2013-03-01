@@ -46,6 +46,7 @@ class CreateUserCommand extends Command
                 new InputArgument('username', InputArgument::REQUIRED, 'The username'),
                 new InputArgument('password', InputArgument::REQUIRED, 'The password'),
                 new InputOption('admin', null, InputOption::VALUE_NONE, 'Give the user the ROLE_ADMIN'),
+                new InputArgument('pastebin_api_key', InputArgument::OPTIONAL, "User's pastebin.com Api Key"),
             ))
             ->setHelp(<<<EOT
 The <info>user:create</info> command creates a user:
@@ -74,6 +75,7 @@ EOT
 
         $username   = $input->getArgument('username');
         $password   = $input->getArgument('password');
+        $pastebin_api_key   = $input->getArgument('pastebin_api_key');
         $admin      = $input->getOption('admin');
 
         $encoded = $this->app['security.encoder.digest']->encodePassword($password, '');
@@ -84,7 +86,8 @@ EOT
         $this->app['db']->insert('users', array(
             'username' => $username,
             'password' => $encoded,
-            'roles' => $admin ? 'ROLE_ADMIN' :  'ROLE_USER'
+            'roles' => $admin ? 'ROLE_ADMIN' :  'ROLE_USER',
+            'pastebin_api_key' => $pastebin_api_key
     ));
 
         $output->writeln(sprintf('Created user <comment>%s</comment>', $username));
@@ -138,6 +141,17 @@ EOT
                 }
             );
             $input->setArgument('password', $password);
+        }
+
+        if (!$input->getArgument('pastebin_api_key')) {
+            $api_key = $this->getHelper('dialog')->askAndValidate(
+                $output,
+                'Please set your pastebin api key (optionnal):',
+                function($api_key) {
+                    return $api_key;
+                }
+            );
+            $input->setArgument('pastebin_api_key', $api_key);
         }
     }
 }
