@@ -7,14 +7,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>{{ 'Homepage'|trans }}</title>
+    <title>{{ page_title|default('Homepage')|trans }}</title>
 
     <meta name="description" content="">
     <meta name="author" content="">
 
     <meta name="viewport" content="width=device-width">
 
+    {% block style %}
     <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/styles.css">
+    {% endblock %}
 
     <script src="{{ app.request.basepath }}/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
 </head>
@@ -25,23 +27,37 @@
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="{{ path('homepage') }}">{{ 'Silex Kitchen Sink Edition'|trans }}</a>
+                <a class="brand" href="{{ path('homepage') }}">{{ 'PHP Live !'|trans }}</a>
                 <div class="nav-collapse">
                     <ul class="nav">
-                        <li {% if 'homepage' == active %}class="active"{% endif %}><a href="{{ path('homepage') }}">{{ 'Homepage'|trans }}</a></li>
-                        <li {% if 'page_with_cache' == active %}class="active"{% endif %}><a href="{{ path('page_with_cache') }}">Cache sample</a></li>
-                        <li {% if 'form' == active %}class="active"{% endif %}><a href="{{ path('form') }}">Form sample</a></li>
-                        <li {% if 'doctrine' == active %}class="active"{% endif %}><a href="{{ path('doctrine') }}">Doctrine</a></li>
-                        <li class="dropdown{% if 'account' == active %} active{% endif %}">
+                        <li {% if 'homepage' == active %}class="active"{% endif %}><a href="{{ path('homepage') }}">{{ 'PHP'|trans }}</a></li>
+                        <li {% if 'jscript' == active %}class="active"{% endif %}><a href="{{ path('jscript') }}">{{ 'Javascript'|trans }}</a></li>
+                        <li {% if 'sql' == active %}class="active"{% endif %}><a href="{{ path('sql') }}">{{ 'SQL'|trans }}</a></li>
+                        <li class="dropdown{% if 'tools' == active %} active{% endif %}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Account <b class="caret"></b>
+                                {{ 'Tools'|trans }}
+                                <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                {% if app.session.get('user') %}
+                            <li><a href="{{ path('encode') }}">Password encoder</a></li>
+                            <li><a href="{{ path('phpinfo') }}">PHP infos</a></li>
+                            </ul>
+                        </li>
+                        <!--<li {% if 'doc' == active %}class="active"{% endif %}><a href="{{ path('doc') }}">Doc...</a></li>-->
+                        <li class="dropdown{% if 'account' == active %} active{% endif %}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {{ app.security.getToken().getUsername() }}
+                                {% else %}
+                                    Account
+                                {% endif %}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                     <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
                                 {% else %}
                                     <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
-                                    <li><a href="#">{{ 'Register'|trans }}</a></li>
                                 {% endif %}
                             </ul>
                         </li>
@@ -58,7 +74,7 @@
                 {% if app.session.hasFlash(alert) %}
                         <div class="alert alert-{{ alert }}" >
                             <button class="close" data-dismiss="alert">×</button>
-                            {{ app.session.flash(alert)|trans }}
+                            {{ app.session.flash(alert)|trans|raw }}
                         </div>
                 {% endif %}
             {% endfor %}
@@ -66,9 +82,10 @@
             {% endblock %}
         </div>
     </div>
-
+{% block javascript %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ app.request.basepath }}/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
     <script src="{{ app.request.basepath }}/assets/js/scripts.js"></script>
+{% endblock javascript %}
 </body>
 </html>

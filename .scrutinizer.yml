@@ -1,0 +1,29 @@
+# inherit the next configuration down the chain (see above for the order)
+inherit: true
+
+tools:
+    # Overwrite selected settings, but keep everything else as in the base configuration.
+    php_code_sniffer:
+        enabled:              true
+        config:
+
+            # Built-in standards: PEAR, PHPCS, PSR1, PSR2, Squiz, Zend
+            standard:             PSR1
+    php_mess_detector:
+        enabled:              true
+
+    php_analyzer:
+        filter:
+            paths: [src/*, tests/*]
+
+        config:
+            checkstyle: ~
+            verify_php_doc_comments: ~
+            doc_comment_fixes: ~
+
+        path_configs:
+            tests:
+                paths: [tests/*]
+                checkstyle: false
+                verify_php_doc_comments: false
+                doc_comment_fixes: false

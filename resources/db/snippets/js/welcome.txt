@@ -1,0 +1,4 @@
+hello = function () {
+  alert('Welcome to PHPLive version 0.1 !');
+}
+setTimeout('hello();',2000);

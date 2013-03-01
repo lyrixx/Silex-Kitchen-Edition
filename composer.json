@@ -1,14 +1,18 @@
 {
-    "name"        : "lyrixx/Silex-Kitchen-Edition",
-    "type"        : "library",
-    "description" : "A Silex Edition. This project is a base for your silex applications.",
-    "keywords"    : ["framework"],
-    "homepage"    : "http://lyrixx.github.com/Silex-Kitchen-Edition/",
+    "name"        : "electrolinux/yaskef",
+    "type"        : "utility",
+    "description" : "A PHP,SQL,Javascript live interpreter based on the Silex-Kitchen-Edition.",
+    "keywords"    : ["framework","tool"],
+    "homepage"    : "http://electrolinux.github.com/yaskef/",
     "license"     : "MIT",
     "authors"     : [
         {
             "name"  : "Grégoire Pineau",
             "email" : "lyrixx@lyrixx.info"
+        },
+        {
+            "name"  : "Didier Belot",
+            "email" : "electrolinux@gmail.com"
         }
     ],
     "require": {
@@ -23,6 +27,8 @@
         "symfony/yaml"          : "2.1.*",
         "symfony/config"        : "2.1.*",
         "symfony/console"       : "2.1.*",
+        "symfony/security"      : "2.1.*",
+        "symfony/finder"        : "2.1.*",
         "kriswallsmith/assetic" : "1.0.*",
         "doctrine/dbal"         : "2.3.*",
         "twitter/bootstrap"     : "v2.2.2",
@@ -40,7 +46,8 @@
     },
     "autoload": {
         "psr-0": {
-            "SKE": "src/"
+            "SKE": "src/",
+            "Oclane": "src/"
         }
     }
 }

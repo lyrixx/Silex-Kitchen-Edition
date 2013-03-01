@@ -1,4 +1,5 @@
 resources/cache/*
 resources/log/*
+resources/db/*.db
 vendor/
 web/assets/*

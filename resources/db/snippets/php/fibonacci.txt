@@ -1,0 +1,19 @@
+function f($n) {
+    static $t=array();
+    if (array_key_exists("$n",$t)) {
+        return $t["$n"];
+    }
+    if ($n < 2) {
+        $t["$n"] = $n;
+    }
+    else {
+        $t["$n"] = f($n-1) + f($n-2);
+    }
+    return $t["$n"];
+}
+echo "-- calculating the fibonacci sequence to 18 using memoization:\n";
+$sep='';
+for($x=1;$x <=18;$x++) {
+echo $sep . f($x) ;
+$sep=", ";
+}

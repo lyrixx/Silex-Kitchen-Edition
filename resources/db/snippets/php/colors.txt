@@ -1,0 +1,6 @@
+$couleurs=array('green','red','orange','maroon','gray','cyan','magenta');
+for($x=100;$x<=400;$x+=50){
+   $cl=$couleurs[rand(0,count($couleurs)-1)];
+   $px=($x*1.8)/10;
+   echo "<div style=\"font-size:$x%;line-height:${px}px;color:$cl;\">PhpLive! is cool ;-)</div>";
+}

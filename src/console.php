@@ -7,7 +7,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Doctrine\DBAL\DriverManager;
 
-$console = new Application('Silex - Kitchen Edition', '0.1');
+use Oclane\CreateUserCommand;
+
+$console = new Application('PHPLive ! (fork of Silex - Kitchen Edition)', '0.1');
 
 $console
     ->register('assetic:dump')
@@ -150,6 +152,39 @@ EOT
         $tmpConnection->close();
 
         return $error ? 1 : 0;
+    })
+;
+
+$console->add(new CreateUserCommand('user:create',$app));
+
+$console
+    ->register('snippet:load')
+    ->setDescription('Load code snippet examples')
+    ->addOption('force', null, InputOption::VALUE_NONE, 'Set this parameter to execute this action')
+    ->setHelp(<<<EOT
+The <info>snippet:load</info> command load a default set of code
+snippets, erasing any previous snippet stored.
+
+<info>php console snippet:load</info>
+
+The --force parameter has to be used to actually load the snippets.
+
+<error>Be careful: All your previously saved snippets will be lost when executing
+this command.</error>
+EOT
+        )
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+        if ($input->getOption('force')) {
+            require __DIR__.'/../resources/db/snippet_load.php';
+        } else {
+            $output->writeln('<error>ATTENTION:</error> This operation should not be executed in a production environment.');
+            $output->writeln('');
+            $output->writeln('<info>Would drop all snippets in the database.</info>');
+            $output->writeln('Please run the operation with --force to execute');
+            $output->writeln('<error>All snippets will be lost!</error>');
+
+            return 2;
+        }
     })
 ;
 
