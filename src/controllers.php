@@ -7,10 +7,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormError;
 
 $app->match('/', function() use ($app) {
-    $app['session']->setFlash('warning', 'Warning flash message');
-    $app['session']->setFlash('info', 'Info flash message');
-    $app['session']->setFlash('success', 'Success flash message');
-    $app['session']->setFlash('error', 'Error flash message');
+    $app['session']->getFlashBag()->add('warning', 'Warning flash message');
+    $app['session']->getFlashBag()->add('info', 'Info flash message');
+    $app['session']->getFlashBag()->add('success', 'Success flash message');
+    $app['session']->getFlashBag()->add('error', 'Error flash message');
 
     return $app['twig']->render('index.html.twig');
 })->bind('homepage');
@@ -47,7 +47,7 @@ $app->match('/login', function() use ($app) {
                     'email' => $email,
                 ));
 
-                $app['session']->setFlash('notice', 'You are now connected');
+                $app['session']->getFlashBag()->add('notice', 'You are now connected');
 
                 return $app->redirect($app['url_generator']->generate('homepage'));
             }
@@ -146,10 +146,10 @@ $app->match('/form', function() use ($app) {
     if ('POST' === $app['request']->getMethod()) {
         $form->bindRequest($app['request']);
         if ($form->isValid()) {
-            $app['session']->setFlash('success', 'The form is valid');
+            $app['session']->getFlashBag()->add('success', 'The form is valid');
         } else {
             $form->addError(new FormError('This is a global error'));
-            $app['session']->setFlash('info', 'The form is bind, but not valid');
+            $app['session']->getFlashBag()->add('info', 'The form is bind, but not valid');
         }
     }
 
