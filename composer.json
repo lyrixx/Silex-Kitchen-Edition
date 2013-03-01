@@ -1,9 +1,9 @@
 {
-    "name"        : "electrolinux/phplive",
+    "name"        : "electrolinux/yaskef",
     "type"        : "utility",
     "description" : "A PHP,SQL,Javascript live interpreter based on the Silex-Kitchen-Edition.",
     "keywords"    : ["framework","tool"],
-    "homepage"    : "http://electrolinux.github.com/PhpLive/",
+    "homepage"    : "http://electrolinux.github.com/yaskef/",
     "license"     : "MIT",
     "authors"     : [
         {
