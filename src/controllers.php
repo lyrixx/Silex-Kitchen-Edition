@@ -35,7 +35,7 @@ $app->match('/login', function() use ($app) {
     ;
 
     if ('POST' === $app['request']->getMethod()) {
-        $form->bindRequest($app['request']);
+        $form->bind($app['request']);
 
         if ($form->isValid()) {
 
@@ -144,7 +144,7 @@ $app->match('/form', function() use ($app) {
     ;
 
     if ('POST' === $app['request']->getMethod()) {
-        $form->bindRequest($app['request']);
+        $form->bind($app['request']);
         if ($form->isValid()) {
             $app['session']->getFlashBag()->add('success', 'The form is valid');
         } else {
