@@ -1,5 +1,5 @@
 {
-    "hash": "fed4d0c11436fbdf4d128198ae75b305",
+    "hash": "26f042db3a440d9a80b946e0553702ab",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1405,8 +1405,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "silex/silex": 20,
+        "leafo/lessphp": 20,
         "mheap/silex-assetic": 20,
-        "leafo/lessphp": 20
+        "silex/silex": 20
     }
 }
