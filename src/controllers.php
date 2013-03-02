@@ -1,10 +1,9 @@
 <?php
 
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Form\FormError;
 
 $app->match('/', function() use ($app) {
     $app['session']->getFlashBag()->add('warning', 'Warning flash message');
@@ -15,7 +14,7 @@ $app->match('/', function() use ($app) {
     return $app['twig']->render('index.html.twig');
 })->bind('homepage');
 
-$app->match('/login', function() use ($app) {
+$app->match('/login', function(Request $request) use ($app) {
 
     $form = $app['form.factory']->createBuilder('form')
         ->add('email', 'email', array(
@@ -34,26 +33,21 @@ $app->match('/login', function() use ($app) {
         ->getForm()
     ;
 
-    if ('POST' === $app['request']->getMethod()) {
-        $form->bind($app['request']);
+    if ($request->isMethod('POST') && $form->bind($request)->isValid()) {
+        $email    = $form->get('email')->getData();
+        $password = $form->get('password')->getData();
 
-        if ($form->isValid()) {
+        if ('email@example.com' == $email && 'password' == $password) {
+            $app['session']->set('user', array(
+                'email' => $email,
+            ));
 
-            $email    = $form->get('email')->getData();
-            $password = $form->get('password')->getData();
+            $app['session']->getFlashBag()->add('notice', 'You are now connected');
 
-            if ('email@example.com' == $email && 'password' == $password) {
-                $app['session']->set('user', array(
-                    'email' => $email,
-                ));
-
-                $app['session']->getFlashBag()->add('notice', 'You are now connected');
-
-                return $app->redirect($app['url_generator']->generate('homepage'));
-            }
-
-            $form->addError(new FormError('Email / password does not match (email@example.com / password)'));
+            return $app->redirect($app['url_generator']->generate('homepage'));
         }
+
+        $form->addError(new FormError('Email / password does not match (email@example.com / password)'));
     }
 
     return $app['twig']->render('login.html.twig', array('form' => $form->createView()));
@@ -68,7 +62,7 @@ $app->match('/doctrine', function() use ($app) {
     );
 })->bind('doctrine');
 
-$app->match('/form', function() use ($app) {
+$app->match('/form', function(Request $request) use ($app) {
 
     $builder = $app['form.factory']->createBuilder('form');
     $choices = array('choice a', 'choice b', 'choice c');
@@ -143,8 +137,8 @@ $app->match('/form', function() use ($app) {
         ->getForm()
     ;
 
-    if ('POST' === $app['request']->getMethod()) {
-        $form->bind($app['request']);
+    if ($request->isMethod('POST')) {
+        $form->bind($request);
         if ($form->isValid()) {
             $app['session']->getFlashBag()->add('success', 'The form is valid');
         } else {
