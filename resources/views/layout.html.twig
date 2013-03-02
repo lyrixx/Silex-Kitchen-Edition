@@ -37,7 +37,7 @@
                                 Account <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                {% if app.session.get('user') %}
+                                {% if is_granted('ROLE_USER') %}
                                     <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
                                 {% else %}
                                     <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>

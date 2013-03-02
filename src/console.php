@@ -9,6 +9,8 @@ use Doctrine\DBAL\DriverManager;
 
 $console = new Application('Silex - Kitchen Edition', '0.1');
 
+$app->boot();
+
 $console
     ->register('assetic:dump')
     ->setDescription('Dumps all assets to the filesystem')

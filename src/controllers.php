@@ -15,42 +15,16 @@ $app->match('/', function() use ($app) {
 })->bind('homepage');
 
 $app->match('/login', function(Request $request) use ($app) {
-
     $form = $app['form.factory']->createBuilder('form')
-        ->add('email', 'email', array(
-            'label'       => 'Email',
-            'constraints' => array(
-                new Assert\NotBlank(),
-                new Assert\Email(),
-            ),
-        ))
-        ->add('password', 'password', array(
-            'label'       => 'Password',
-            'constraints' => array(
-                new Assert\NotBlank(),
-            ),
-        ))
+        ->add('username', 'text', array('label' => 'Username', 'data' => $app['session']->get('_security.last_username')))
+        ->add('password', 'password', array('label' => 'Password'))
         ->getForm()
     ;
 
-    if ($request->isMethod('POST') && $form->bind($request)->isValid()) {
-        $email    = $form->get('email')->getData();
-        $password = $form->get('password')->getData();
-
-        if ('email@example.com' == $email && 'password' == $password) {
-            $app['session']->set('user', array(
-                'email' => $email,
-            ));
-
-            $app['session']->getFlashBag()->add('notice', 'You are now connected');
-
-            return $app->redirect($app['url_generator']->generate('homepage'));
-        }
-
-        $form->addError(new FormError('Email / password does not match (email@example.com / password)'));
-    }
-
-    return $app['twig']->render('login.html.twig', array('form' => $form->createView()));
+    return $app['twig']->render('login.html.twig', array(
+        'form'  => $form->createView(),
+        'error' => $app['security.last_error']($request),
+    ));
 })->bind('login');
 
 $app->match('/doctrine', function() use ($app) {

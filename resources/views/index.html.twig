@@ -2,11 +2,12 @@
 {% set active = 'homepage' %}
 
 {% block content %}
-    {% if app.session.get('user') %}
-        Hello {{ app.session.get('user').email }}
+
+    <h1>Hello</h1>
+    {% if is_granted('ROLE_USER') %}
+        Hello "{{ app.security.token.username }}".<br />
         <a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a>
     {% else %}
-        <h1>Hello</h1>
         Your a not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
     {% endif %}
 {% endblock %}

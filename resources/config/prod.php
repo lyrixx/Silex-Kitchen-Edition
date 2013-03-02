@@ -38,3 +38,6 @@ $app['db.options'] = array(
     'user'     => 'root',
     'password' => '',
 );
+
+// User
+$app['security.users'] = array('username' => array('ROLE_USER', 'password'));
