@@ -13,27 +13,26 @@
     ],
     "require": {
         "php"                   : ">=5.3.3",
-        "silex/silex"           : "dev-master",
-        "twig/twig"             : "1.*",
-        "monolog/monolog"       : "1.0.*",
-        "symfony/form"          : "2.1.*",
-        "symfony/translation"   : "2.1.*",
-        "symfony/twig-bridge"   : "2.1.*",
-        "symfony/validator"     : "2.1.*",
-        "symfony/yaml"          : "2.1.*",
-        "symfony/config"        : "2.1.*",
-        "symfony/console"       : "2.1.*",
-        "kriswallsmith/assetic" : "1.0.*",
-        "doctrine/dbal"         : "2.3.*",
-        "twitter/bootstrap"     : "v2.2.2",
-        "mheap/silex-assetic"   : "dev-master"
+        "silex/silex"           : "1.0.*@dev",
+        "twig/twig"             : "~1.10",
+        "monolog/monolog"       : "~1.0",
+        "symfony/form"          : "~2.2",
+        "symfony/translation"   : "~2.2",
+        "symfony/twig-bridge"   : "~2.2",
+        "symfony/validator"     : "~2.2",
+        "symfony/yaml"          : "~2.2",
+        "symfony/config"        : "~2.2",
+        "symfony/console"       : "~2.2",
+        "kriswallsmith/assetic" : "~1.0.0",
+        "doctrine/dbal"         : "~2.3",
+        "twitter/bootstrap"     : "2.3.1",
+        "mheap/silex-assetic"   : "dev-master@dev"
     },
     "require-dev": {
-        "symfony/dom-crawler"   : "2.1.*",
-        "symfony/css-selector"  : "2.1.*",
-        "symfony/browser-kit"   : "2.1.*"
+        "symfony/dom-crawler"   : "~2.2",
+        "symfony/css-selector"  : "~2.2",
+        "symfony/browser-kit"   : "~2.2"
     },
-    "minimum-stability" : "dev",
     "scripts": {
         "post-install-cmd": "SKE\\Composer\\Script::install",
         "post-update-cmd": "SKE\\Composer\\Script::install"
