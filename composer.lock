@@ -1,5 +1,5 @@
 {
-    "hash": "1d34659d395e05da8345b909fc2c0e4b",
+    "hash": "7311829bf37dba1f49b378da234cf258",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +18,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-19 22:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -56,7 +55,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -68,27 +67,27 @@
                 "eventmanager",
                 "persistence",
                 "spl"
-            ]
+            ],
+            "time": "2012-09-19 22:55:18"
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/dbal",
-                "reference": "2.3.2"
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/archive/2.3.2.zip",
-                "reference": "2.3.2",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2.3.3",
+                "reference": "2.3.3",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "2.3.*",
+                "doctrine/common": ">=2.3.0,<2.5-dev",
                 "php": ">=5.3.2"
             },
-            "time": "2013-01-07 20:03:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -131,7 +130,8 @@
                 "dbal",
                 "persistence",
                 "queryobject"
-            ]
+            ],
+            "time": "2013-03-24 19:16:29"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -150,7 +150,6 @@
             "require": {
                 "php": ">=5.3.1"
             },
-            "time": "2012-08-28 05:18:28",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -174,7 +173,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2012-08-28 05:18:28"
         },
         {
             "name": "leafo/lessphp",
@@ -182,15 +182,14 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/lessphp.git",
-                "reference": "b46f32b968a071f480e43d030fe4dbe10196207e"
+                "reference": "54bb80519c9a73eff250fa1671707b492a402280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/b46f32b968a071f480e43d030fe4dbe10196207e",
-                "reference": "b46f32b968a071f480e43d030fe4dbe10196207e",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/54bb80519c9a73eff250fa1671707b492a402280",
+                "reference": "54bb80519c9a73eff250fa1671707b492a402280",
                 "shasum": ""
             },
-            "time": "2013-02-27 02:35:01",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -215,7 +214,8 @@
                 }
             ],
             "description": "lessphp is a compiler for LESS written in PHP.",
-            "homepage": "http://leafo.net/lessphp/"
+            "homepage": "http://leafo.net/lessphp/",
+            "time": "2013-03-08 21:29:33"
         },
         {
             "name": "mheap/silex-assetic",
@@ -223,12 +223,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mheap/Silex-Assetic.git",
-                "reference": "d30a4320220ddcde8daf350387cebc3f2ecd1d4b"
+                "reference": "00cd1e43e7c778f8816d20893202addd13a40cc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mheap/Silex-Assetic/zipball/d30a4320220ddcde8daf350387cebc3f2ecd1d4b",
-                "reference": "d30a4320220ddcde8daf350387cebc3f2ecd1d4b",
+                "url": "https://api.github.com/repos/mheap/Silex-Assetic/zipball/00cd1e43e7c778f8816d20893202addd13a40cc8",
+                "reference": "00cd1e43e7c778f8816d20893202addd13a40cc8",
                 "shasum": ""
             },
             "require": {
@@ -243,7 +243,6 @@
             "suggest": {
                 "twig/twig": ">=1.2.0"
             },
-            "time": "2013-02-27 09:57:34",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -271,7 +270,8 @@
             "keywords": [
                 "assetic",
                 "silex"
-            ]
+            ],
+            "time": "2013-03-25 09:35:46"
         },
         {
             "name": "monolog/monolog",
@@ -303,7 +303,6 @@
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "raven/raven": "Allow sending log messages to a Sentry server"
             },
-            "time": "2013-02-13 18:06:51",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -333,26 +332,26 @@
                 "log",
                 "logging",
                 "psr-3"
-            ]
+            ],
+            "time": "2013-02-13 18:06:51"
         },
         {
             "name": "pimple/pimple",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/fabpot/Pimple.git",
-                "reference": "v1.0.1"
+                "url": "https://github.com/fabpot/Pimple.git",
+                "reference": "v1.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Pimple/archive/v1.0.1.zip",
-                "reference": "v1.0.1",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/v1.0.2",
+                "reference": "v1.0.2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-11-11 08:32:34",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -379,7 +378,8 @@
             "keywords": [
                 "container",
                 "dependency injection"
-            ]
+            ],
+            "time": "2013-03-08 08:21:40"
         },
         {
             "name": "psr/log",
@@ -395,7 +395,6 @@
                 "reference": "1.0.0",
                 "shasum": ""
             },
-            "time": "2012-12-21 11:40:51",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -417,7 +416,8 @@
                 "log",
                 "psr",
                 "psr-3"
-            ]
+            ],
+            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "silex/silex",
@@ -425,12 +425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Silex.git",
-                "reference": "9705ba7d5dd709262c451854f4e18f8c58171dfa"
+                "reference": "59e7dbd338b5caba9879ae11524da4a5905f80c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Silex/zipball/9705ba7d5dd709262c451854f4e18f8c58171dfa",
-                "reference": "9705ba7d5dd709262c451854f4e18f8c58171dfa",
+                "url": "https://api.github.com/repos/fabpot/Silex/zipball/59e7dbd338b5caba9879ae11524da4a5905f80c1",
+                "reference": "59e7dbd338b5caba9879ae11524da4a5905f80c1",
                 "shasum": ""
             },
             "require": {
@@ -449,7 +449,7 @@
                 "symfony/css-selector": ">=2.1,<2.3-dev",
                 "symfony/dom-crawler": ">=2.1,<2.3-dev",
                 "symfony/finder": ">=2.1,<2.3-dev",
-                "symfony/form": ">=2.1,<2.3-dev",
+                "symfony/form": ">=2.1.4,<2.3-dev",
                 "symfony/locale": ">=2.1,<2.3-dev",
                 "symfony/monolog-bridge": ">=2.1,<2.3-dev",
                 "symfony/options-resolver": ">=2.1,<2.3-dev",
@@ -464,9 +464,9 @@
             "suggest": {
                 "symfony/browser-kit": ">=2.1,<2.3-dev",
                 "symfony/css-selector": ">=2.1,<2.3-dev",
-                "symfony/dom-crawler": ">=2.1,<2.3-dev"
+                "symfony/dom-crawler": ">=2.1,<2.3-dev",
+                "symfony/form": "To make use of the FormServiceProvider, >= 2.1.4 is required"
             },
-            "time": "2013-02-26 12:56:45",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -497,7 +497,8 @@
             "homepage": "http://silex.sensiolabs.org",
             "keywords": [
                 "microframework"
-            ]
+            ],
+            "time": "2013-03-08 16:56:52"
         },
         {
             "name": "symfony/config",
@@ -517,7 +518,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-17 12:27:42",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -544,7 +544,8 @@
                 }
             ],
             "description": "Symfony Config Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-17 12:27:42"
         },
         {
             "name": "symfony/console",
@@ -564,7 +565,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-03-01 06:43:14",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -591,7 +591,8 @@
                 }
             ],
             "description": "Symfony Console Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-01 06:43:14"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -618,7 +619,6 @@
                 "symfony/dependency-injection": "2.2.*",
                 "symfony/http-kernel": "2.2.*"
             },
-            "time": "2013-02-11 11:26:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -645,7 +645,8 @@
                 }
             ],
             "description": "Symfony EventDispatcher Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-11 11:26:43"
         },
         {
             "name": "symfony/finder",
@@ -665,7 +666,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-28 14:06:36",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -692,7 +692,8 @@
                 }
             ],
             "description": "Symfony Finder Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-28 14:06:36"
         },
         {
             "name": "symfony/form",
@@ -724,7 +725,6 @@
                 "symfony/http-foundation": "2.2.*",
                 "symfony/validator": "2.2.*"
             },
-            "time": "2013-02-23 06:46:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -751,7 +751,8 @@
                 }
             ],
             "description": "Symfony Form Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-23 06:46:07"
         },
         {
             "name": "symfony/http-foundation",
@@ -771,7 +772,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-26 09:42:13",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -801,7 +801,8 @@
                 }
             ],
             "description": "Symfony HttpFoundation Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-26 09:42:13"
         },
         {
             "name": "symfony/http-kernel",
@@ -843,7 +844,6 @@
                 "symfony/dependency-injection": "2.2.*",
                 "symfony/finder": "2.2.*"
             },
-            "time": "2013-03-01 06:52:29",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -870,7 +870,8 @@
                 }
             ],
             "description": "Symfony HttpKernel Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-01 06:52:29"
         },
         {
             "name": "symfony/locale",
@@ -893,7 +894,6 @@
             "suggest": {
                 "ext-intl": "to use other locales than built-in `en`"
             },
-            "time": "2013-02-01 09:33:53",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -923,7 +923,8 @@
                 }
             ],
             "description": "Symfony Locale Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-01 09:33:53"
         },
         {
             "name": "symfony/options-resolver",
@@ -943,7 +944,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-01-17 15:25:59",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -975,7 +975,8 @@
                 "config",
                 "configuration",
                 "options"
-            ]
+            ],
+            "time": "2013-01-17 15:25:59"
         },
         {
             "name": "symfony/property-access",
@@ -995,7 +996,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-02-04 20:27:45",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1033,7 +1033,8 @@
                 "property",
                 "property path",
                 "reflection"
-            ]
+            ],
+            "time": "2013-02-04 20:27:45"
         },
         {
             "name": "symfony/routing",
@@ -1064,7 +1065,6 @@
                 "symfony/config": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2013-02-11 11:24:47",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1091,7 +1091,8 @@
                 }
             ],
             "description": "Symfony Routing Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-11 11:24:47"
         },
         {
             "name": "symfony/security",
@@ -1130,7 +1131,6 @@
                 "symfony/routing": "2.2.*",
                 "symfony/validator": "2.2.*"
             },
-            "time": "2013-02-23 06:46:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1157,7 +1157,8 @@
                 }
             ],
             "description": "Symfony Security Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-23 06:46:07"
         },
         {
             "name": "symfony/translation",
@@ -1185,7 +1186,6 @@
                 "symfony/config": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2013-02-08 16:10:57",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1212,7 +1212,8 @@
                 }
             ],
             "description": "Symfony Translation Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-08 16:10:57"
         },
         {
             "name": "symfony/twig-bridge",
@@ -1251,7 +1252,6 @@
                 "symfony/translation": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2013-03-01 06:43:14",
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
@@ -1278,7 +1278,8 @@
                 }
             ],
             "description": "Symfony Twig Bridge",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-01 06:43:14"
         },
         {
             "name": "symfony/validator",
@@ -1312,7 +1313,6 @@
                 "symfony/locale": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "2013-02-28 14:29:34",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1339,7 +1339,8 @@
                 }
             ],
             "description": "Symfony Validator Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-02-28 14:29:34"
         },
         {
             "name": "symfony/yaml",
@@ -1359,7 +1360,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-01-27 16:49:19",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1386,7 +1386,8 @@
                 }
             ],
             "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-01-27 16:49:19"
         },
         {
             "name": "twig/twig",
@@ -1405,7 +1406,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-02-09 18:21:53",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1435,7 +1435,8 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ]
+            ],
+            "time": "2013-02-09 18:21:53"
         },
         {
             "name": "twitter/bootstrap",
@@ -1451,7 +1452,6 @@
                 "reference": "v2.3.1",
                 "shasum": ""
             },
-            "time": "2013-03-01 05:24:27",
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1462,10 +1462,167 @@
             "keywords": [
                 "bootstrap",
                 "css"
-            ]
+            ],
+            "time": "2013-03-01 05:24:27"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "name": "symfony/browser-kit",
+            "version": "v2.2.0",
+            "target-dir": "Symfony/Component/BrowserKit",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/BrowserKit.git",
+                "reference": "v2.2.0-RC3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/BrowserKit/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/dom-crawler": ">=2.0,<3.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": ">=2.0,<3.0",
+                "symfony/process": ">=2.0,<3.0"
+            },
+            "suggest": {
+                "symfony/process": "2.2.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\BrowserKit\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony BrowserKit Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-02-23 06:46:07"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v2.2.0",
+            "target-dir": "Symfony/Component/CssSelector",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/CssSelector.git",
+                "reference": "v2.2.0-RC3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-01-17 15:25:59"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "v2.2.0",
+            "target-dir": "Symfony/Component/DomCrawler",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/DomCrawler.git",
+                "reference": "v2.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/v2.2.0",
+                "reference": "v2.2.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/css-selector": ">=2.0,<3.0"
+            },
+            "suggest": {
+                "symfony/css-selector": "2.2.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-03-01 06:43:14"
+        }
+    ],
     "aliases": [
 
     ],
@@ -1474,5 +1631,11 @@
         "leafo/lessphp": 20,
         "mheap/silex-assetic": 20,
         "silex/silex": 20
-    }
+    },
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [
+
+    ]
 }
