@@ -15,6 +15,10 @@ $console
     ->register('assetic:dump')
     ->setDescription('Dumps all assets to the filesystem')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+        if (!$app['assetic.enabled']) {
+            return false;
+        }
+
         $dumper = $app['assetic.dumper'];
         if (isset($app['twig'])) {
             $dumper->addTwigAssets();
