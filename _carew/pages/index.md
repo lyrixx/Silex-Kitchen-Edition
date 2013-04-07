@@ -29,7 +29,7 @@ You can use it for your next php application.
 * Twig
 * UrlGenerator
 
-Screeshots
+Screenshots
 ----------
 
 ![Form sample]({{ relativeRoot }}/img/form.jpg)
