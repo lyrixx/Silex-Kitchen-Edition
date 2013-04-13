@@ -47,7 +47,7 @@ $app->match('/form', function(Request $request) use ($app) {
                 ->add('subformemail1', 'email', array(
                     'constraints' => array(new Assert\NotBlank(), new Assert\Email()),
                     'attr'        => array('placeholder' => 'email constraints'),
-                    'label'       => 'A custome label : ',
+                    'label'       => 'A custom label : ',
                 ))
                 ->add('subformtext1', 'text')
         )
