@@ -71,10 +71,11 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
             'auto_dump_assets' => $app['debug'],
         )
     ));
-    
+
     $app['assetic.filter_manager'] = $app->share(
         $app->extend('assetic.filter_manager', function($fm, $app) {
             $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
+
             return $fm;
         })
     );
@@ -91,9 +92,7 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
             $am->get('styles')->setTargetPath($app['assetic.output.path_to_css']);
 
             $am->set('scripts', new Assetic\Asset\AssetCache(
-                new Assetic\Asset\GlobAsset(
-                    $app['assetic.input.path_to_js']
-                ),
+                new Assetic\Asset\GlobAsset($app['assetic.input.path_to_js']),
                 new Assetic\Cache\FilesystemCache($app['assetic.path_to_cache'])
             ));
             $am->get('scripts')->setTargetPath($app['assetic.output.path_to_js']);
@@ -101,7 +100,7 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
             return $am;
         })
     );
-    
+
 }
 
 $app->register(new Silex\Provider\DoctrineServiceProvider());
