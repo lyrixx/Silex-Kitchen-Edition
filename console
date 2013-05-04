@@ -10,4 +10,3 @@ require __DIR__.'/src/app.php';
 
 $console = require __DIR__.'/src/console.php';
 $console->run();
-
