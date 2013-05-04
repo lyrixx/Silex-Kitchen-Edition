@@ -25,6 +25,7 @@ $app['assetic.input.path_to_assets'] = __DIR__ . '/../assets';
 $app['assetic.input.path_to_css']       = $app['assetic.input.path_to_assets'] . '/less/style.less';
 $app['assetic.output.path_to_css']      = 'css/styles.css';
 $app['assetic.input.path_to_js']        = array(
+    __DIR__.'/../../vendor/twitter/bootstrap/js/bootstrap-tooltip.js',
     __DIR__.'/../../vendor/twitter/bootstrap/js/*.js',
     $app['assetic.input.path_to_assets'] . '/js/script.js',
 );
