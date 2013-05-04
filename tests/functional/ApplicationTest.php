@@ -2,7 +2,6 @@
 
 use Silex\WebTestCase;
 use Silex\Application;
-use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 
 class ApplicationTest extends WebTestCase
 {
@@ -14,7 +13,6 @@ class ApplicationTest extends WebTestCase
         require __DIR__.'/../../src/app.php';
 
         $app['session.test'] = true;
-
 
         // Controllers
         require __DIR__ . '/../../src/controllers.php';
