@@ -1,7 +1,7 @@
 <?php
 
 // Local
-$app['locale'] = 'fr';
+$app['locale'] = 'en';
 $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
     'fr' => __DIR__.'/../resources/locales/fr.yml',
@@ -34,7 +34,7 @@ $app['assetic.output.path_to_js']       = 'js/scripts.js';
 $app['db.options'] = array(
     'driver'   => 'pdo_mysql',
     'host'     => 'localhost',
-    'dbname'   => 'silex_kitchen',
+    'dbname'   => 'silex',
     'user'     => 'root',
     'password' => '',
 );
