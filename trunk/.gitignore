@@ -1,0 +1,4 @@
+resources/cache/*
+resources/log/*
+vendor/
+web/assets/*
