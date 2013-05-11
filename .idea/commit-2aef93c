@@ -1,0 +1,167 @@
+commit 2aef93c2b060050beed17236ede3f091fe4727b1
+Author: Jesse Griffin <hemham914@gmail.com>
+Date:   Fri May 10 18:42:20 2013 -0700
+
+    commiting so i can run a pull
+
+diff --git a/.idea/dictionaries/Jesse.xml b/.idea/dictionaries/Jesse.xml
+new file mode 100644
+index 0000000..add336a
+--- /dev/null
++++ b/.idea/dictionaries/Jesse.xml
+@@ -0,0 +1,3 @@
++<component name="ProjectDictionaryState">
++  <dictionary name="Jesse" />
++</component>
+\ No newline at end of file
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+index d900362..35c28f7 100644
+--- a/.idea/workspace.xml
++++ b/.idea/workspace.xml
+@@ -2,17 +2,12 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="c00fa46b-6ac2-427e-9dc3-d39911d54758" name="Default" comment="">
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
+-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/routes.php" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/DA.iml" afterPath="$PROJECT_DIR$/.idea/DA.iml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.php" afterPath="$PROJECT_DIR$/web/index.php" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/db/schema.php" afterPath="$PROJECT_DIR$/resources/db/schema.php" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+     </list>
+     <ignored path="DA.iws" />
+     <ignored path=".idea/workspace.xml" />
+-    <file path="/Dummy.txt" changelist="c00fa46b-6ac2-427e-9dc3-d39911d54758" time="1368181770497" ignored="false" />
++    <ignored path=".idea/dictionaries/Jesse.xml" />
++    <file path="/Dummy.txt" changelist="c00fa46b-6ac2-427e-9dc3-d39911d54758" time="1368181865789" ignored="false" />
+     <file path="/dev_notes.txt" changelist="c00fa46b-6ac2-427e-9dc3-d39911d54758" time="1368005933002" ignored="false" />
+     <file path="/a.php" changelist="c00fa46b-6ac2-427e-9dc3-d39911d54758" time="1368077518326" ignored="false" />
+     <file path="/blank.txt" changelist="c00fa46b-6ac2-427e-9dc3-d39911d54758" time="1368153860974" ignored="false" />
+@@ -95,10 +90,10 @@
+               </provider>
+             </entry>
+           </file>
+-          <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
++          <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="true">
+             <entry file="file://$PROJECT_DIR$/web/index.php">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state line="13" column="20" selection-start="269" selection-end="269" vertical-scroll-proportion="0.33888888">
++                <state line="14" column="0" selection-start="276" selection-end="276" vertical-scroll-proportion="1.3149171">
+                   <folding />
+                 </state>
+               </provider>
+@@ -137,10 +132,10 @@
+       </split-first>
+       <split-second>
+         <leaf>
+-          <file leaf-file-name="controllers.php" pinned="false" current="false" current-in-tab="true">
++          <file leaf-file-name="controllers.php" pinned="false" current="true" current-in-tab="true">
+             <entry file="file://$PROJECT_DIR$/src/controllers.php">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state line="40" column="43" selection-start="1461" selection-end="1474" vertical-scroll-proportion="-4.336735">
++                <state line="67" column="33" selection-start="2954" selection-end="2954" vertical-scroll-proportion="5.5510206">
+                   <folding />
+                 </state>
+               </provider>
+@@ -444,6 +439,11 @@
+       <created>1368002636666</created>
+       <updated>1368002636666</updated>
+     </task>
++    <task id="LOCAL-00001" summary="commit">
++      <created>1368181871737</created>
++      <updated>1368181871737</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TodoView" selected-index="3">
+@@ -470,7 +470,7 @@
+     <frame x="1592" y="-8" width="1616" height="916" extended-state="6" />
+     <editor active="false" />
+     <layout>
+-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24758843" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
++      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24637681" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27009222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+@@ -478,12 +478,12 @@
+       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32938075" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
++      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2104247" sideWeight="0.67061925" order="0" side_tool="true" content_ui="tabs" x="2241" y="191" width="327" height="417" />
++      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2104247" sideWeight="0.67193675" order="0" side_tool="true" content_ui="tabs" x="2241" y="191" width="327" height="417" />
+       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+@@ -555,20 +555,6 @@
+     <breakpoint-manager />
+   </component>
+   <component name="editorHistoryManager">
+-    <entry file="file://$PROJECT_DIR$/resources/config/prod.php">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state line="38" column="21" selection-start="1217" selection-end="1217" vertical-scroll-proportion="-24.846153">
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+-    <entry file="file://$PROJECT_DIR$/resources/views/index.html.twig">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state line="13" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="-8.5">
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/resources/views/layout.html.twig">
+       <provider selected="true" editor-type-id="text-editor">
+         <state line="8" column="0" selection-start="416" selection-end="416" vertical-scroll-proportion="-5.230769">
+@@ -641,13 +627,6 @@
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/controllers.php">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state line="7" column="40" selection-start="234" selection-end="234" vertical-scroll-proportion="-0.65384614">
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/resources/db/schema.php">
+       <provider selected="true" editor-type-id="text-editor">
+         <state line="16" column="40" selection-start="770" selection-end="770" vertical-scroll-proportion="-10.461538">
+@@ -666,7 +645,28 @@
+     </entry>
+     <entry file="file://$PROJECT_DIR$/web/index.php">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state line="13" column="20" selection-start="269" selection-end="269" vertical-scroll-proportion="0.33888888">
++        <state line="14" column="0" selection-start="276" selection-end="276" vertical-scroll-proportion="1.3149171">
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
++      <provider selected="true" editor-type-id="text-editor">
++        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/.idea/dictionaries/Jesse.xml">
++      <provider selected="true" editor-type-id="text-editor">
++        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/src/controllers.php">
++      <provider selected="true" editor-type-id="text-editor">
++        <state line="67" column="33" selection-start="2954" selection-end="2954" vertical-scroll-proportion="5.5510206">
+           <folding />
+         </state>
+       </provider>
