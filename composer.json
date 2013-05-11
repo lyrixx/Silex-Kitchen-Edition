@@ -28,13 +28,11 @@
         "symfony/validator"     : "~2.2",
         "symfony/yaml"          : "~2.2",
         "twig/twig"             : "~1.10",
-        "twitter/bootstrap"     : "2.3.1",
-	"phpunit/phpunit"	: "3.7.*@dev"
+        "twitter/bootstrap"     : "2.3.1"
     },
     "require-dev": {
         "symfony/browser-kit"   : "~2.2",
         "symfony/css-selector"  : "~2.2",
-	"phpunit/phpunit"	: "3.7.*@dev",
         "symfony/dom-crawler"   : "~2.2"
     },
     "scripts": {

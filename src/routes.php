@@ -1,17 +1,24 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Validator\Constraints as Assert;
+use Silex\Application;
+use DA\Controller\IndexController;
 
-/*
- * Common Pages
- */
+require_once('DA/Controller/IndexController.php');
+require_once('DA/Controller/LoginController.php');
+require_once('DA/Controller/FormController.php');
 
-$app->get('/',controller('IndexController::indexAction'))->bind('home');
+function controller($shortName)
+{
+	//list($shortClass, $shortMethod) = explode('/', shortName, 2);
 
-$app->get('/about',controller('IndexController::aboutAction'))->bind('about');
+	return sprintf('DA\Controller\%s', $shortName);
+}
 
 
+$app->match('/', controller('IndexController::index'))->bind('homepage');
+$app->match('/login', controller('LoginController::index'))->bind('login');
+$app->match('/doctrine', controller('IndexController::doctrine'))->bind('doctrine');
+$app->match('/form', controller('FormController::index'))->bind('form');
+
+?>
