@@ -1,0 +1,35 @@
+<Project version="3.4" name="project" xmlns="http://www.waterproof.fr/PHPEdit/Project">
+  <set:Settings version="3.4" xmlns:set="http://www.waterproof.fr/PHPEdit/Settings">
+    <set:Property key="Languages">
+      <set:Property key="PHP">
+        <set:Property key="RootNamespace">
+          <set:Data>NewSolution</set:Data>
+        </set:Property>
+      </set:Property>
+    </set:Property>
+  </set:Settings>
+  <RootDirectory path="..\" childrenHandling="Auto">
+    <Directory name="trunk" childrenHandling="Auto">
+      <Directory name="vendor" childrenHandling="Auto">
+        <set:Settings version="3.4" xmlns:set="http://www.waterproof.fr/PHPEdit/Settings">
+          <set:Property key="Extension">
+            <set:Property key="Symfony">
+              <set:Property key="Classes">
+                <set:Property key="sfUser">
+                  <set:Data>myUser</set:Data>
+                </set:Property>
+              </set:Property>
+            </set:Property>
+          </set:Property>
+          <set:Property key="Languages">
+            <set:Property key="PHP">
+              <set:Property key="RootNamespace">
+                <set:Data>NewSolution</set:Data>
+              </set:Property>
+            </set:Property>
+          </set:Property>
+        </set:Settings>
+      </Directory>
+    </Directory>
+  </RootDirectory>
+</Project>
