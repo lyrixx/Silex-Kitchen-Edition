@@ -16,8 +16,8 @@ class ApplicationTest extends WebTestCase
         $app['session.test'] = true;
 
 
-        // Controllers
-        require __DIR__ . '/../../src/controllers.php';
+        // Controllers & routes
+        require __DIR__ . '/../../src/routes.php';
 
         return $this->app = $app;
     }
