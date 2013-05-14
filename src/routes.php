@@ -9,6 +9,7 @@ require_once('DA/Controller/IndexController.php');
 require_once('DA/Controller/LoginController.php');
 require_once('DA/Controller/FormController.php');
 require_once('DA/Controller/CacheController.php');
+require_once('DA/Controller/ComponentController.php');
 
 function controller($shortName)
 {
@@ -24,6 +25,7 @@ $app->match('/login', controller('LoginController::index'))->bind('login');
 $app->match('/logout', controller('LoginController::logout'))->bind('logout');
 $app->match('/doctrine', controller('IndexController::doctrine'))->bind('doctrine');
 $app->match('/form', controller('FormController::index'))->bind('form');
+$app->match('/components', controller('ComponentController::index'))->bind('components');
 if($app['debug']) {
     $app->match('/page-with-cache', controller('CacheController::index'))->bind('page-with-cache');
 }

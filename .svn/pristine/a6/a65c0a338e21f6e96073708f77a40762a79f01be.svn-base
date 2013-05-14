@@ -1,9 +1,0 @@
-{
-    "require": {
-        "carew/carew"               : "dev-master",
-        "carew/theme-bootstrap"     : "dev-master",
-        "carew/plugin-toc"          : "dev-master",
-        "lyrixx/my-theme-bootstrap" : "dev-master"
-    },
-    "minimum-stability": "dev"
-}

@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'components' %}
+
+{% block content %}
+
+    <div>
+        {% if is_granted('ROLE_USER') %}
+            Hello "{{ app.security.token.username }}".<br />
+            <div style="float:right;margin-top:-40px;"><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></div>
+        {% else %}
+            Your a not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
+        {% endif %}
+        <div id="messages">
+            {% set alertTypeAvaillable = [ 'info', 'success', 'warning', 'error'] %}
+            {% for alert in alertTypeAvaillable %}
+                {% for message in app.session.getFlashBag.get(alert) %}
+                    {#                    <div class="alert alert-{{ alert }}" >
+                                            <button class="close" data-dismiss="alert">×</button>
+                                            {{ message|trans }}
+                                        </div>#}
+                {% endfor %}
+            {% endfor %}
+
+            </messages>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+        </div><!--/row-->
+        <div class="row-fluid">
+            <div class="span4">
+        </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/span-->
+
+{% endblock %}

@@ -1,4 +1,0 @@
-Development Notes
-
-5/8/13 - During initial install, kept receiving error with the "/form" route. To fix this, enable the "intl" extension
-         in the php.ini file.
