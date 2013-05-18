@@ -6,8 +6,12 @@
     <h1>{{ 'Doctrine'|trans }}</h1>
 
     <ul>
-        {% for post in posts %}
-            <li>{{ post.title }}</li>
+        {% for data in configuration %}
+            <li>{{ data.module_name }}</li>
+                <ul>
+                    <li>{{ data.controller_name }}</li>
+                    <li>{{ data.action_name }}</li>
+                </ul>
         {% endfor %}
     </ul>
 

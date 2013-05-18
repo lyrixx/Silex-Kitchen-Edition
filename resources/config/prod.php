@@ -1,4 +1,7 @@
 <?php
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+use DA\Model\Entity\ModuleEntity;
 
 // Local
 $app['locale'] = 'en';
@@ -34,10 +37,11 @@ $app['assetic.output.path_to_js']       = 'js/scripts.js';
 $app['db.options'] = array(
     'driver'   => 'pdo_mysql',
     'host'     => 'localhost',
-    'dbname'   => 'silex',
+    'dbname'   => 'axis',
     'user'     => 'root',
-    'password' => '',
+    'password' => 'yeahyeah',
 );
 
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
+

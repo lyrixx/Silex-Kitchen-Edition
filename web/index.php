@@ -1,10 +1,11 @@
 <?php
 
 ini_set('display_errors', 1);
-
+date_default_timezone_set('America/Los_Angeles');
+use Silex\Application;
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Silex\Application();
+$app = new Application();
 
 //change to prod.php when not in development:
 require __DIR__.'/../resources/config/dev.php';

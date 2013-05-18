@@ -19,7 +19,6 @@ function controller($shortName)
 }
 
 
-
 $app->match('/', controller('IndexController::index'))->bind('homepage');
 $app->match('/login', controller('LoginController::index'))->bind('login');
 $app->match('/logout', controller('LoginController::logout'))->bind('logout');

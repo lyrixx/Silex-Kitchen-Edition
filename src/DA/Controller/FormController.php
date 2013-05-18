@@ -64,7 +64,6 @@ class FormController
 			    'multiple' => false,
 			    'expanded' => false
 			))
-			->add('country', 'country')
 			->add('language', 'language')
 			->add('locale', 'locale')
 			->add('timezone', 'timezone')

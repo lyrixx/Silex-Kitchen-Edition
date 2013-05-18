@@ -12,7 +12,7 @@
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
-            padding-top: 60px;
+            padding-top: 0px;
             padding-bottom: 40px;
         }
         .sidebar-nav {
@@ -65,12 +65,13 @@
                     <li {% if 'form' == active %}class="active"{% endif %}><a href="{{ path('form') }}">Form sample</a></li>
                     <li {% if 'doctrine' == active %}class="active"{% endif %}><a href="{{ path('doctrine') }}">Doctrine</a></li>
                     <li {% if 'components' == active %}class="active"{% endif %}><a href="{{ path('components') }}">Components</a></li>
-                    <li class="dropdown{% if 'account' == active %} active{% endif %}">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Account <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             {% if is_granted('ROLE_USER') %}
+                                <li><a href="/account">Hello "{{ app.security.token.username }}"</a></li>
                                 <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
                             {% else %}
                                 <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
@@ -86,8 +87,7 @@
 
 <div class="container-fluid">
 
-        <img src="/DA/web/img/stock_logo.jpg" style="float:left;"/>
-
+    <img src="/DA/web/img/stock_logo.jpg" style="float:left;"/>
 
     <div class="row-fluid" style="float:left;">
         <div class="span3">
@@ -113,6 +113,7 @@
             </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+
         {% block content%}
 
         {% endblock %}

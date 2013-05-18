@@ -2,11 +2,17 @@
 
 namespace DA\Controller;
 
-use Component\Form\FormError;
+use Doctrine\Common\EventManager;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand;
+use Doctrine\Tests\Mocks\MetadataDriverMock;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 use Symfony\Component\Validator\Constraints as Assert;
 use Silex\Application;
+use DA\Model\Entity\ModuleEntity;
 
 class IndexController
 {
@@ -22,12 +28,19 @@ class IndexController
 
 	public function doctrine(Request $request,Application $app)
 	{
-		return $app['twig']->render(
-		'doctrine.html.twig',
-		array(
-		    'posts' => $app['db']->fetchAll('SELECT * FROM post')
-		)
-		);
+        $page_data = array();
+        $page_data = array('configuration' => $app['db']->fetchAll('SELECT * FROM core_page'));
+
+        //$ModuleManager = $app['db.orm'];
+
+            //$m = new ModuleEntity();
+            print_r($app['db.config']);
+
+
+        //print_r($app['db']);exit;
+        //array_push($page_data,$single);
+
+		return $app['twig']->render('doctrine.html.twig',$page_data);
 	}
 }
 
