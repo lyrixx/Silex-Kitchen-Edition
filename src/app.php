@@ -4,11 +4,13 @@ use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
 use SilexAssetic\AsseticServiceProvider;
 use Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
@@ -63,6 +65,13 @@ $app->register(new TwigServiceProvider(), array(
     'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
     'twig.path'           => array(__DIR__ . '/../resources/views')
 ));
+
+if ($app['debug'] && isset($app['cache.path'])) {
+    $app->register(new ServiceControllerServiceProvider());
+    $app->register(new WebProfilerServiceProvider(), array(
+        'profiler.cache_dir' => $app['cache.path'].'/profiler',
+    ));
+}
 
 if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
     $app->register(new AsseticServiceProvider(), array(
