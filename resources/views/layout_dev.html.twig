@@ -12,7 +12,7 @@
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
         body {
-            padding-top: 0px;
+            padding-top: 60px;
             padding-bottom: 40px;
         }
         .sidebar-nav {
@@ -64,14 +64,12 @@
                     {#<li {% if 'page_with_cache' == active %}class="active"{% endif %}><a href="{{ path('page_with_cache') }}">Cache sample</a></li>#}
                     <li {% if 'form' == active %}class="active"{% endif %}><a href="{{ path('form') }}">Form sample</a></li>
                     <li {% if 'doctrine' == active %}class="active"{% endif %}><a href="{{ path('doctrine') }}">Doctrine</a></li>
-                    <li {% if 'components' == active %}class="active"{% endif %}><a href="{{ path('components') }}">Components</a></li>
-                    <li class="dropdown">
+                    <li class="dropdown{% if 'account' == active %} active{% endif %}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Account <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             {% if is_granted('ROLE_USER') %}
-                                <li><a href="/account">Hello "{{ app.security.token.username }}"</a></li>
                                 <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
                             {% else %}
                                 <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
@@ -86,10 +84,7 @@
 </div>
 
 <div class="container-fluid">
-
-    <img src="/DA/web/img/stock_logo.jpg" style="float:left;"/>
-
-    <div class="row-fluid" style="float:left;">
+    <div class="row-fluid">
         <div class="span3">
             <div class="well sidebar-nav">
                 <ul class="nav nav-list">
@@ -113,19 +108,68 @@
             </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+            <div id="messages">
+                {% set alertTypeAvaillable = [ 'info', 'success', 'warning', 'error'] %}
+                {% for alert in alertTypeAvaillable %}
+                    {% for message in app.session.getFlashBag.get(alert) %}
+                        {#                    <div class="alert alert-{{ alert }}" >
+                                                <button class="close" data-dismiss="alert">×</button>
+                                                {{ message|trans }}
+                                            </div>#}
+                    {% endfor %}
+                {% endfor %}
+                {% block content %}
+                {% endblock %}
+            </messages>
+            <div class="hero-unit">
+                <h1>Hello, world!</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="row-fluid">
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                </div><!--/span-->
+            </div><!--/row-->
+        </div><!--/span-->
+    </div><!--/row-->
 
-        {% block content%}
+    <hr>
 
-        {% endblock %}
-        </div><!--/row-->
+    <footer>
+        <p>&copy; The Design Affiliates Inc. 2013</p>
+    </footer>
 
-        <hr>
-
-        <footer>
-            <p>&copy; The Design Affiliates Inc. 2013</p>
-        </footer>
-
-    </div><!--/.fluid-container-->
+</div><!--/.fluid-container-->
 
 </body>
 </html>
