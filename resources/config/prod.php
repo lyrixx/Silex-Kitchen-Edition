@@ -2,6 +2,14 @@
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use DA\Model\Entity\ModuleEntity;
+use DA\Service\ConfigService;
+
+$app['loader'] = include(__DIR__.'/../../vendor/autoload.php');
+
+// Autoloader
+$app['loader']->add('DA\Model\Entity\ModuleEntity',__DIR__.'/../../src');
+$app['loader']->add('DA\Service\ConfigService',__DIR__.'/../../src');
+$app['loader']->add('DA\Service',__DIR__.'/../../src');
 
 // Local
 $app['locale'] = 'en';
@@ -42,6 +50,8 @@ $app['db.options'] = array(
     'password' => 'yeahyeah',
 );
 
+$serviceConfig = new DA\Service\ConfigService($app);
+$app['db.orm.em'] = $serviceConfig->configureDoctrine($app);
+
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
-

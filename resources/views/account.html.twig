@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'homepage' %}
+
+{% block content %}
+
+        <div id="messages">
+            {% set alertTypeAvaillable = [ 'info', 'success', 'warning', 'error'] %}
+            {% for alert in alertTypeAvaillable %}
+                {% for message in app.session.getFlashBag.get(alert) %}
+                    {#                    <div class="alert alert-{{ alert }}" >
+                                            <button class="close" data-dismiss="alert">×</button>
+                                            {{ message|trans }}
+                                        </div>#}
+                {% endfor %}
+            {% endfor %}
+
+            </messages>
+        </div>
+        <div style="margin-left:30px">
+            <div class="row-fluid" style="margin-left:30px">
+                <div class="span2" style="padding:0px;padding-right:30px;padding-top:15px">
+                    <p><img src="/DA/web/img/doctrineorm.jpg"/></p>
+                </div><!--/span-->
+                <div class="span2" style="padding-right:10px;margin-right:5px">
+                    <p><img src="/DA/web/img/composer-logo.jpg" width="200px" height="200px"/></p>
+                </div><!--/span-->
+                <div class="span2" style="padding:0px;padding-left:20px;margin-right:20px;margin-top:10px">
+                    <p><img src="/DA/web/img/symfony.jpg" width="200px" height="200px"/></p>
+                </div><!--/span-->
+                <div class="span2" style="float:left;padding-right:-30px;margin-right:0px;">
+                    <p><img src="/DA/web/img/silex.jpg" width="200px" height="200px"/></p>
+                </div><!--/span-->
+                <div class="span2" style="margin-top:-15px">
+                    <p><img src="/DA/web/img/twig.png" width="200px" height="200px"/></p>
+                </div><!--/span-->
+
+            </div><!--/row-->
+            <div class="row-fluid">
+                <div class="row-fluid">
+                    <div class="span4" style="padding:5px; border:1px solid #666666">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+                <div class="row-fluid">
+                    <div class="span4" style="padding:5px; border:1px solid #666666">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+                <div class="row-fluid">
+                    <div class="span4" style="padding:5px; border:1px solid #666666">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div><!--/span-->
+            </div><!--/row-->
+    </div><!--/span-->
+    </div>
+{% endblock %}

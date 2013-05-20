@@ -28,17 +28,11 @@ class IndexController
 
 	public function doctrine(Request $request,Application $app)
 	{
-        $page_data = array();
-        $page_data = array('configuration' => $app['db']->fetchAll('SELECT * FROM core_page'));
+        $page_data['configuration'] = array($app['db']->fetchAll('SELECT * FROM core_module'));
 
-        //$ModuleManager = $app['db.orm'];
+        //$core_page = $app['db.orm']->find('ModuleEntity', 1);
 
-            //$m = new ModuleEntity();
-            print_r($app['db.config']);
-
-
-        //print_r($app['db']);exit;
-        //array_push($page_data,$single);
+        //print_r($app['db.orm.helper_set']);
 
 		return $app['twig']->render('doctrine.html.twig',$page_data);
 	}

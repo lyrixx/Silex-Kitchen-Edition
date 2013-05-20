@@ -57,7 +57,7 @@
             <a class="brand" href="{{ path('homepage') }}">{{ 'Design Affiliates App Framework'|trans }}</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">Username</a>
+                    Logged in as <a href="{{ path('account') }}" class="navbar-link">Username</a>
                 </p>
                 <ul class="nav">
                     <li {% if 'homepage' == active %}class="active"{% endif %}><a href="{{ path('homepage') }}">{{ 'Homepage'|trans }}</a></li>
@@ -66,18 +66,30 @@
                     <li {% if 'doctrine' == active %}class="active"{% endif %}><a href="{{ path('doctrine') }}">Doctrine</a></li>
                     <li {% if 'components' == active %}class="active"{% endif %}><a href="{{ path('components') }}">Components</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+{#                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Account <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
+                        </a>#}
+{#                        <ul class="dropdown-menu">
                             {% if is_granted('ROLE_USER') %}
-                                <li><a href="/account">Hello "{{ app.security.token.username }}"</a></li>
-                                <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
+&#123;&#35;                                <li><a href="/account">Hello "{{ app.security.token.username }}"</a></li>
+                                <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>&#35;&#125;
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('logout') }}">Logout</a></li>
+                                </ul>
                             {% else %}
-                                <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
-                                <li><a href="#">{{ 'Register'|trans }}</a></li>
+&#123;&#35;                                <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
+                                <li><a href="#">{{ 'Register'|trans }}</a></li>&#35;&#125;
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('login') }}"</li>
+                                </ul>
                             {% endif %}
-                        </ul>
+                        </ul>#}
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->

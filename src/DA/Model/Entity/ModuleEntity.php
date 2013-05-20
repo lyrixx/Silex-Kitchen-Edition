@@ -1,5 +1,7 @@
 <?php
-/** @Entity */
+/** @Entity
+ *  @Table(name="core_page")
+ **/
 namespace DA\Model\Entity;
 use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 use Doctrine\ORM\Mapping\Entity;
