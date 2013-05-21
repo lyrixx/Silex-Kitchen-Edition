@@ -28,6 +28,7 @@ $app->match('/logout', controller('LoginController::logout'))->bind('logout');
 $app->match('/doctrine', controller('IndexController::doctrine'))->bind('doctrine');
 $app->match('/form', controller('FormController::index'))->bind('form');
 $app->match('/components', controller('ComponentController::index'))->bind('components');
+$app->match('/cli/command', controller('CommandController::runcmd'))->bind('cli_submit');
 
 if($app['debug']) {
     $app->match('/page-with-cache', controller('CacheController::index'))->bind('page-with-cache');
