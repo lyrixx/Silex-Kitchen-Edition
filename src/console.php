@@ -28,58 +28,57 @@ $console
     })
 ;
 
-$console
-    ->register('cache:clear')
-    ->setDescription('Clears the cache')
-    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        if (!isset($app['cache.path']))
-        {
-             $output->writeln(sprintf("<error>ERROR:</error> could not clear the cache: <info>\$app['cache.path']</info> is not set.", 'cache:clear'));
-             return false;
-        }
-        $cacheDir = $app['cache.path'];
-        $finder = new Finder();
-        $finder
-            ->in($cacheDir)
-            ->notName('.gitkeep')
-        ;
-        
-        //--- from Filesystem::remove()
-        $remove = function ($files, $recurse) {
-            $files = iterator_to_array($files);
-            $files = array_reverse($files);
-            foreach ($files as $file) {
+if (isset($app['cache.path']))
+{
+    $console
+        ->register('cache:clear')
+        ->setDescription('Clears the cache')
+        ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
 
-                if (!file_exists($file) && !is_link($file)) {
-                    continue;
-                }
+            $cacheDir = $app['cache.path'];
+            $finder = new Finder();
+            $finder
+                ->in($cacheDir)
+                ->notName('.gitkeep')
+            ;
 
-                if (is_dir($file) && !is_link($file)) {
-                    $recurse(new \FilesystemIterator($file), $recurse);
+            //--- from Filesystem::remove()
+            $remove = function ($files, $recurse) {
+                $files = iterator_to_array($files);
+                $files = array_reverse($files);
+                foreach ($files as $file) {
 
-                    if (true !== @rmdir($file)) {
-                        throw new \Exception(sprintf('Failed to remove directory %s', $file));
+                    if (!file_exists($file) && !is_link($file)) {
+                        continue;
                     }
-                } else {
-                    // https://bugs.php.net/bug.php?id=52176
-                    if (defined('PHP_WINDOWS_VERSION_MAJOR') && is_dir($file)) {
+
+                    if (is_dir($file) && !is_link($file)) {
+                        $recurse(new \FilesystemIterator($file), $recurse);
+
                         if (true !== @rmdir($file)) {
-                            throw new \Exception(sprintf('Failed to remove file %s', $file));
+                            throw new \Exception(sprintf('Failed to remove directory %s', $file));
                         }
                     } else {
-                        if (true !== @unlink($file)) {
-                            throw new \Exception(sprintf('Failed to remove file %s', $file));
+                        // https://bugs.php.net/bug.php?id=52176
+                        if (defined('PHP_WINDOWS_VERSION_MAJOR') && is_dir($file)) {
+                            if (true !== @rmdir($file)) {
+                                throw new \Exception(sprintf('Failed to remove file %s', $file));
+                            }
+                        } else {
+                            if (true !== @unlink($file)) {
+                                throw new \Exception(sprintf('Failed to remove file %s', $file));
+                            }
                         }
                     }
                 }
-            }
-        };
-        
-        $remove($finder, $remove);
-        $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
-        return true;
-    })
-;
+            };
+
+            $remove($finder, $remove);
+            $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
+            return true;
+        })
+    ;
+}
     
     
 $console
