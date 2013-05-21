@@ -2,16 +2,11 @@
 
 namespace DA\Controller;
 
-use Doctrine\Common\EventManager;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand;
-use Doctrine\Tests\Mocks\MetadataDriverMock;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 use Symfony\Component\Validator\Constraints as Assert;
-use Silex\Application;
+use Silex\Application;;
 use DA\Model\Entity\ModuleEntity;
 
 class IndexController
@@ -30,9 +25,12 @@ class IndexController
 	{
         $page_data['configuration'] = array($app['db']->fetchAll('SELECT * FROM core_module'));
 
-        //$core_page = $app['db.orm']->find('ModuleEntity', 1);
+        //$core_page = $app['db.orm']->find('DA\Model\Entity\ModuleEntity', 1);
 
-        //print_r($app['db.orm.helper_set']);
+        //var_dump($core_page);exit;
+        //var_dump($app['db.orm.helper_set']);exit;
+
+        //var_dump($app['db.orm.em']);exit;
 
 		return $app['twig']->render('doctrine.html.twig',$page_data);
 	}

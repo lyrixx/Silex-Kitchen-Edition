@@ -29,12 +29,19 @@ class ConfigService extends Service
 
         $app['db.orm'] = $entityManager;
 
+        $this->entityManager = $entityManager;
+
         $app['db.orm.helper_set'] = new \Symfony\Component\Console\Helper\HelperSet(array(
             'em' => new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($entityManager)
         ));
 
 
         return $app;
+    }
+
+    public function getEntityManager()
+    {
+        return $this->entityManager;
     }
 
 }

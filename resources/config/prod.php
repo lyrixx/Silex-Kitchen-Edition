@@ -51,7 +51,9 @@ $app['db.options'] = array(
 );
 
 $serviceConfig = new DA\Service\ConfigService($app);
-$app['db.orm.em'] = $serviceConfig->configureDoctrine($app);
+$serviceConfig->configureDoctrine($app);
+
+$app['db.orm.em'] = $serviceConfig->getEntityManager();
 
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
