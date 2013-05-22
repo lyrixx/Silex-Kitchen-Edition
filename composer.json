@@ -21,6 +21,7 @@
         "silex/silex"           : "~1.0.0",
         "symfony/config"        : "~2.2",
         "symfony/console"       : "~2.2",
+        "symfony/filesystem"    : "~2.2",
         "symfony/form"          : "~2.2",
         "symfony/security"      : "~2.2",
         "symfony/translation"   : "~2.2",

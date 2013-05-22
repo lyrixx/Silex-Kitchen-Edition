@@ -5,6 +5,7 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 $console = new Application('Silex - Kitchen Edition', '0.1');
@@ -28,59 +29,22 @@ $console
     })
 ;
 
-if (isset($app['cache.path']))
-{
+if (isset($app['cache.path'])) {
     $console
         ->register('cache:clear')
         ->setDescription('Clears the cache')
         ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
 
             $cacheDir = $app['cache.path'];
-            $finder = new Finder();
-            $finder
-                ->in($cacheDir)
-                ->notName('.gitkeep')
-            ;
+            $finder = Finder::create()->in($cacheDir)->notName('.gitkeep');
 
-            //--- from Filesystem::remove()
-            $remove = function ($files, $recurse) {
-                $files = iterator_to_array($files);
-                $files = array_reverse($files);
-                foreach ($files as $file) {
+            $filesystem = new Filesystem;
+            $filesystem->remove($finder);
 
-                    if (!file_exists($file) && !is_link($file)) {
-                        continue;
-                    }
-
-                    if (is_dir($file) && !is_link($file)) {
-                        $recurse(new \FilesystemIterator($file), $recurse);
-
-                        if (true !== @rmdir($file)) {
-                            throw new \Exception(sprintf('Failed to remove directory %s', $file));
-                        }
-                    } else {
-                        // https://bugs.php.net/bug.php?id=52176
-                        if (defined('PHP_WINDOWS_VERSION_MAJOR') && is_dir($file)) {
-                            if (true !== @rmdir($file)) {
-                                throw new \Exception(sprintf('Failed to remove file %s', $file));
-                            }
-                        } else {
-                            if (true !== @unlink($file)) {
-                                throw new \Exception(sprintf('Failed to remove file %s', $file));
-                            }
-                        }
-                    }
-                }
-            };
-
-            $remove($finder, $remove);
             $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
-            return true;
-        })
-    ;
+    });
 }
-    
-    
+
 $console
     ->register('doctrine:schema:show')
     ->setDescription('Output schema declaration')
