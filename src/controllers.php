@@ -113,8 +113,7 @@ $app->match('/form', function(Request $request) use ($app) {
     ;
 
     if ($request->isMethod('POST')) {
-        $form->bind($request);
-        if ($form->isValid()) {
+        if ($form->submit($request)->isValid()) {
             $app['session']->getFlashBag()->add('success', 'The form is valid');
         } else {
             $form->addError(new FormError('This is a global error'));

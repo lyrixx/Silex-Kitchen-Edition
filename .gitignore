@@ -1,4 +1,5 @@
-resources/cache/*
-resources/log/*
-vendor/
-web/assets/*
+/composer.lock
+/resources/cache/*
+/resources/log/*
+/vendor/
+/web/assets/*

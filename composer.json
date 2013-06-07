@@ -32,9 +32,9 @@
         "twitter/bootstrap"     : "2.3.1"
     },
     "require-dev": {
-        "symfony/browser-kit"   : "~2.2",
-        "symfony/css-selector"  : "~2.2",
-        "symfony/dom-crawler"   : "~2.2"
+        "symfony/browser-kit"   : "~2.3",
+        "symfony/css-selector"  : "~2.3",
+        "symfony/dom-crawler"   : "~2.3"
     },
     "scripts": {
         "post-install-cmd": "SKE\\Composer\\Script::install",
