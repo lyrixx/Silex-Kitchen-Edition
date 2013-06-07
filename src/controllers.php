@@ -108,6 +108,7 @@ $app->match('/form', function(Request $request) use ($app) {
             'first_options'   => array('label' => 'Password'),
             'second_options'  => array('label' => 'Repeat Password'),
         ))
+        ->add('submit', 'submit')
         ->getForm()
     ;
 

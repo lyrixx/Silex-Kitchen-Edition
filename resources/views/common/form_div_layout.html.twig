@@ -1,6 +1,22 @@
 {% extends "form_div_layout.html.twig" %}
 
+{# Form #}
+
+{% block form %}
+{% spaceless %}
+    {{ form_start(form, {attr: {class: 'form-horizontal', novalidate: 'novalidate'}}) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endspaceless %}
+{% endblock form %}
+
 {# Widgets #}
+
+{% block submit_widget %}
+    {% set attr = attr|merge({class: 'btn btn-primary'}) %}
+    {% set type = type|default('submit') %}
+    {{ block('button_widget') }}
+{% endblock %}
 
 {% block choice_widget_expanded %}
 {% spaceless %}
@@ -155,3 +171,9 @@
     {% endif %}
 {% endspaceless %}
 {% endblock form_errors %}
+
+{% block submit_row %}
+    <div class="form-actions">
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
