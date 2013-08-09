@@ -12,11 +12,10 @@
         }
     ],
     "require": {
-        "php"                   : ">=5.3.3",
         "doctrine/dbal"         : "~2.3",
         "kriswallsmith/assetic" : "~1.0.0",
-        "leafo/lessphp"         : "dev-master",
-        "mheap/silex-assetic"   : "dev-master@dev",
+        "leafo/lessphp"         : "~0.4.0",
+        "mheap/silex-assetic"   : "1.0.*@dev",
         "monolog/monolog"       : "~1.0",
         "silex/silex"           : "~1.0.0",
         "symfony/config"        : "~2.3",
@@ -30,7 +29,7 @@
         "symfony/yaml"          : "~2.3",
         "twig/twig"             : "~1.10",
         "silex/web-profiler"    : "1.0.*@dev",
-        "twitter/bootstrap"     : "2.3.1"
+        "twitter/bootstrap"     : "2.3.2"
     },
     "require-dev": {
         "symfony/browser-kit"   : "~2.3",
