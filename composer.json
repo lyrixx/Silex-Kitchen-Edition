@@ -15,7 +15,7 @@
         "doctrine/dbal"         : "~2.3",
         "kriswallsmith/assetic" : "~1.0.0",
         "leafo/lessphp"         : "~0.4.0",
-        "mheap/silex-assetic"   : "1.0.*@dev",
+        "mheap/silex-assetic"   : "~1.0.0",
         "monolog/monolog"       : "~1.0",
         "silex/silex"           : "~1.0.0",
         "symfony/config"        : "~2.3",
