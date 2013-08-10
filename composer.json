@@ -28,7 +28,7 @@
         "symfony/validator"     : "~2.3",
         "symfony/yaml"          : "~2.3",
         "twig/twig"             : "~1.10",
-        "silex/web-profiler"    : "1.0.*@dev",
+        "silex/web-profiler"    : "~1.0.1",
         "twitter/bootstrap"     : "2.3.2"
     },
     "require-dev": {
