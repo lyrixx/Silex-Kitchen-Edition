@@ -55,4 +55,24 @@ class ApplicationTest extends WebTestCase
         )));
         $this->assertEquals(2, $crawler->filter('a[href="/logout"]')->count());
     }
+
+    public function testFullForm()
+    {
+        $client = $this->createClient();
+        $client->followRedirects(true);
+
+        $crawler = $client->request('GET', '/form');
+        $this->assertEquals('France', $crawler->filter('form select[id=form_country] option[value=FR]')->text());
+
+        $form = $crawler->selectButton('Submit')->form();
+        $crawler = $client->submit($form);
+        $this->assertEquals(1, $crawler->filter('.alert-error')->count());
+    }
+
+    public function testPageCache()
+    {
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/page-with-cache');
+        $this->assertRegExp('#This page is cached#', $crawler->filter('body')->text());
+    }
 }
