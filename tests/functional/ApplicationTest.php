@@ -75,4 +75,11 @@ class ApplicationTest extends WebTestCase
         $crawler = $client->request('GET', '/page-with-cache');
         $this->assertRegExp('#This page is cached#', $crawler->filter('body')->text());
     }
+
+    public function testLoggingWithPsrInterface()
+    {
+        $msg = 'Check the logger';
+        $this->app['monolog']->error($msg);
+        $this->assertStringEndsWith("app.ERROR: $msg [] []\n", file_get_contents(__DIR__.'/../../resources/log/app.log'));
+    }
 }
