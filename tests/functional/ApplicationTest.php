@@ -79,7 +79,7 @@ class ApplicationTest extends WebTestCase
     public function testLoggingWithPsrInterface()
     {
         $msg = 'Check the logger';
-        $this->app['monolog']->error($msg);
+        $this->app['logger']->error($msg);
         $this->assertStringEndsWith("app.ERROR: $msg [] []\n", file_get_contents(__DIR__.'/../../resources/log/app.log'));
     }
 }
