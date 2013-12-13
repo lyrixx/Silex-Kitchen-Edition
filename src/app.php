@@ -46,7 +46,8 @@ $app->register(new TranslationServiceProvider());
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
-    $translator->addResource('yaml', __DIR__.'/../resources/locales/fr.yml', 'fr');
+    $translator->addResource('yaml', __DIR__.'/../resources/locales/en.yml', 'en');
+    $translator->addResource('yaml', __DIR__.'/../resources/locales/en.yml', 'fr');
 
     return $translator;
 }));

@@ -1,10 +1,10 @@
 <?php
 
 // Local
-$app['locale'] = 'fr';
+$app['locale'] = 'en';
 $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
-    'fr' => __DIR__.'/../resources/locales/fr.yml',
+    'en' => __DIR__.'/../resources/locales/en.yml',
 );
 
 // Cache
@@ -35,9 +35,9 @@ $app['assetic.output.path_to_js']       = 'js/scripts.js';
 $app['db.options'] = array(
     'driver'   => 'pdo_mysql',
     'host'     => 'localhost',
-    'dbname'   => 'silex_kitchen',
+    'dbname'   => 'bitcoin4code',
     'user'     => 'root',
-    'password' => '',
+    'password' => '123',
 );
 
 // User
