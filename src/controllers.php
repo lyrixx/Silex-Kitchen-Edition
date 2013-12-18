@@ -118,7 +118,7 @@ $app->match('/form', function(Request $request) use ($app) {
             $app['session']->getFlashBag()->add('success', 'The form is valid');
         } else {
             $form->addError(new FormError('This is a global error'));
-            $app['session']->getFlashBag()->add('info', 'The form is bind, but not valid');
+            $app['session']->getFlashBag()->add('info', 'The form is bound, but not valid');
         }
     }
 
