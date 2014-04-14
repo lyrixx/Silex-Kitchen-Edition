@@ -80,6 +80,9 @@ class ApplicationTest extends WebTestCase
     {
         $msg = 'Check the logger';
         $this->app['logger']->error($msg);
-        $this->assertStringEndsWith("app.ERROR: $msg [] []\n", file_get_contents(__DIR__.'/../../resources/log/app.log'));
+        $this->assertStringEndsWith(
+            "app.ERROR: $msg [] []\n",
+            file_get_contents(__DIR__.'/../../resources/log/app.log')
+        );
     }
 }

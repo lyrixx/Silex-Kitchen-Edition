@@ -5,7 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 
-$app->match('/', function() use ($app) {
+$app->match('/', function () use ($app) {
     $app['session']->getFlashBag()->add('warning', 'Warning flash message');
     $app['session']->getFlashBag()->add('info', 'Info flash message');
     $app['session']->getFlashBag()->add('success', 'Success flash message');
@@ -14,9 +14,16 @@ $app->match('/', function() use ($app) {
     return $app['twig']->render('index.html.twig');
 })->bind('homepage');
 
-$app->match('/login', function(Request $request) use ($app) {
+$app->match('/login', function (Request $request) use ($app) {
     $form = $app['form.factory']->createBuilder('form')
-        ->add('username', 'text', array('label' => 'Username', 'data' => $app['session']->get('_security.last_username')))
+        ->add(
+            'username',
+            'text',
+            array(
+                'label' => 'Username',
+                'data' => $app['session']->get('_security.last_username')
+            )
+        )
         ->add('password', 'password', array('label' => 'Password'))
         ->getForm()
     ;
@@ -27,7 +34,7 @@ $app->match('/login', function(Request $request) use ($app) {
     ));
 })->bind('login');
 
-$app->match('/doctrine', function() use ($app) {
+$app->match('/doctrine', function () use ($app) {
     return $app['twig']->render(
         'doctrine.html.twig',
         array(
@@ -36,7 +43,7 @@ $app->match('/doctrine', function() use ($app) {
     );
 })->bind('doctrine');
 
-$app->match('/form', function(Request $request) use ($app) {
+$app->match('/form', function (Request $request) use ($app) {
 
     $builder = $app['form.factory']->createBuilder('form');
     $choices = array('choice a', 'choice b', 'choice c');
@@ -70,22 +77,22 @@ $app->match('/form', function(Request $request) use ($app) {
         ->add('percent', 'percent')
         ->add('search', 'search')
         ->add('url', 'url')
-        ->add('choice1', 'choice',  array(
+        ->add('choice1', 'choice', array(
             'choices'  => $choices,
             'multiple' => true,
             'expanded' => true
         ))
-        ->add('choice2', 'choice',  array(
+        ->add('choice2', 'choice', array(
             'choices'  => $choices,
             'multiple' => false,
             'expanded' => true
         ))
-        ->add('choice3', 'choice',  array(
+        ->add('choice3', 'choice', array(
             'choices'  => $choices,
             'multiple' => true,
             'expanded' => false
         ))
-        ->add('choice4', 'choice',  array(
+        ->add('choice4', 'choice', array(
             'choices'  => $choices,
             'multiple' => false,
             'expanded' => false
@@ -125,13 +132,13 @@ $app->match('/form', function(Request $request) use ($app) {
     return $app['twig']->render('form.html.twig', array('form' => $form->createView()));
 })->bind('form');
 
-$app->match('/logout', function() use ($app) {
+$app->match('/logout', function () use ($app) {
     $app['session']->clear();
 
     return $app->redirect($app['url_generator']->generate('homepage'));
 })->bind('logout');
 
-$app->get('/page-with-cache', function() use ($app) {
+$app->get('/page-with-cache', function () use ($app) {
     $response = new Response($app['twig']->render('page-with-cache.html.twig', array('date' => date('Y-M-d h:i:s'))));
     $response->setTtl(10);
 

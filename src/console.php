@@ -42,7 +42,7 @@ if (isset($app['cache.path'])) {
             $filesystem->remove($finder);
 
             $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
-    });
+        });
 }
 
 $console
@@ -75,7 +75,8 @@ $console
     ->setDescription('Drops the configured databases')
     ->addOption('connection', null, InputOption::VALUE_OPTIONAL, 'The connection to use for this command')
     ->addOption('force', null, InputOption::VALUE_NONE, 'Set this parameter to execute this action')
-    ->setHelp(<<<EOT
+    ->setHelp(
+        <<<EOT
 The <info>doctrine:database:drop</info> command drops the default connections
 database:
 
@@ -91,8 +92,8 @@ for:
 <error>Be careful: All data in a given database will be lost when executing
 this command.</error>
 EOT
-        )
-        ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+    )
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
         $connection = $app['db'];
 
         $params = $connection->getParams();
@@ -129,11 +130,13 @@ EOT
         }
     })
 ;
+
 $console
     ->register('doctrine:database:create')
     ->setDescription('Creates the configured databases')
     ->addOption('connection', null, InputOption::VALUE_OPTIONAL, 'The connection to use for this command')
-    ->setHelp(<<<EOT
+    ->setHelp(
+        <<<EOT
 The <info>doctrine:database:create</info> command creates the default
 connections database:
 
