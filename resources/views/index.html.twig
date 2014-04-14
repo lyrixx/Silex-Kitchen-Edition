@@ -8,6 +8,6 @@
         Hello "{{ app.security.token.username }}".<br />
         <a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a>
     {% else %}
-        Your a not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
+        You're not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
     {% endif %}
 {% endblock %}
