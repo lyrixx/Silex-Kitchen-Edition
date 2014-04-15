@@ -43,7 +43,7 @@ $app['security.encoder.digest'] = $app->share(function ($app) {
 });
 
 $app->register(new TranslationServiceProvider());
-$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
+$app['translator'] = $app->share($app->extend('translator', function ($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
     $translator->addResource('yaml', __DIR__.'/../resources/locales/fr.yml', 'fr');
@@ -82,7 +82,7 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
     ));
 
     $app['assetic.filter_manager'] = $app->share(
-        $app->extend('assetic.filter_manager', function($fm, $app) {
+        $app->extend('assetic.filter_manager', function ($fm, $app) {
             $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
 
             return $fm;
@@ -90,7 +90,7 @@ if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
     );
 
     $app['assetic.asset_manager'] = $app->share(
-        $app->extend('assetic.asset_manager', function($am, $app) {
+        $app->extend('assetic.asset_manager', function ($am, $app) {
             $am->set('styles', new Assetic\Asset\AssetCache(
                 new Assetic\Asset\GlobAsset(
                     $app['assetic.input.path_to_css'],
