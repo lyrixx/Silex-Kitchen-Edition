@@ -29,6 +29,13 @@ class Application extends SilexApplication
 
         $app = $this;
 
+        // Override these values in resources/config/prod.php file
+        $app['var_dir'] = $this->baseDir.'/var';
+        $app['locale'] = 'fr';
+        $app['http_cache.cache_dir'] = $app->share(function(Application $app) {
+            return $app['var_dir'].'/http';
+        });
+
         if ($configFile) {
             if (file_exists($configFile)) {
                 require $configFile;
@@ -67,24 +74,24 @@ class Application extends SilexApplication
         $app->register(new TranslationServiceProvider());
         $app['translator'] = $app->share($app->extend('translator', function ($translator, $app) {
             $translator->addLoader('yaml', new YamlFileLoader());
-            $translator->addResource('yaml', $this->baseDir.'/resources/locales/fr.yml', 'fr');
+            $translator->addResource('yaml', $this->baseDir.'/resources/translations/fr.yml', 'fr');
 
             return $translator;
         }));
 
         $app->register(new MonologServiceProvider(), array(
-            'monolog.logfile' => $this->baseDir.'/resources/log/app.log',
+            'monolog.logfile' => $app['var_dir'].'/logs/app.log',
             'monolog.name' => 'app',
             'monolog.level' => 300, // = Logger::WARNING
         ));
 
         $app->register(new TwigServiceProvider(), array(
             'twig.options' => array(
-                'cache' => isset($app['twig.options.cache']) ? $app['twig.options.cache'] : false,
+                'cache' => $app['var_dir'].'/cache/twig',
                 'strict_variables' => true,
             ),
             'twig.form.templates' => array('bootstrap_3_horizontal_layout.html.twig'),
-            'twig.path' => array($this->baseDir.'/resources/views'),
+            'twig.path' => array($this->baseDir.'/resources/templates'),
         ));
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
             $twig->addFunction(new \Twig_SimpleFunction('asset', function ($asset) use ($app) {
@@ -96,6 +103,8 @@ class Application extends SilexApplication
             return $twig;
         }));
 
-        $app->mount('', new ControllerProvider());
+        if ('cli' !== php_sapi_name()) {
+            $app->mount('', new ControllerProvider());
+        }
     }
 }
