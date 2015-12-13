@@ -3,7 +3,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new App\Application(__DIR__.'/../resources/config/dev.php');
+$app = new App\Application('dev');
 
 $console = require __DIR__.'/../src/console.php';
 $console->run();

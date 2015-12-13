@@ -21,7 +21,7 @@ class Application extends SilexApplication
 {
     private $baseDir;
 
-    public function __construct($configFile = null)
+    public function __construct($env)
     {
         $this->baseDir = __DIR__.'/../../';
 
@@ -36,13 +36,11 @@ class Application extends SilexApplication
             return $app['var_dir'].'/http';
         });
 
-        if ($configFile) {
-            if (file_exists($configFile)) {
-                require $configFile;
-            } else {
-                throw new \RuntimeException(sprintf('The file "%s" does not exist.', $configFile));
-            }
+        $configFile = sprintf('%s/resources/config/%s.php', $this->baseDir, $env);
+        if (!file_exists($configFile)) {
+            throw new \RuntimeException(sprintf('The file "%s" does not exist.', $configFile));
         }
+        require $configFile;
 
         $app->register(new HttpCacheServiceProvider());
         $app->register(new SessionServiceProvider());
@@ -103,8 +101,6 @@ class Application extends SilexApplication
             return $twig;
         }));
 
-        if ('cli' !== php_sapi_name()) {
-            $app->mount('', new ControllerProvider());
-        }
+        $app->mount('', new ControllerProvider());
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Silex\Application;
+use Silex\Application as App;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ class ControllerProvider implements ControllerProviderInterface
 {
     private $app;
 
-    public function connect(Application $app)
+    public function connect(App $app)
     {
         $this->app = $app;
 
@@ -34,7 +34,7 @@ class ControllerProvider implements ControllerProviderInterface
             ->bind('doctrine');
 
         $controllers
-            ->get('/form', [$this, 'form'])
+            ->match('/form', [$this, 'form'])
             ->bind('form');
 
         $controllers
@@ -44,7 +44,7 @@ class ControllerProvider implements ControllerProviderInterface
         return $controllers;
     }
 
-    public function homepage(Application $app)
+    public function homepage(App $app)
     {
         $app['session']->getFlashBag()->add('warning', 'Warning flash message');
         $app['session']->getFlashBag()->add('info', 'Info flash message');
@@ -54,7 +54,7 @@ class ControllerProvider implements ControllerProviderInterface
         return $app['twig']->render('index.html.twig');
     }
 
-    public function login(Application $app)
+    public function login(App $app)
     {
         return $app['twig']->render('login.html.twig', array(
             'error' => $app['security.utils']->getLastAuthenticationError(),
@@ -62,14 +62,14 @@ class ControllerProvider implements ControllerProviderInterface
         ));
     }
 
-    public function doctrine(Application $app)
+    public function doctrine(App $app)
     {
         return $app['twig']->render('doctrine.html.twig', array(
             'posts' => $app['db']->fetchAll('SELECT * FROM post'),
         ));
     }
 
-    public function form(Application $app, Request $request)
+    public function form(App $app, Request $request)
     {
         $builder = $app['form.factory']->createBuilder('form');
 
@@ -160,7 +160,7 @@ class ControllerProvider implements ControllerProviderInterface
         ));
     }
 
-    public function cache(Application $app)
+    public function cache(App $app)
     {
         $response = new Response($app['twig']->render('cache.html.twig', array('date' => date('Y-M-d h:i:s'))));
         $response->setTtl(10);
