@@ -1,5 +1,5 @@
 {
-    "name"        : "lyrixx/Silex-Kitchen-Edition",
+    "name"        : "lyrixx/silex-kitchen-edition",
     "type"        : "library",
     "description" : "A Silex Edition. This project is a base for your silex applications.",
     "keywords"    : ["framework"],
