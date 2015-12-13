@@ -1,5 +1,6 @@
 <?php
 
+use SKE\ControllerProvider;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
@@ -86,5 +87,7 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 $app['security.utils'] = $app->share(function($app) {
     return new AuthenticationUtils($app['request_stack']);
 });
+
+$app->mount('', new ControllerProvider());
 
 return $app;

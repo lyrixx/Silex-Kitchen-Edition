@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li {% if 'homepage' == active %}class="active"{% endif %}><a href="{{ url('homepage') }}">{{ 'Homepage'|trans }}</a></li>
-            <li {% if 'page_with_cache' == active %}class="active"{% endif %}><a href="{{ url('page_with_cache') }}">Cache sample</a></li>
+            <li {% if 'cache' == active %}class="active"{% endif %}><a href="{{ url('cache') }}">Cache sample</a></li>
             <li {% if 'form' == active %}class="active"{% endif %}><a href="{{ url('form') }}">Form sample</a></li>
             <li {% if 'doctrine' == active %}class="active"{% endif %}><a href="{{ url('doctrine') }}">Doctrine</a></li>
             <li class="dropdown">
