@@ -6,8 +6,8 @@ class Script
 {
     public static function install()
     {
-        chmod('resources/cache', 0777);
-        chmod('resources/log', 0777);
-        chmod('console', 0500);
+        mkdir('var/cache', 0777);
+        mkdir('var/log', 0777);
+        chmod('bin/console', 0755);
     }
 }
