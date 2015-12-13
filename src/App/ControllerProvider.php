@@ -80,14 +80,14 @@ class ControllerProvider implements ControllerProviderInterface
                 $builder->create('sub-form', 'form')
                     ->add('subformemail1', 'email', array(
                         'constraints' => array(new Assert\NotBlank(), new Assert\Email()),
-                        'attr'        => array('placeholder' => 'email constraints'),
-                        'label'       => 'A custom label : ',
+                        'attr' => array('placeholder' => 'email constraints'),
+                        'label' => 'A custom label : ',
                     ))
                     ->add('subformtext1', 'text')
             )
             ->add('text1', 'text', array(
                 'constraints' => new Assert\NotBlank(),
-                'attr'        => array('placeholder' => 'not blank constraints')
+                'attr' => array('placeholder' => 'not blank constraints'),
             ))
             ->add('text2', 'text', array('attr' => array('class' => 'span1', 'placeholder' => '.span1')))
             ->add('text3', 'text', array('attr' => array('class' => 'span2', 'placeholder' => '.span2')))
@@ -105,24 +105,24 @@ class ControllerProvider implements ControllerProviderInterface
             ->add('search', 'search')
             ->add('url', 'url')
             ->add('choice1', 'choice', array(
-                'choices'  => $choices,
+                'choices' => $choices,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
             ))
             ->add('choice2', 'choice', array(
-                'choices'  => $choices,
+                'choices' => $choices,
                 'multiple' => false,
-                'expanded' => true
+                'expanded' => true,
             ))
             ->add('choice3', 'choice', array(
-                'choices'  => $choices,
+                'choices' => $choices,
                 'multiple' => true,
-                'expanded' => false
+                'expanded' => false,
             ))
             ->add('choice4', 'choice', array(
-                'choices'  => $choices,
+                'choices' => $choices,
                 'multiple' => false,
-                'expanded' => false
+                'expanded' => false,
             ))
             ->add('country', 'country')
             ->add('language', 'language')
@@ -136,11 +136,11 @@ class ControllerProvider implements ControllerProviderInterface
             ->add('file', 'file')
             ->add('radio', 'radio')
             ->add('password_repeated', 'repeated', array(
-                'type'            => 'password',
+                'type' => 'password',
                 'invalid_message' => 'The password fields must match.',
-                'options'         => array('required' => true),
-                'first_options'   => array('label' => 'Password'),
-                'second_options'  => array('label' => 'Repeat Password'),
+                'options' => array('required' => true),
+                'first_options' => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
             ))
             ->add('submit', 'submit')
             ->getForm()
@@ -156,7 +156,7 @@ class ControllerProvider implements ControllerProviderInterface
         }
 
         return $app['twig']->render('form.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ));
     }
 

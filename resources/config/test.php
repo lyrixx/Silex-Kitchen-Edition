@@ -4,7 +4,7 @@ $app['debug'] = true;
 
 // Doctrine (DB)
 $app['db.options'] = array(
-    'driver'   => 'pdo_sqlite',
+    'driver' => 'pdo_sqlite',
     'path' => __DIR__.'/../db/database_test.dat',
 );
 

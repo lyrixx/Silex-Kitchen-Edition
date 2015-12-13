@@ -8,17 +8,17 @@ $app['translator.messages'] = array(
 );
 
 // Cache
-$app['cache.path'] = __DIR__ . '/../cache';
+$app['cache.path'] = __DIR__.'/../cache';
 
 // Http cache
-$app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
+$app['http_cache.cache_dir'] = $app['cache.path'].'/http';
 
 // Twig cache
-$app['twig.options.cache'] = $app['cache.path'] . '/twig';
+$app['twig.options.cache'] = $app['cache.path'].'/twig';
 
 // Doctrine (DB)
 $app['db.options'] = array(
-    'driver'   => 'pdo_sqlite',
+    'driver' => 'pdo_sqlite',
     'path' => __DIR__.'/../db/database.dat',
 );
 

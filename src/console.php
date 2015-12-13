@@ -24,7 +24,7 @@ if (isset($app['cache.path'])) {
             $filesystem = new Filesystem();
             $filesystem->remove($finder);
 
-            $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
+            $output->writeln(sprintf('%s <info>success</info>', 'cache:clear'));
         });
 }
 
@@ -168,7 +168,7 @@ $console
     ->addOption('size', 's', InputOption::VALUE_REQUIRED, 'The size', 20)
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
 
-        for ($i=0; $i < $input->getOption('size'); $i++) {
+        for ($i = 0; $i < $input->getOption('size'); ++$i) {
             $app['db']->insert('post', ['title' => 'hello #'.rand()]);
         }
     });
