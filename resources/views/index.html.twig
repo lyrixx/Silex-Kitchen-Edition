@@ -1,13 +1,22 @@
 {% extends 'layout.html.twig' %}
+
 {% set active = 'homepage' %}
 
 {% block content %}
-
-    <h1>Hello</h1>
-    {% if is_granted('ROLE_USER') %}
-        Hello "{{ app.security.token.username }}".<br />
-        <a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a>
-    {% else %}
-        You're not logged. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
-    {% endif %}
+    <div class="jumbotron">
+        <h1>
+            Hello
+            {% if is_granted('ROLE_USER') %}
+                {{ app.security.token.username }}
+            {% endif %}
+        </h1>
+        <p>
+            {% if is_granted('ROLE_USER') %}
+                You are logged-in.
+                <a href="{{ path('logout') }}" class="btn btn-primary btn-lg" role="button">{{ 'Logout'|trans }}</a>
+            {% else %}
+                You're not logged-in. Please <a href="{{ path('login') }}">{{ 'connect'|trans }}</a>
+            {% endif %}
+        </p>
+    </div>
 {% endblock %}

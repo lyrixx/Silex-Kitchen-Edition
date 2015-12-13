@@ -9,28 +9,15 @@ $app->match('/', function () use ($app) {
     $app['session']->getFlashBag()->add('warning', 'Warning flash message');
     $app['session']->getFlashBag()->add('info', 'Info flash message');
     $app['session']->getFlashBag()->add('success', 'Success flash message');
-    $app['session']->getFlashBag()->add('error', 'Error flash message');
+    $app['session']->getFlashBag()->add('danger', 'Danger flash message');
 
     return $app['twig']->render('index.html.twig');
 })->bind('homepage');
 
 $app->match('/login', function (Request $request) use ($app) {
-    $form = $app['form.factory']->createBuilder('form')
-        ->add(
-            'username',
-            'text',
-            array(
-                'label' => 'Username',
-                'data' => $app['session']->get('_security.last_username')
-            )
-        )
-        ->add('password', 'password', array('label' => 'Password'))
-        ->getForm()
-    ;
-
     return $app['twig']->render('login.html.twig', array(
-        'form'  => $form->createView(),
-        'error' => $app['security.last_error']($request),
+        'error' => $app['security.utils']->getLastAuthenticationError(),
+        'username' => $app['security.utils']->getLastUsername(),
     ));
 })->bind('login');
 
@@ -38,7 +25,7 @@ $app->match('/doctrine', function () use ($app) {
     return $app['twig']->render(
         'doctrine.html.twig',
         array(
-            'posts' => $app['db']->fetchAll('SELECT * FROM post')
+            'posts' => $app['db']->fetchAll('SELECT * FROM post'),
         )
     );
 })->bind('doctrine');

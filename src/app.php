@@ -11,8 +11,8 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
-use SilexAssetic\AsseticServiceProvider;
 use Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
 $app->register(new HttpCacheServiceProvider());
@@ -28,8 +28,6 @@ $app->register(new SecurityServiceProvider(), array(
             'pattern' => '^/',
             'form'    => array(
                 'login_path'         => '/login',
-                'username_parameter' => 'form[username]',
-                'password_parameter' => 'form[password]',
             ),
             'logout'    => true,
             'anonymous' => true,
@@ -62,7 +60,7 @@ $app->register(new TwigServiceProvider(), array(
         'cache'            => isset($app['twig.options.cache']) ? $app['twig.options.cache'] : false,
         'strict_variables' => true
     ),
-    'twig.form.templates' => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
+    'twig.form.templates' => array('bootstrap_3_horizontal_layout.html.twig'),
     'twig.path'           => array(__DIR__ . '/../resources/views')
 ));
 
@@ -73,45 +71,20 @@ if ($app['debug'] && isset($app['cache.path'])) {
     // ));
 }
 
-if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
-    $app->register(new AsseticServiceProvider(), array(
-        'assetic.options' => array(
-            'debug'            => $app['debug'],
-            'auto_dump_assets' => $app['debug'],
-        )
-    ));
-
-    $app['assetic.filter_manager'] = $app->share(
-        $app->extend('assetic.filter_manager', function ($fm, $app) {
-            $fm->set('lessphp', new Assetic\Filter\LessphpFilter());
-
-            return $fm;
-        })
-    );
-
-    $app['assetic.asset_manager'] = $app->share(
-        $app->extend('assetic.asset_manager', function ($am, $app) {
-            $am->set('styles', new Assetic\Asset\AssetCache(
-                new Assetic\Asset\GlobAsset(
-                    $app['assetic.input.path_to_css'],
-                    array($app['assetic.filter_manager']->get('lessphp'))
-                ),
-                new Assetic\Cache\FilesystemCache($app['assetic.path_to_cache'])
-            ));
-            $am->get('styles')->setTargetPath($app['assetic.output.path_to_css']);
-
-            $am->set('scripts', new Assetic\Asset\AssetCache(
-                new Assetic\Asset\GlobAsset($app['assetic.input.path_to_js']),
-                new Assetic\Cache\FilesystemCache($app['assetic.path_to_cache'])
-            ));
-            $am->get('scripts')->setTargetPath($app['assetic.output.path_to_js']);
-
-            return $am;
-        })
-    );
-
-}
-
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
+$app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+    $twig->addFunction(new \Twig_SimpleFunction('asset', function ($asset) use ($app) {
+        $base = $app['request_stack']->getCurrentRequest()->getBasePath();
+
+        return sprintf($base.'/'.$asset, ltrim($asset, '/'));
+    }));
+
+    return $twig;
+}));
+
+$app['security.utils'] = $app->share(function($app) {
+    return new AuthenticationUtils($app['request_stack']);
+});
 
 return $app;

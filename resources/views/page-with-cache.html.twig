@@ -1,27 +1,26 @@
 {% extends 'layout.html.twig' %}
+
 {% set active = 'page_with_cache' %}
 
 {% block content %}
 
     {% if app.debug %}
-        <div class="alert alert-error" >
+        <div class="alert alert-danger" >
             <button class="close" data-dismiss="alert">×</button>
+            <h4>
+                Wrong front controller.
+            </h4>
             <p>
-                <h4>
-                    Wrong front controller.
-                </h4>
-                Your are running the <pre>index_dev.php</pre> front
-                controller, please run <pre>index.php</pre> front
-                controller.
+                Your are running the <code>index_dev.php</code> front
+                controller. As it does not enable the cache, the page will never
+                be cached. Please run <code>index.php</code> front controller.
             </p>
-        </div>
-        <div class="alert-message block-message error">
         </div>
     {% endif %}
 
     <p>
         This page is cached for 10 seconds<br />
-        Hit @ : {{ date }}.<br />
+        Hit @: <code>{{ date }}</code>.<br />
         Try to refresh the page.<br />
     </p>
 

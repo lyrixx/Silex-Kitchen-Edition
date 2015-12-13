@@ -12,10 +12,7 @@
         }
     ],
     "require": {
-        "doctrine/dbal"         : "~2.3",
-        "kriswallsmith/assetic" : "~1.1",
-        "leafo/lessphp"         : "~0.4.0",
-        "mheap/silex-assetic"   : "~1.0",
+        "doctrine/dbal"         : "~2.5.2",
         "monolog/monolog"       : "~1.6",
         "silex/silex"           : "~1.3",
         "silex/web-profiler"    : "~1.0.1",
@@ -29,7 +26,7 @@
         "symfony/validator"     : "~2.8",
         "symfony/yaml"          : "~2.8",
         "twig/twig"             : "~1.23",
-        "twitter/bootstrap"     : "2.3.2"
+        "twitter/bootstrap"     : "~3.3.6"
     },
     "require-dev": {
         "symfony/browser-kit"   : "~2.8",

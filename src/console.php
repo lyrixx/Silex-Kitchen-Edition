@@ -12,23 +12,6 @@ $console = new Application('Silex - Kitchen Edition', '0.1');
 
 $app->boot();
 
-$console
-    ->register('assetic:dump')
-    ->setDescription('Dumps all assets to the filesystem')
-    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        if (!$app['assetic.enabled']) {
-            return false;
-        }
-
-        $dumper = $app['assetic.dumper'];
-        if (isset($app['twig'])) {
-            $dumper->addTwigAssets();
-        }
-        $dumper->dumpAssets();
-        $output->writeln('<info>Dump finished</info>');
-    })
-;
-
 if (isset($app['cache.path'])) {
     $console
         ->register('cache:clear')
@@ -178,5 +161,16 @@ EOT
         return $error ? 1 : 0;
     })
 ;
+
+$console
+    ->register('fixture:load')
+    ->setDescription('Load some fixture')
+    ->addOption('size', 's', InputOption::VALUE_REQUIRED, 'The size', 20)
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+
+        for ($i=0; $i < $input->getOption('size'); $i++) {
+            $app['db']->insert('post', ['title' => 'hello #'.rand()]);
+        }
+    });
 
 return $console;
