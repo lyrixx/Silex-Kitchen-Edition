@@ -13,3 +13,7 @@ before_script:
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:load --env=test
     - bin/console fixture:load --env=test
+
+branches:
+  only:
+    - master
