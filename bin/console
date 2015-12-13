@@ -1,9 +1,13 @@
 #!/usr/bin/env php
 <?php
 
+use Symfony\Component\Console\Input\ArgvInput;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new App\Application('dev');
+$input = new ArgvInput();
+$env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
 
-$console = require __DIR__.'/../src/console.php';
+$app = new App\Application($env);
+$console = new App\Console\Application($app);
 $console->run();

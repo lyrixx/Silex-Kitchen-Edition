@@ -19,24 +19,26 @@ use Symfony\Component\Translation\Loader\YamlFileLoader;
 
 class Application extends SilexApplication
 {
-    private $baseDir;
+    private $rootDir;
+    private $env;
 
     public function __construct($env)
     {
-        $this->baseDir = __DIR__.'/../../';
+        $this->rootDir = __DIR__.'/../../';
+        $this->env = $env;
 
         parent::__construct();
 
         $app = $this;
 
         // Override these values in resources/config/prod.php file
-        $app['var_dir'] = $this->baseDir.'/var';
+        $app['var_dir'] = $this->rootDir.'/var';
         $app['locale'] = 'fr';
         $app['http_cache.cache_dir'] = $app->share(function(Application $app) {
             return $app['var_dir'].'/http';
         });
 
-        $configFile = sprintf('%s/resources/config/%s.php', $this->baseDir, $env);
+        $configFile = sprintf('%s/resources/config/%s.php', $this->rootDir, $env);
         if (!file_exists($configFile)) {
             throw new \RuntimeException(sprintf('The file "%s" does not exist.', $configFile));
         }
@@ -72,7 +74,7 @@ class Application extends SilexApplication
         $app->register(new TranslationServiceProvider());
         $app['translator'] = $app->share($app->extend('translator', function ($translator, $app) {
             $translator->addLoader('yaml', new YamlFileLoader());
-            $translator->addResource('yaml', $this->baseDir.'/resources/translations/fr.yml', 'fr');
+            $translator->addResource('yaml', $this->rootDir.'/resources/translations/fr.yml', 'fr');
 
             return $translator;
         }));
@@ -89,7 +91,7 @@ class Application extends SilexApplication
                 'strict_variables' => true,
             ),
             'twig.form.templates' => array('bootstrap_3_horizontal_layout.html.twig'),
-            'twig.path' => array($this->baseDir.'/resources/templates'),
+            'twig.path' => array($this->rootDir.'/resources/templates'),
         ));
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
             $twig->addFunction(new \Twig_SimpleFunction('asset', function ($asset) use ($app) {
@@ -102,5 +104,15 @@ class Application extends SilexApplication
         }));
 
         $app->mount('', new ControllerProvider());
+    }
+
+    public function getRootDir()
+    {
+        return $this->rootDir;
+    }
+
+    public function getEnv()
+    {
+        return $this->env;
     }
 }

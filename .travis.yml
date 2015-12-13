@@ -11,6 +11,6 @@ php:
 
 before_script:
     - composer install --dev --prefer-source
-    - bin/console doctrine:database:create
-    - bin/console doctrine:schema:load
-    - bin/console fixture:load
+    - bin/console doctrine:database:create --env=test
+    - bin/console doctrine:schema:load --env=test
+    - bin/console fixture:load --env=test
