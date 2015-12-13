@@ -1,6 +1,6 @@
 <?php
 
-namespace SKE;
+namespace App;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;

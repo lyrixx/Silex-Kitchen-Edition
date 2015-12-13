@@ -1,6 +1,6 @@
 <?php
 
-namespace SKE\Composer;
+namespace App\Composer;
 
 class Script
 {

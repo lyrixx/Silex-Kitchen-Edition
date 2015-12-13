@@ -1,6 +1,6 @@
 <?php
 
-namespace SKE;
+namespace App;
 
 use Silex\Application as SilexApplication;
 use Silex\Provider\DoctrineServiceProvider;

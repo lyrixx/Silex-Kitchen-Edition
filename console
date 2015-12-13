@@ -3,7 +3,7 @@
 
 require_once __DIR__.'/vendor/autoload.php';
 
-$app = new Silex\Application();
+$app = new App\Application();
 
 $console = require __DIR__.'/src/console.php';
 $console->run();

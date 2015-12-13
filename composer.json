@@ -34,12 +34,12 @@
         "symfony/dom-crawler"   : "~2.8"
     },
     "scripts": {
-        "post-install-cmd": "SKE\\Composer\\Script::install",
-        "post-update-cmd": "SKE\\Composer\\Script::install"
+        "post-install-cmd": "App\\Composer\\Script::install",
+        "post-update-cmd": "App\\Composer\\Script::install"
     },
     "autoload": {
         "psr-4": {
-            "SKE\\": "src/SKE"
+            "App\\": "src/App"
         }
     }
 }
