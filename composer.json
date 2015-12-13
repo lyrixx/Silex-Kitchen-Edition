@@ -38,8 +38,8 @@
         "post-update-cmd": "SKE\\Composer\\Script::install"
     },
     "autoload": {
-        "psr-0": {
-            "SKE": "src/"
+        "psr-4": {
+            "SKE\\": "src/SKE"
         }
     }
 }
