@@ -68,9 +68,9 @@ $app->register(new TwigServiceProvider(), array(
 
 if ($app['debug'] && isset($app['cache.path'])) {
     $app->register(new ServiceControllerServiceProvider());
-    $app->register(new WebProfilerServiceProvider(), array(
-        'profiler.cache_dir' => $app['cache.path'].'/profiler',
-    ));
+    // $app->register(new WebProfilerServiceProvider(), array(
+    //     'profiler.cache_dir' => $app['cache.path'].'/profiler',
+    // ));
 }
 
 if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {
