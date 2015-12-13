@@ -34,7 +34,7 @@ class Application extends SilexApplication
         // Override these values in resources/config/prod.php file
         $app['var_dir'] = $this->rootDir.'/var';
         $app['locale'] = 'fr';
-        $app['http_cache.cache_dir'] = $app->share(function(Application $app) {
+        $app['http_cache.cache_dir'] = $app->share(function (Application $app) {
             return $app['var_dir'].'/http';
         });
 
