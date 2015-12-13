@@ -12,6 +12,7 @@
         }
     ],
     "require": {
+        "php"                   : ">=5.5",
         "doctrine/dbal"         : "~2.5.2",
         "monolog/monolog"       : "~1.6",
         "silex/silex"           : "~1.3",
