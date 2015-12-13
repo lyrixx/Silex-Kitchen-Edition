@@ -6,6 +6,7 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ControllerProvider implements ControllerProviderInterface
