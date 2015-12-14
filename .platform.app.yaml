@@ -1,0 +1,22 @@
+name: ske
+
+type: php:5.6
+build:
+    flavor: symfony
+
+web:
+    document_root: "/web"
+    passthru: "/index.php"
+
+disk: 2048
+
+mounts:
+    "/var": "shared:files/var"
+
+hooks:
+    build: |
+      rm web/index_dev.php
+      npm install
+      bin/console doctrine:database:create
+      bin/console doctrine:schema:load
+      bin/console fixture:load
