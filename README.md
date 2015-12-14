@@ -16,3 +16,8 @@ Installation
     bin/console doctrine:schema:load
     bin/console fixture:load
 
+Demo
+----
+
+Thanks to http://platform.sh/ ; We can show you a [live demo](http://master-i4djkxdd4jyn6.eu.platform.sh/)
+and thus, even for each pull-request. Enjoy !!!
