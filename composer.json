@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "php"                   : ">=5.5",
+        "php"                   : "5.6.*",
+        "ext-pdo_sqlite"        : "*",
         "doctrine/dbal"         : "~2.5.2",
         "monolog/monolog"       : "~1.6",
         "silex/silex"           : "~1.3",
@@ -36,7 +37,13 @@
     },
     "scripts": {
         "post-install-cmd": "App\\Composer\\Script::install",
-        "post-update-cmd": "App\\Composer\\Script::install"
+        "post-update-cmd": "App\\Composer\\Script::install",
+        "compile": [
+            "npm install",
+            "bin/console doctrine:database:create",
+            "bin/console doctrine:schema:load",
+            "bin/console fixture:load"
+        ]
     },
     "autoload": {
         "psr-4": {

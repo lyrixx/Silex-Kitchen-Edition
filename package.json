@@ -1,24 +1,4 @@
 {
-  "name": "Silex-Kitchen-Edition",
-  "version": "1.0.0",
-  "description": "Silex - Kitchen Sink Edition ============================",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lyrixx/Silex-Kitchen-Edition.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lyrixx/Silex-Kitchen-Edition/issues"
-  },
-  "homepage": "https://github.com/lyrixx/Silex-Kitchen-Edition",
   "dependencies": {
     "bootstrap": "^3.3.6"
   }
