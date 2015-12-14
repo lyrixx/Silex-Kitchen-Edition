@@ -1,0 +1,38 @@
+tests:
+    Pages should be fast enough:
+        path: /.*
+        assertions:
+            - main.wall_time < 400ms
+            - main.io < 150ms
+            - main.cpu_time < 300ms
+    Pages should not consume too much memory:
+        path: /.*
+        assertions:
+            - main.memory < 50M
+            - main.peak_memory < 75M
+    Pages should not do too many SQL queries:
+        path: /.*
+        assertions:
+            - metrics.sql.queries.count <= 12
+    Pages should be light:
+        path: /.*
+        assertions:
+            - metrics.output.network_out < 100KB
+    Pages should not become slower:
+        path: /.*
+        assertions:
+            - percent(main.wall_time) < 10%
+            - diff(metrics.sql.queries.count) < 2
+
+scenarios:
+    Homepage:
+        - /
+    Form:
+        - path: /form
+          method: POST
+          samples: 10
+          warmup: true
+    Doctrine:
+        - /doctrine
+    Login:
+        - /login

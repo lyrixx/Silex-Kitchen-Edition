@@ -21,3 +21,10 @@ hooks:
       bin/console doctrine:database:create
       bin/console doctrine:schema:load
       bin/console fixture:load
+
+runtime:
+  extensions:
+    - name: blackfire
+      configuration:
+        server_id: "2f4dfa34-2720-4b6c-9bff-eb3af8ba7df0"
+        server_token: "cda660342cb84f3e63977210cc35393836d875aa0afaebfb5ff65c4cd5144b3c"
