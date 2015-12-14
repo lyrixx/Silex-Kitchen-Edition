@@ -2,9 +2,9 @@ tests:
     Pages should be fast enough:
         path: /.*
         assertions:
-            - main.wall_time < 400ms
+            - main.wall_time < 500ms
             - main.io < 150ms
-            - main.cpu_time < 300ms
+            - main.cpu_time < 400ms
     Pages should not consume too much memory:
         path: /.*
         assertions:
@@ -17,7 +17,7 @@ tests:
     Pages should be light:
         path: /.*
         assertions:
-            - metrics.output.network_out < 100KB
+            - metrics.output.network_out < 200KB
     Pages should not become slower:
         path: /.*
         assertions:
