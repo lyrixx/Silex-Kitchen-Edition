@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% set active = 'cache' %}
+
+{% block content %}
+
+    {% if app.debug %}
+        <div class="alert alert-danger" >
+            <button class="close" data-dismiss="alert">×</button>
+            <h4>
+                Wrong front controller.
+            </h4>
+            <p>
+                Your are running the <code>index_dev.php</code> front
+                controller. As it does not enable the cache, the page will never
+                be cached. Please run <code>index.php</code> front controller.
+            </p>
+        </div>
+    {% endif %}
+
+    <p>
+        This page is cached for 10 seconds<br />
+        Hit @: <code>{{ date }}</code>.<br />
+        Try to refresh the page.<br />
+    </p>
+
+{% endblock %}

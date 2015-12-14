@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% set active = 'account' %}
+
+{% block content %}
+
+    <h1>{{ 'Login'|trans }}</h1>
+
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.message }}
+        </div>
+        <div class="alert alert-info">
+            <strong>Hint:</strong> Try <code>alice</code>/<code>password</code>
+        </div>
+
+    {% endif %}
+
+    <form action="{{ path('login_check') }}" method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username" name="_username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" name="_password">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+{% endblock %}

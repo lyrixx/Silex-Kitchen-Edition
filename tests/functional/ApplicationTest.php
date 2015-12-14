@@ -1,23 +1,17 @@
 <?php
 
+use App\Application;
 use Silex\WebTestCase;
-use Silex\Application;
 
 class ApplicationTest extends WebTestCase
 {
     public function createApplication()
     {
         // Silex
-        $app = new Application();
-        require __DIR__.'/../../resources/config/test.php';
-        require __DIR__.'/../../src/app.php';
-
+        $app = new Application('test');
         $app['session.test'] = true;
 
-        // Controllers
-        require __DIR__ . '/../../src/controllers.php';
-
-        return $this->app = $app;
+        return $app;
     }
 
     public function test404()
@@ -37,22 +31,22 @@ class ApplicationTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isOk());
 
-        $form = $crawler->selectButton('Send')->form(array());
+        $form = $crawler->selectButton('Submit')->form(array());
         $crawler = $client->submit($form, array());
-        $this->assertEquals(1, $crawler->filter('.alert-error')->count());
+        $this->assertEquals(1, $crawler->filter('.alert-danger')->count());
 
-        $form = $crawler->selectButton('Send')->form();
-        $crawler = $client->submit($form, array('form' => array(
-            'username' => 'wrong username',
-            'password' => 'wrong password',
-        )));
-        $this->assertEquals(1, $crawler->filter('.alert-error')->count());
+        $form = $crawler->selectButton('Submit')->form();
+        $crawler = $client->submit($form, array(
+            '_username' => 'wrong username',
+            '_password' => 'wrong password',
+        ));
+        $this->assertEquals(1, $crawler->filter('.alert-danger')->count());
 
-        $form = $crawler->selectButton('Send')->form();
-        $crawler = $client->submit($form, array('form' => array(
-            'username' => 'username',
-            'password' => 'password',
-        )));
+        $form = $crawler->selectButton('Submit')->form();
+        $crawler = $client->submit($form, array(
+            '_username' => 'alice',
+            '_password' => 'password',
+        ));
         $this->assertEquals(2, $crawler->filter('a[href="/logout"]')->count());
     }
 
@@ -66,13 +60,13 @@ class ApplicationTest extends WebTestCase
 
         $form = $crawler->selectButton('Submit')->form();
         $crawler = $client->submit($form);
-        $this->assertEquals(1, $crawler->filter('.alert-error')->count());
+        $this->assertEquals(1, $crawler->filter('.alert-danger')->count());
     }
 
     public function testPageCache()
     {
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/page-with-cache');
+        $crawler = $client->request('GET', '/cache');
         $this->assertRegExp('#This page is cached#', $crawler->filter('body')->text());
     }
 
@@ -80,9 +74,6 @@ class ApplicationTest extends WebTestCase
     {
         $msg = 'Check the logger';
         $this->app['logger']->error($msg);
-        $this->assertStringEndsWith(
-            "app.ERROR: $msg [] []\n",
-            file_get_contents(__DIR__.'/../../resources/log/app.log')
-        );
+        $this->assertStringEndsWith("app.ERROR: $msg [] []\n", file_get_contents(__DIR__.'/../../var/logs/app.log'));
     }
 }

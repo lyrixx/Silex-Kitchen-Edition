@@ -2,12 +2,11 @@
 
 $app['debug'] = true;
 
+// Doctrine: DB options
 $app['db.options'] = array(
-    'driver'   => 'pdo_mysql',
-    'host'     => 'localhost',
-    'dbname'   => 'silex_kitchen_test',
-    'user'     => 'root',
-    'password' => '',
+    'driver' => 'pdo_sqlite',
+    'path' => __DIR__.'/../../var/database_test.dat',
 );
 
-$app['security.users'] = array('username' => array('ROLE_USER', 'password'));
+// Security: User
+$app['security.users'] = array('alice' => array('ROLE_USER', 'password'));

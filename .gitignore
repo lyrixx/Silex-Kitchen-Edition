@@ -1,5 +1,4 @@
-/composer.lock
-/resources/cache/*
-/resources/log/*
+/node_modules/
+/var/
 /vendor/
-/web/assets/*
+/web/assets/
