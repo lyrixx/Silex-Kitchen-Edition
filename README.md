@@ -23,3 +23,6 @@ Thanks to [Platform.sh](http://platform.sh/) ; You can play with a [live demo](h
 More over, each pull-request will be deployed too.
 
 Thanks to [Heroku](https://www.heroku.com/) ; You can play with a [live demo](http://silex-kitchen-edition.herokuapp.com/).
+More over, each pull-request will be deployed too.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/lyrixx/silex-kitchen-edition/tree/master)
