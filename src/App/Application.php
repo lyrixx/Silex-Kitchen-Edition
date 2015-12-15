@@ -37,6 +37,12 @@ class Application extends SilexApplication
         $app['http_cache.cache_dir'] = $app->share(function (Application $app) {
             return $app['var_dir'].'/http';
         });
+        $app['monolog.options'] = [
+            'monolog.logfile' => $app['var_dir'].'/logs/app.log',
+            'monolog.name' => 'app',
+            'monolog.level' => 300, // = Logger::WARNING
+        ];
+        $app['security.users'] = array('alice' => array('ROLE_USER', 'password'));
 
         $configFile = sprintf('%s/resources/config/%s.php', $this->rootDir, $env);
         if (!file_exists($configFile)) {
@@ -79,11 +85,7 @@ class Application extends SilexApplication
             return $translator;
         }));
 
-        $app->register(new MonologServiceProvider(), array(
-            'monolog.logfile' => $app['var_dir'].'/logs/app.log',
-            'monolog.name' => 'app',
-            'monolog.level' => 300, // = Logger::WARNING
-        ));
+        $app->register(new MonologServiceProvider(), $app['monolog.options']);
 
         $app->register(new TwigServiceProvider(), array(
             'twig.options' => array(
