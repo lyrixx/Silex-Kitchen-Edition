@@ -9,7 +9,7 @@ php:
     - hhvm
 
 before_script:
-    - composer install
+    - composer install --ignore-platform-reqs
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:load --env=test
     - bin/console fixture:load --env=test
