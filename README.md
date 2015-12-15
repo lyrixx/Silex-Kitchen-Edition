@@ -19,5 +19,7 @@ Installation
 Demo
 ----
 
-Thanks to http://platform.sh/ ; We can show you a [live demo](http://master-i4djkxdd4jyn6.eu.platform.sh/)
-and thus, even for each pull-request. Enjoy !!!
+Thanks to [Platform.sh](http://platform.sh/) ; You can play with a [live demo](http://master-i4djkxdd4jyn6.eu.platform.sh/).
+More over, each pull-request will be deployed too.
+
+Thanks to [Heroku](https://www.heroku.com/) ; You can play with a [live demo](http://silex-kitchen-edition.herokuapp.com/).
