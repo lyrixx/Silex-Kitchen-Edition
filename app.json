@@ -5,7 +5,7 @@
   "keywords": ["silex"],
   "addons": [
     "blackfire",
-    "postgres"
+    "heroku-postgresql:hobby-dev"
   ],
   "buildpacks": [
     { "url": "https://github.com/ddollar/heroku-buildpack-multi.git" }
