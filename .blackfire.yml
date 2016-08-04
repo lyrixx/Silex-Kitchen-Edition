@@ -21,7 +21,7 @@ tests:
     Pages should not become slower:
         path: /.*
         assertions:
-            - percent(main.wall_time) < 10%
+            - percent(main.wall_time) < 30%
             - diff(metrics.sql.queries.count) < 2
 
 scenarios:
