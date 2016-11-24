@@ -2,9 +2,9 @@ tests:
     Pages should be fast enough:
         path: /.*
         assertions:
-            - main.wall_time < 500ms
+            - main.wall_time < 600ms
             - main.io < 150ms
-            - main.cpu_time < 400ms
+            - main.cpu_time < 500ms
     Pages should not consume too much memory:
         path: /.*
         assertions:
