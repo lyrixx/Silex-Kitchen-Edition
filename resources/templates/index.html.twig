@@ -7,7 +7,7 @@
         <h1>
             Hello
             {% if is_granted('ROLE_USER') %}
-                {{ app.security.token.username }}
+                {{ app.user }}
             {% endif %}
         </h1>
         <p>

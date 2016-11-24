@@ -2,8 +2,9 @@
 
 namespace App;
 
+use Silex\Api\ControllerProviderInterface;
 use Silex\Application as App;
-use Silex\ControllerProviderInterface;
+use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,78 +72,78 @@ class ControllerProvider implements ControllerProviderInterface
 
     public function form(App $app, Request $request)
     {
-        $builder = $app['form.factory']->createBuilder('form');
+        $builder = $app['form.factory']->createBuilder(Type\FormType::class);
 
         $choices = array('choice a', 'choice b', 'choice c');
 
         $form = $builder
             ->add(
-                $builder->create('sub-form', 'form')
-                    ->add('subformemail1', 'email', array(
+                $builder->create('sub-form', Type\FormType::class)
+                    ->add('subformemail1', Type\EmailType::class, array(
                         'constraints' => array(new Assert\NotBlank(), new Assert\Email()),
                         'attr' => array('placeholder' => 'email constraints'),
                         'label' => 'A custom label : ',
                     ))
-                    ->add('subformtext1', 'text')
+                    ->add('subformtext1', Type\TextType::class)
             )
-            ->add('text1', 'text', array(
+            ->add('text1', Type\TextType::class, array(
                 'constraints' => new Assert\NotBlank(),
                 'attr' => array('placeholder' => 'not blank constraints'),
             ))
-            ->add('text2', 'text', array('attr' => array('class' => 'span1', 'placeholder' => '.span1')))
-            ->add('text3', 'text', array('attr' => array('class' => 'span2', 'placeholder' => '.span2')))
-            ->add('text4', 'text', array('attr' => array('class' => 'span3', 'placeholder' => '.span3')))
-            ->add('text5', 'text', array('attr' => array('class' => 'span4', 'placeholder' => '.span4')))
-            ->add('text6', 'text', array('attr' => array('class' => 'span5', 'placeholder' => '.span5')))
-            ->add('text8', 'text', array('disabled' => true, 'attr' => array('placeholder' => 'disabled field')))
-            ->add('textarea', 'textarea')
-            ->add('email', 'email')
-            ->add('integer', 'integer')
-            ->add('money', 'money')
-            ->add('number', 'number')
-            ->add('password', 'password')
-            ->add('percent', 'percent')
-            ->add('search', 'search')
-            ->add('url', 'url')
-            ->add('choice1', 'choice', array(
+            ->add('text2', Type\TextType::class, array('attr' => array('class' => 'span1', 'placeholder' => '.span1')))
+            ->add('text3', Type\TextType::class, array('attr' => array('class' => 'span2', 'placeholder' => '.span2')))
+            ->add('text4', Type\TextType::class, array('attr' => array('class' => 'span3', 'placeholder' => '.span3')))
+            ->add('text5', Type\TextType::class, array('attr' => array('class' => 'span4', 'placeholder' => '.span4')))
+            ->add('text6', Type\TextType::class, array('attr' => array('class' => 'span5', 'placeholder' => '.span5')))
+            ->add('text8', Type\TextType::class, array('disabled' => true, 'attr' => array('placeholder' => 'disabled field')))
+            ->add('textarea', Type\TextareaType::class)
+            ->add('email', Type\EmailType::class)
+            ->add('integer', Type\IntegerType::class)
+            ->add('money', Type\MoneyType::class)
+            ->add('number', Type\NumberType::class)
+            ->add('password', Type\PasswordType::class)
+            ->add('percent', Type\PercentType::class)
+            ->add('search', Type\SearchType::class)
+            ->add('url', Type\UrlType::class)
+            ->add('choice1', Type\ChoiceType::class, array(
                 'choices' => $choices,
                 'multiple' => true,
                 'expanded' => true,
             ))
-            ->add('choice2', 'choice', array(
+            ->add('choice2', Type\ChoiceType::class, array(
                 'choices' => $choices,
                 'multiple' => false,
                 'expanded' => true,
             ))
-            ->add('choice3', 'choice', array(
+            ->add('choice3', Type\ChoiceType::class, array(
                 'choices' => $choices,
                 'multiple' => true,
                 'expanded' => false,
             ))
-            ->add('choice4', 'choice', array(
+            ->add('choice4', Type\ChoiceType::class, array(
                 'choices' => $choices,
                 'multiple' => false,
                 'expanded' => false,
             ))
-            ->add('country', 'country')
-            ->add('language', 'language')
-            ->add('locale', 'locale')
-            ->add('timezone', 'timezone')
-            ->add('date', 'date')
-            ->add('datetime', 'datetime')
-            ->add('time', 'time')
-            ->add('birthday', 'birthday')
-            ->add('checkbox', 'checkbox')
-            ->add('file', 'file')
-            ->add('radio', 'radio')
-            ->add('password_repeated', 'repeated', array(
-                'type' => 'password',
+            ->add('country', Type\CountryType::class)
+            ->add('language', Type\LanguageType::class)
+            ->add('locale', Type\LocaleType::class)
+            ->add('timezone', Type\TimezoneType::class)
+            ->add('date', Type\DateType::class)
+            ->add('datetime', Type\DateTimeType::class)
+            ->add('time', Type\TimeType::class)
+            ->add('birthday', Type\BirthdayType::class)
+            ->add('checkbox', Type\CheckboxType::class)
+            ->add('file', Type\FileType::class)
+            ->add('radio', Type\RadioType::class)
+            ->add('password_repeated', Type\RepeatedType::class, array(
+                'type' => Type\PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'options' => array('required' => true),
                 'first_options' => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
             ))
-            ->add('submit', 'submit')
+            ->add('submit', Type\SubmitType::class)
             ->getForm()
         ;
 
@@ -168,7 +169,7 @@ class ControllerProvider implements ControllerProviderInterface
         return $response;
     }
 
-    public function error(\Exception $e, $code)
+    public function error(\Exception $e, Request $request, $code)
     {
         if ($this->app['debug']) {
             return;
