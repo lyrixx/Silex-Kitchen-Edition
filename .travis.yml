@@ -14,6 +14,9 @@ before_script:
     - bin/console doctrine:schema:load --env=test
     - bin/console fixture:load --env=test
 
+script:
+    - vendor/bin/simple-phpunit
+
 branches:
   only:
     - master

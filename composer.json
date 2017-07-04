@@ -17,22 +17,23 @@
         "monolog/monolog"       : "^1.21.0",
         "silex/silex"           : "^2.0.4",
         "silex/web-profiler"    : "^2.0.5",
-        "symfony/config"        : "^3.1",
-        "symfony/console"       : "^3.1",
+        "symfony/config"        : "^3.3",
+        "symfony/console"       : "^3.3",
         "symfony/finder"        : "^2.2",
-        "symfony/form"          : "^3.1",
-        "symfony/security"      : "^3.1",
-        "symfony/translation"   : "^3.1",
-        "symfony/twig-bridge"   : "^3.1",
-        "symfony/validator"     : "^3.1",
-        "symfony/yaml"          : "^3.1",
+        "symfony/form"          : "^3.3",
+        "symfony/security"      : "^3.3",
+        "symfony/translation"   : "^3.3",
+        "symfony/twig-bridge"   : "^3.3",
+        "symfony/validator"     : "^3.3",
+        "symfony/yaml"          : "^3.3",
         "twig/twig"             : "^1.23",
         "twitter/bootstrap"     : "^3.3.6"
     },
     "require-dev": {
-        "symfony/browser-kit"   : "^3.1",
-        "symfony/css-selector"  : "^3.1",
-        "symfony/dom-crawler"   : "^3.1"
+        "symfony/browser-kit": "^3.3",
+        "symfony/css-selector": "^3.3",
+        "symfony/dom-crawler": "^3.3",
+        "symfony/phpunit-bridge": "^3.3"
     },
     "scripts": {
         "post-install-cmd": "App\\Composer\\Script::install",
@@ -41,6 +42,9 @@
             "cp resources/config/heroku.php resources/config/prod.php",
             "npm install"
         ]
+    },
+    "config": {
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
