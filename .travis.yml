@@ -5,14 +5,17 @@ sudo: false
 php:
     - 5.5
     - 5.6
-    - 7
-    - hhvm
+    - 7.0
+    - 7.1
 
 before_script:
     - composer install --ignore-platform-reqs
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:load --env=test
     - bin/console fixture:load --env=test
+
+script:
+    - vendor/bin/simple-phpunit
 
 branches:
   only:
