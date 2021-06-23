@@ -1,3 +1,0 @@
-"http://{default}/":
-    type: upstream
-    upstream: "ske:php"
